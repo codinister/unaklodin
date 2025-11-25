@@ -1,0 +1,31 @@
+import { defineField, defineType } from 'sanity';
+
+export default defineType({
+  name: 'men',
+  title: 'Men',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required().error('Title field required!'),
+    }),
+    defineField({
+      name: 'items',
+      title: 'Items',
+      type: 'item',
+    }),
+    defineField({
+      name: 'sizes',
+      title: 'Size',
+      type: 'size',
+    }),
+
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'menCat',
+    }),
+  ],
+});
