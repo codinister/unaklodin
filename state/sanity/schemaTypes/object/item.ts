@@ -50,11 +50,6 @@ export default defineType({
       name: 'gallery',
       title: 'Gallery',
       type: 'gallery',
-    }),
-    defineField({
-      name: 'cat',
-      title: 'Category',
-      type: 'category',
-    }),
+    })
   ],
 });

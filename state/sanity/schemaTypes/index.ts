@@ -17,25 +17,29 @@ import menCat from './categories/menCat';
 import unisexCat from './categories/unisexCat';
 import womenCat from './categories/womenCat';
 import featured from './document/featured';
+import women from './document/women';
+import item from './object/item';
 
 export const schemaTypes = [
+  blockContent,
   imageObj,
   gallery,
   imageCard,
   textCard,
   titleCard,
-  blockContent,
+  accessoriesCat,
+  menCat,
+  unisexCat,
+  womenCat,
+  size,
+  item,
   about,
   accessories,
-  settings, 
-  men, 
-  newArrivals, 
+  settings,
+  men,
+  newArrivals,
   post,
+  women,
   unisex,
-  size, 
-  accessoriesCat,
-  menCat, 
-  unisexCat, 
-  womenCat, 
-  featured
+  featured,
 ];
