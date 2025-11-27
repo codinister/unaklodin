@@ -19,6 +19,7 @@ import womenCat from './categories/womenCat';
 import featured from './document/featured';
 import women from './document/women';
 import item from './object/item';
+import topBar from './document/topBar';
 
 export const schemaTypes = [
   blockContent,
@@ -42,4 +43,5 @@ export const schemaTypes = [
   women,
   unisex,
   featured,
+  topBar
 ];
