@@ -14,7 +14,12 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'imageObj'
-    })
+      type: 'imageObj',
+    }),
+    defineField({
+      name: 'desc',
+      title: 'Description',
+      type: 'text',
+    }),
   ],
 });
