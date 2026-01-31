@@ -26,7 +26,8 @@ export default defineType({
     defineField({
       name: 'category',
       title: 'Category',
-      type: 'unisexCat',
+      type: 'reference',
+      to: [{ type: 'unisexCat' }],
     }),
   ],
 });
