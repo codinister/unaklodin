@@ -19,8 +19,16 @@ export default defineType({
     defineField({
       name: 'sizes',
       title: 'Size',
-      type: 'size',
+      type: 'reference',
+      to: [{ type: 'size' }],
     }),
+    defineField({
+      name: 'colour',
+      title: 'Colour',
+      type: 'reference',
+      to: [{ type: 'colour' }],
+    }),
+
     defineField({
       name: 'category',
       title: 'Category',

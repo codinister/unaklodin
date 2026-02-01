@@ -11,23 +11,24 @@ export default defineType({
       type: 'string',
       validation: (Rule) => Rule.required().error('Title field required!'),
     }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'imageObj',
-    }),
+
     defineField({
       name: 'cards',
-      title: 'Cards',
+      title: 'Posts',
       type: 'array',
       of: [
         {
           type: 'imageCard',
+        },
+      ],
+    }),
+        defineField({
+      name: 'youtube',
+      title: 'Youtube Links',
+      type: 'array',
+      of: [
+        {
+          type: 'youtube',
         },
       ],
     }),

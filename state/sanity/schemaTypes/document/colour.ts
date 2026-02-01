@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'slider',
-  title: 'Slider',
+  name: 'colour',
+  title: 'Colour',
   type: 'document',
   fields: [
     defineField({
@@ -10,16 +10,6 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required().error('Title field required!'),
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'imageObj',
-    }),
-    defineField({
-      name: 'desc',
-      title: 'Description',
-      type: 'text',
-    }),
+    })
   ],
 });

@@ -20,7 +20,9 @@ import featured from './document/featured';
 import women from './document/women';
 import item from './object/item';
 import topBar from './document/topBar';
-import slider from './document/slider';
+import youtube from './object/youtube';
+import hero from './document/hero';
+import colour from './document/colour';
 
 export const schemaTypes = [
   blockContent,
@@ -33,6 +35,9 @@ export const schemaTypes = [
   menCat,
   unisexCat,
   womenCat,
+  youtube,
+  hero, 
+  colour,
   size,
   item,
   about,
@@ -44,6 +49,5 @@ export const schemaTypes = [
   women,
   unisex,
   featured,
-  topBar, 
-  slider
+  topBar
 ];
