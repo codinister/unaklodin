@@ -20,6 +20,7 @@ export default defineType({
     defineField({
       name: 'sizes',
       title: 'Size',
+      description: 'You can choose more than one size',
       type: 'array',
       of: [
         {
@@ -31,6 +32,7 @@ export default defineType({
     defineField({
       name: 'colour',
       title: 'Colour',
+      description: 'You can choose more than one colour',
       type: 'array',
       of: [
         {
