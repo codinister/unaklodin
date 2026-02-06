@@ -20,14 +20,24 @@ export default defineType({
     defineField({
       name: 'sizes',
       title: 'Size',
-      type: 'reference',
-      to: [{ type: 'size' }],
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'size' }],
+        },
+      ],
     }),
     defineField({
       name: 'colour',
       title: 'Colour',
-      type: 'reference',
-      to: [{ type: 'colour' }],
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'colour' }],
+        },
+      ],
     }),
 
     defineField({
