@@ -53,12 +53,6 @@ export default defineType({
     select: {
       media: 'items.images.0.img', 
       title: 'title',
-    }, 
-    prepare({media,title}){
-      return {
-        title,
-        media
-      }
-    }
+    },
   },
 });
