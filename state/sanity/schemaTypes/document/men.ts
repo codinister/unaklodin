@@ -48,4 +48,13 @@ export default defineType({
       to: [{ type: 'menCat' }],
     }),
   ],
+
+    preview: {
+    select: {
+      imageUrl: 'items.images.img'
+    }, 
+    prepare({imageUrl}){
+      return {media: imageUrl}
+    }
+  },
 });

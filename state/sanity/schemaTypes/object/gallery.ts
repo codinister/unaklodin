@@ -19,14 +19,5 @@ export default defineType({
         layout: 'grid',
       },
     }),
-  ],
-
-  preview: {
-    select: {
-      imageUrl: 'images.img'
-    }, 
-    prepare({imageUrl}){
-      return {media: imageUrl}
-    }
-  },
+  ]
 });
