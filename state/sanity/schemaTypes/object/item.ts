@@ -52,10 +52,5 @@ export default defineType({
       title: 'Gallery',
       type: 'gallery',
     })
-  ],
-  preview: {
-    select: {
-      media: 'thumbnail.img'
-    }
-  }
+  ]
 });

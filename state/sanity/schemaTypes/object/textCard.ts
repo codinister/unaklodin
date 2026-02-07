@@ -30,4 +30,10 @@ export default defineType({
       type: 'blockContent',
     }),
   ],
+  preview: {
+    select: {
+      title: 'title', 
+      media: 'https://via.placeholder.com/150'
+    }
+  }
 });
