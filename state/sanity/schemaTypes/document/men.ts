@@ -52,7 +52,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      media: 'items.images.0.img',
+      media: 'items.images[0].img',
     },
   },
 });
