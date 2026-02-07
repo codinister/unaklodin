@@ -54,5 +54,17 @@ export default defineType({
       media: 'items.images.0.img', 
       title: 'title',
     },
+
+    prepare({ title, media }) {
+      // Fallback placeholder image if no image uploaded
+      const placeholderUrl = 'https://via.placeholder.com/150?text=No+Image';
+      return {
+        title,
+        media: media || { asset: { url: placeholderUrl } },
+      };
+    },
+  
+
+
   },
 });
