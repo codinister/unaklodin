@@ -51,8 +51,8 @@ export default defineType({
 
   preview: {
     select: {
-      title: 'Gold',
-      media: 'items.images.1.img',
+      title: 'title',
+      media: 'items.thumbnail.img',
     },
   },
 });

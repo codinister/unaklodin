@@ -45,6 +45,7 @@ export default defineType({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'imageObj',
+      validation: (Rule) => Rule.required().error('Thumbnail required!')
     }),
     defineField({
       name: 'gallery',
