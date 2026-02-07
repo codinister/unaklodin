@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 
+
 export default defineType({
   name: 'gallery',
   title: 'Gallery',
@@ -19,4 +20,13 @@ export default defineType({
       },
     }),
   ],
+
+  preview: {
+    select: {
+      imageUrl: 'images.img.asset.url'
+    }, 
+    prepare({imageUrl}){
+      return {media: imageUrl}
+    }
+  },
 });
