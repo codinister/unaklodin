@@ -51,10 +51,14 @@ export default defineType({
 
     preview: {
     select: {
-      imageUrl: 'items.images.img'
+      imageUrl: 'items.images.img', 
+      title: 'title',
     }, 
-    prepare({imageUrl}){
-      return {media: imageUrl}
+    prepare({imageUrl,title}){
+      return {
+        title,
+        media: imageUrl
+      }
     }
   },
 });
