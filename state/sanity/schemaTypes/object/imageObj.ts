@@ -13,5 +13,10 @@ export default defineType({
         hotspot: true
       }
     })
-  ]
+  ], 
+  preview: {
+    select: {
+      media: 'img'
+    }
+  }
 })

@@ -25,6 +25,9 @@ export default defineType({
         {
           type: 'reference',
           to: [{ type: 'size' }],
+          options: {
+            disableNew: true,
+          },
         },
       ],
     }),
@@ -37,6 +40,9 @@ export default defineType({
         {
           type: 'reference',
           to: [{ type: 'colour' }],
+          options: {
+            disableNew: true,
+          },
         },
       ],
     }),
@@ -46,6 +52,15 @@ export default defineType({
       title: 'Category',
       type: 'reference',
       to: [{ type: 'accessoriesCat' }],
+      options: {
+        disableNew: true,
+      },
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      media: 'items.thumbnail.img',
+    },
+  },
 });

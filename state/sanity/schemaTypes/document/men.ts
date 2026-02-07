@@ -25,6 +25,9 @@ export default defineType({
         {
           type: 'reference',
           to: [{ type: 'size' }],
+          options: {
+            disableNew: true,
+          },
         },
       ],
     }),
@@ -32,11 +35,15 @@ export default defineType({
       name: 'colour',
       title: 'Colour',
       description: 'You can choose more than one colour',
+
       type: 'array',
       of: [
         {
           type: 'reference',
           to: [{ type: 'colour' }],
+          options: {
+            disableNew: true,
+          },
         },
       ],
     }),
@@ -46,6 +53,9 @@ export default defineType({
       title: 'Category',
       type: 'reference',
       to: [{ type: 'menCat' }],
+      options: {
+        disableNew: true,
+      },
     }),
   ],
 
