@@ -55,7 +55,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      media: 'thumbnail'
+      media: 'thumbnail.img'
     }
   }
 });
