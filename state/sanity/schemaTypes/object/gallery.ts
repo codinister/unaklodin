@@ -23,7 +23,7 @@ export default defineType({
 
   preview: {
     select: {
-      imageUrl: 'images.img.asset.url'
+      imageUrl: 'images.img'
     }, 
     prepare({imageUrl}){
       return {media: imageUrl}
