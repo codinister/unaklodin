@@ -8,7 +8,8 @@ export async function GET() {
   try {
     const result = await serverConfig.fetch(groq`
     *[_type == 'settings']{
-    ...
+    ..., 
+  'logo' :  logo.asset->url
     }
     `);
 
