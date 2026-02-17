@@ -8,7 +8,7 @@ const MainCategories = () => {
   const data = useGetQuery('maincategories', '/maincategories') || [];
 
   return (
-    <div className=" flex my-7">
+    <div className="flex-col sm:flex-row flex my-7">
       <div
         className="flex-1 h-100
       p-15
@@ -46,7 +46,8 @@ const MainCategories = () => {
       </div>
       <div
         className="flex-1 h-100
-      p-15
+      sm:p-15
+      p-50
       relative 
       z-2
       before:absolute 

@@ -21,7 +21,7 @@ const Banners = () => {
               v: string,
               k: number,
             ) => (
-              <CarouselItem key={k} className=" basis-1/3">
+              <CarouselItem key={k} className="basis-full sm:basis-1/3">
                 <div
                   className="h-80
             text-white

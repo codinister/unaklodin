@@ -82,7 +82,7 @@ const Footer = () => {
       <div className="my-10 container py-7 border-t-2 border-b-2 border-t-white border-b-white mx-auto flex  flex-row sm:justify-center justify-start">
         <div>
           <h6 className="font-bold">Follow UNA Klodin</h6>
-          <div className="mt-6 flex gap-10 ">
+          <div className="mt-6 flex justify-center gap-10 ">
             <Link className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center" href={sett[0] ? sett[0]?.facebook : ''}>
               <FaFacebookF />
             </Link>

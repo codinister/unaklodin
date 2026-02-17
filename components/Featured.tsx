@@ -21,7 +21,7 @@ const Featured = () => {
               v: { image: string; product: string; sub_title: string },
               k: number,
             ) => (
-              <CarouselItem key={k} className="basis-1/4">
+              <CarouselItem key={k} className="basis-full sm:basis-1/4">
                 <div
                   className="h-75
             text-white
