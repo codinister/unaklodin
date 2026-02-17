@@ -125,6 +125,52 @@
 }
 
 @layer utilities {
+  .mob-menus {
+    margin-top: 2.5rem;
+    padding-block: 1.5rem;
+    border-top: solid 0.1rem #f2f2f2;
+
+    & > li {
+      padding-block: 0.5rem;
+      position: relative;
+      &:hover {
+        background-color: #f2f2f2;
+        & > ul {
+          display: block;
+        }
+      }
+      & > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 1.5rem;
+      }
+      & > ul {
+        display: none;
+        position: absolute;
+        z-index: 12;
+        background-color: white;
+        left: 0;
+        top: 100%;
+        overflow-y: scroll;
+        padding: 1rem;
+        width: max-content;
+        box-shadow: 0.2rem 0.2rem 1.5rem rgba(0, 0, 0, 0.2);
+
+        & > li {
+          padding-block: 0.5rem;
+          & > a {
+            padding-inline: 1rem;
+            display: block;
+          }
+          &:hover {
+            border-bottom: solid 0.1rem #ccc;
+          }
+        }
+      }
+    }
+  }
+
   .menus {
     margin-top: 2.5rem;
     padding-block: 1.5rem;
@@ -154,8 +200,8 @@
         top: 0;
         height: 100vh;
         padding: 1.5rem;
-        width: max-content; 
-        border-left: .1rem solid #ccc;
+        width: max-content;
+        border-left: 0.1rem solid #ccc;
 
         & > li {
           padding-block: 0.5rem;

@@ -22,7 +22,7 @@ const DesktopNav = () => {
   })
 
   return (
-    <nav className={`${getCount > 0.1 ? 'fixed top-0 left-0 bg-amber-500' : ''} w-full hidden sm:block`}>
+    <nav className={`${getCount > 0.1 ? 'fixed top-0 left-0 shadow-lg' : ''} w-full hidden sm:block`}>
       <div className="flex gap-6 container mx-auto">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
@@ -33,7 +33,7 @@ const DesktopNav = () => {
           </SheetTrigger>
           <SheetContent side="left">
             <div className="relative">
-              <NavLinks closeMenu={setOpen} />
+              <NavLinks closeMenu={setOpen} clss="menus" />
             </div>
           </SheetContent>
         </Sheet>
