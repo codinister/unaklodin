@@ -23,6 +23,7 @@ import topBar from './document/topBar';
 import youtube from './object/youtube';
 import hero from './document/hero';
 import colour from './document/colour';
+import banners from './document/banners';
 
 export const schemaTypes = [
   blockContent,
@@ -49,5 +50,6 @@ export const schemaTypes = [
   women,
   unisex,
   featured,
-  topBar
+  topBar, 
+  banners
 ];

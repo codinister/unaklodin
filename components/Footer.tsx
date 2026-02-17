@@ -17,7 +17,7 @@ const Footer = () => {
     <footer className="px-6 sm:px-0 py-10 bg-secondary text-white">
       <div className="container mx-auto flex-wrap flex  flex-row gap-10">
         <div className="w-38 sm:flex-1">
-          <h4 className="font-extrabold">TOP CATEGORIES</h4>
+          <h6 className="font-bold">TOP CATEGORIES</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
               <Link href="/">Men Category</Link>
@@ -31,7 +31,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="w-38 sm:flex-1">
-          <h4 className="font-extrabold">Help</h4>
+          <h6 className="font-bold">Help</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
               <Link href="">Delivery</Link>
@@ -51,7 +51,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="w-38 sm:flex-1">
-          <h4 className="font-extrabold">About Us</h4>
+          <h6 className="font-bold">About Us</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
               <Link href="">Our Story</Link>
@@ -65,7 +65,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="w-38 sm:flex-1">
-          <h4 className="font-extrabold">Our Blog</h4>
+          <h6 className="font-bold">Our Blog</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
               <Link href="">Home</Link>
@@ -81,7 +81,7 @@ const Footer = () => {
       </div>
       <div className="my-10 container py-7 border-t-2 border-b-2 border-t-white border-b-white mx-auto flex  flex-row sm:justify-center justify-start">
         <div>
-          <h4 className="font-extrabold">Follow UNA Klodin</h4>
+          <h6 className="font-bold">Follow UNA Klodin</h6>
           <div className="mt-6 flex gap-10 ">
             <Link className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center" href={sett[0] ? sett[0]?.facebook : ''}>
               <FaFacebookF />

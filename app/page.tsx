@@ -1,16 +1,18 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import Banners from '@/components/Banners';
+import Featured from '@/components/Featured';
+import Hero from '@/components/Hero';
+import MainCategories from '@/components/MainCategories';
 
 
 export default function Home() {
   return (
-    <div className="h-300">
-      <Button size="lg">Large</Button>
-      <br /><br />
-      <Button>Small</Button>
-      <br /><br />
-      <Button variant="outline">Small Outline</Button>
+    <div>
+      <Hero />
+      <MainCategories />
+      <Featured />
+      <Banners />
     </div>
   );
 }
