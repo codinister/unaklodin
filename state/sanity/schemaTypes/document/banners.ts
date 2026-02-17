@@ -14,13 +14,8 @@ export default defineType({
 
     defineField({
       name: 'image',
-      title: 'Image',
-      type: 'array',
-      of: [
-        {
-          type: 'imageObj',
-        },
-      ],
+      title: 'Gallery',
+      type: 'gallery'
     }),
   ],
 });

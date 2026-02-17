@@ -10,7 +10,7 @@ import {
 } from './ui/carousel';
 
 const Banners = () => {
-  const data = useGetQuery('featured', '/featured') || [];
+  const data = useGetQuery('banners', '/banners') || [];
 
   return (
     <div className="mb-7 w-full">
@@ -18,12 +18,12 @@ const Banners = () => {
         <CarouselContent>
           {data.map(
             (
-              v: { image: string },
+              v: string,
               k: number,
             ) => (
               <CarouselItem key={k} className=" basis-1/3">
                 <div
-                  className="h-max
+                  className="h-80
             text-white
             p-6 
             border-2 border-primary 
@@ -31,16 +31,10 @@ const Banners = () => {
             flex  
             items-end 
             relative  
-            z-2
-            before:absolute 
-            before:inset-0  
-            before:bg-linear-to-t  
-            before:from-black/70  
-            before:to-transparent
-            before:-z-1
+            
             "
                   style={{
-                    backgroundImage: `url(${v.image})`,
+                    backgroundImage: `url(${v})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'top',
                   }}
