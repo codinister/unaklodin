@@ -18,13 +18,30 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'imageCard',
+          type: 'textCard',
         },
       ],
     }),
-        defineField({
+    defineField({
+      name: 'thumb',
+      title: 'Thumbnail',
+      type: 'image', 
+      options: {
+        hotspot: true
+      },
+      validation: Rule => Rule.required().error('Thumbnail required!'),
+      description: 'Upload a thumbnail image that best describe this article'
+    }),
+    defineField({
+      name: 'image',
+      title: 'Gallery',
+      type: 'gallery',
+      description: 'Upload all images associated with this article'
+    }),
+    defineField({
       name: 'youtube',
       title: 'Youtube Links',
+      description: 'Add youtube links associated with this article',
       type: 'array',
       of: [
         {
