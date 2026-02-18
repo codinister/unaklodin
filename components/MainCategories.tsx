@@ -8,16 +8,16 @@ const MainCategories = () => {
   const data = useGetQuery('maincategories', '/maincategories') || [];
 
   return (
-    <div className="flex-col sm:flex-row flex my-7">
+    <div className="flex-col  sm:flex-row flex my-7">
       <div
-        className=" flex-1 h-100  relative  flex  items-end"
+        className="flex-1 h-100  relative  flex  items-end"
         style={{
           backgroundImage: `url(${data ? data?.menImg : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
       >
-        <div className=" text-white  pl-15 w-full bg-linear-to-t from-black to-transparent">
+        <div className=" text-white mt-60 sm:mt-0 pl-15 w-full bg-linear-to-t from-black to-transparent">
           <div className="  mb-2 p-4 w-80">
             <h6 className="font-extrabold text-shadow-lg">
               Ready For What Comes Your Way

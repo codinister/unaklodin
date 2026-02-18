@@ -35,7 +35,7 @@ const Featured = () => {
                     backgroundPosition: 'top',
                   }}
                 >
-                  <div className=" p-4 bg-linear-to-t from-black to-transparent w-full">
+                  <div className="p-6 sm:p-4 bg-linear-to-t from-black to-transparent w-full">
                     <p className="font-extrabold">{v.product}</p>
                     <p className="text-white/80">{v.sub_title}</p>
                   </div>
