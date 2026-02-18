@@ -10,31 +10,22 @@ const MainCategories = () => {
   return (
     <div className="flex-col sm:flex-row flex my-7">
       <div
-        className="flex-1 h-100
-      p-15
-      relative 
-      z-2
-      before:absolute 
-      before:inset-0
-      before:bg-linear-to-t
-      before:from-black/20 
-      before:to-transparent
-      before:-z-1
-
-      flex 
-      items-end
-      "
+        className=" flex-1 h-100  relative  flex  items-end"
         style={{
           backgroundImage: `url(${data ? data?.menImg : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
       >
-        <div className=" text-white">
-          <h6 className="font-extrabold text-shadow-lg">Ready For What Comes Your Way</h6>
-          <p className="text-shadow-lg mb-4">invest in your appearance</p>
+        <div className=" text-white  pl-15 w-full bg-linear-to-t from-black to-transparent">
+          <div className="  mb-2 p-4 w-80">
+            <h6 className="font-extrabold text-shadow-lg">
+              Ready For What Comes Your Way
+            </h6>
+            <p className="text-shadow-lg">invest in your appearance</p>
+          </div>
 
-          <div className="flex gap-6">
+          <div className="flex gap-6 mb-4">
             <Link href="/men">
               <Button size="lg">Shop men</Button>
             </Link>
@@ -46,16 +37,10 @@ const MainCategories = () => {
       </div>
       <div
         className="flex-1 h-100
-      sm:p-15
+      sm:p-0
       p-50
       relative 
-      z-2
-      before:absolute 
-      before:inset-0
-      before:-z-1
-      before:bg-linear-to-t
-      before:from-black/20 
-      before:to-transparent
+    
       "
         style={{
           backgroundImage: `url(${data ? data?.womenImg : ''})`,

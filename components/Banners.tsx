@@ -21,13 +21,12 @@ const Banners = () => {
               v: string,
               k: number,
             ) => (
-              <CarouselItem key={k} className="basis-full sm:basis-1/3">
+              <CarouselItem key={k} className="basis-full sm:basis-1/3 pl-1">
                 <div
                   className="h-80
             text-white
             p-6 
-            border-2 border-primary 
-            rounded-2xl
+ 
             flex  
             items-end 
             relative  

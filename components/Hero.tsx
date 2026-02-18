@@ -15,7 +15,7 @@ const Hero = () => {
         url={heroData[0] ? heroData[0]?.link : ''}
       />
 
-      <div className="absolute left-6 sm:left-15 bottom-6 sm:bottom-15 text-white  py-10 ">
+      <div className="absolute left-6 sm:left-15 bottom-6 sm:bottom-15 text-white  py-10 w-70">
         <h5 className="font-extrabold">In Our Element, In Any Element</h5>
         <p className=" mb-4">
           Effortless styles destined for the unpredictable
