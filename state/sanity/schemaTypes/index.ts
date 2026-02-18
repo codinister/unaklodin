@@ -37,7 +37,7 @@ export const schemaTypes = [
   unisexCat,
   womenCat,
   youtube,
-  hero, 
+  hero,
   colour,
   size,
   item,
@@ -46,10 +46,10 @@ export const schemaTypes = [
   settings,
   men,
   newArrivals,
-  post,
   women,
   unisex,
   featured,
-  topBar, 
-  banners
+  topBar,
+  post,
+  banners,
 ];
