@@ -16,6 +16,7 @@ export default defineType({
       name: 'cards',
       title: 'Posts',
       type: 'array',
+      description: 'Break your post into paragraph and add it one after the other',
       of: [
         {
           type: 'bodyCard',
