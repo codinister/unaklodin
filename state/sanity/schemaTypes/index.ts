@@ -24,12 +24,14 @@ import youtube from './object/youtube';
 import hero from './document/hero';
 import colour from './document/colour';
 import banners from './document/banners';
+import bodyCard from './object/bodyCard';
 
 export const schemaTypes = [
   blockContent,
   imageObj,
   gallery,
   imageCard,
+  bodyCard,
   textCard,
   titleCard,
   accessoriesCat,

@@ -18,7 +18,7 @@ export default defineType({
       type: 'array',
       of: [
         {
-          type: 'textCard',
+          type: 'bodyCard',
         },
       ],
     }),
