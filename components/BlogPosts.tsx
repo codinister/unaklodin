@@ -8,7 +8,7 @@ const BlogPosts = () => {
   const data = useGetQuery('post', '/post') || [];
 
   return (
-    <div className="container mx-auto pt=6 pb-10  px-6 sm:px-0">
+    <div className="container mx-auto pt-6 pb-10  px-6 sm:px-0">
 
       <div className="text-center mb-10">
         <div className='flex justify-center items-center gap-1'>
@@ -28,14 +28,14 @@ const BlogPosts = () => {
                 return (
                   <div key={k} className="flex-1">
                     <div
-                      className="h-55 rounded-2xl mb-6"
+                      className="p-40 sm:p-0 h-55 rounded-2xl mb-6"
                       style={{
                         backgroundImage: `url(${v.thumb})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'top',
                       }}
                     ></div>
-                    <div className="bg-white ">
+                    <div className="bg-white">
                       <h6>{v.title}</h6>
                       <p className="my-6">{v.excerpt}</p>
                       <Link href="">
