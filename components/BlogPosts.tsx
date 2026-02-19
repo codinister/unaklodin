@@ -17,7 +17,7 @@ const BlogPosts = () => {
         <h3>Our Blog</h3>
         </div>
 
-        <div className="flex-col sm:flex-row flex gap-6">
+        <div className="flex-col sm:flex-row flex gap-10">
           {data
             .slice(0, 3)
             .map(
