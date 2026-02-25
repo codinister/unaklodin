@@ -8,6 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from './ui/carousel';
+import Link from 'next/link';
+import { Button } from './ui/button';
 
 const Featured = () => {
   const data = useGetQuery('featured', '/featured') || [];
@@ -35,9 +37,13 @@ const Featured = () => {
                     backgroundPosition: 'top',
                   }}
                 >
-                  <div className="p-6 sm:p-4 bg-linear-to-t from-black to-transparent w-full">
+                  <div className="p-8 sm:p-4 bg-linear-to-t from-black to-transparent w-full">
                     <p className="font-extrabold">{v.product}</p>
-                    <p className="text-white/80">{v.sub_title}</p>
+                    <p className="mb-4 text-white/80">{v.sub_title}</p>
+
+                    <Link  href="/men">
+                      <Button>Shop men</Button>
+                    </Link>
                   </div>
                 </div>
               </CarouselItem>

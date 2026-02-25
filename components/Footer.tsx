@@ -3,15 +3,24 @@
 import Link from 'next/link';
 import Logo from './nav/Logo';
 import { FaFacebookF } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa';
 import useGetQuery from '@/state/query/useGetQuery';
+import { useEffect } from 'react';
+import { menThunk } from '@/state/redux/reducers/menSlice';
+
+import useDispatchselector from '@/state/redux/useDispatchselector';
 
 const Footer = () => {
+  const { dispatch } = useDispatchselector();
+  useEffect(() => {
+    dispatch(menThunk());
+  }, [dispatch]);
+
+
+
+
 
   const sett = useGetQuery('settings', '/settings') || [];
-
-
 
   return (
     <footer className="px-6 sm:px-0 py-10 bg-secondary text-white">
@@ -83,10 +92,16 @@ const Footer = () => {
         <div>
           <h6 className="font-bold">Follow UNA Klodin</h6>
           <div className="mt-6 flex justify-center gap-10 ">
-            <Link className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center" href={sett[0] ? sett[0]?.facebook : ''}>
+            <Link
+              className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"
+              href={sett[0] ? sett[0]?.facebook : ''}
+            >
               <FaFacebookF />
             </Link>
-            <Link  className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"  href={sett[0] ? sett[0]?.instagram : ''}>
+            <Link
+              className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"
+              href={sett[0] ? sett[0]?.instagram : ''}
+            >
               <FaInstagram />
             </Link>
           </div>

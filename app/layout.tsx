@@ -3,6 +3,7 @@ import './globals.css';
 import QueryProvider from '@/state/query/QueryProvider';
 import Nav from '@/components/nav/Nav';
 import Footer from '@/components/Footer';
+import StoreProvider from '@/state/redux/StoreProvider';
 
 export const metadata: Metadata = {
   title: 'UNA Klodin',
@@ -18,9 +19,11 @@ export default function RootLayout({
     <html lang="en" data-qb-installed="true" suppressHydrationWarning={true}>
       <body cz-shortcut-listen="true">
         <QueryProvider>
-          <Nav />
-          {children}
-          <Footer /> 
+          <StoreProvider>
+            <Nav />
+            {children}
+            <Footer />
+          </StoreProvider>
         </QueryProvider>
       </body>
     </html>
