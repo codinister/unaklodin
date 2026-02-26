@@ -1,7 +1,10 @@
 export type ItemTypes = {
   title: string;
   cat: string;
-  colour: string[];
+  colour: {
+    colourTitle: string; 
+    hex: string;
+  }[];
   size: string[];
   description: any;
   excerpt: string;
@@ -19,3 +22,8 @@ export type menTypes = {
   pending: string;
   error: string;
 };
+
+export type colourType = {
+  title: string; 
+  hex: string;
+}

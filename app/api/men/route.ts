@@ -12,7 +12,10 @@ export async function GET() {
     *[_type == 'men']{
     title,
     "cat" : category->title, 
-    "colour": colour[]->title,
+    "colour": colour[]->{
+    title,
+    hex
+    },
     "size": sizes[]->title,
     "description": items.description,
     "excerpt": array::join(string::split((pt::text(items.description)), "")[0..200], "")+"...",

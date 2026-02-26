@@ -24,8 +24,8 @@ const Men = () => {
 
       <div className="flex justify-between py-10 ">
         <TotalProduct total={data.length} />
-
         <Filter data={data} />
+        
       </div>
     </div>
   );

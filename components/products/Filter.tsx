@@ -15,14 +15,16 @@ import { Input } from '../ui/input';
 import getSizes from '@/utils/getSizes';
 import getColours from '@/utils/getColours';
 import Colour from '../Colour';
+import getCategories from '@/utils/getCategories';
 
-const Filter = ({ data }: {  data: ItemTypes[] }) => {
+const Filter = ({ data }: { data: ItemTypes[] }) => {
   const sortChange = (e: any) => {
     console.log(e.target.value);
   };
 
-  const sizes = getSizes(data)
-  const color = getColours(data)
+  const sizes = getSizes(data);
+  const color = getColours(data);
+  const category = getCategories(data);
 
   return (
     <Sheet>
@@ -62,9 +64,14 @@ const Filter = ({ data }: {  data: ItemTypes[] }) => {
 
           <AccordionItem value="size">
             <AccordionTrigger>Size</AccordionTrigger>
-            <AccordionContent className='flex gap-2 flex-wrap'>
-              {sizes.map((v,k)=>(
-                <button className="cursor-pointer border-2 border-black/10 rounded-lg px-1" key={k}>{v}</button>
+            <AccordionContent className="flex gap-2 flex-wrap">
+              {sizes.map((v, k) => (
+                <button
+                  className="cursor-pointer border-2 border-black/10 rounded-lg px-1"
+                  key={k}
+                >
+                  {v}
+                </button>
               ))}
             </AccordionContent>
           </AccordionItem>
@@ -72,23 +79,32 @@ const Filter = ({ data }: {  data: ItemTypes[] }) => {
           <AccordionItem value="price">
             <AccordionTrigger>Price</AccordionTrigger>
             <AccordionContent className="flex gap-2">
-              <Input placeholder='Min' type="text" />
-              <Input placeholder='Max' type="text" />
+              <Input placeholder="Min" type="text" />
+              <Input placeholder="Max" type="text" />
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="colour">
             <AccordionTrigger>Colour</AccordionTrigger>
             <AccordionContent className="flex gap-2 flex-wrap">
-              {color.map((v,k)=>(
-                <Colour key={k} colorName={v} />
+              {color.map((v, k) => (
+                <Colour key={k} colorName={v?.title} hex={v?.hex} />
               ))}
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value="cat">
             <AccordionTrigger>Category Type</AccordionTrigger>
-            <AccordionContent></AccordionContent>
+            <AccordionContent className="flex gap-3 flex-wrap">
+              {category.map((v, k) => (
+                <button
+                  className="cursor-pointer border-2 border-black/10 rounded-lg py-1 px-2"
+                  key={k}
+                >
+                  {v}
+                </button>
+              ))}
+            </AccordionContent>
           </AccordionItem>
         </Accordion>
       </SheetContent>
