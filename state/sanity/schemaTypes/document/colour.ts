@@ -10,6 +10,12 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required().error('Title field required!'),
-    })
+    }),
+    defineField({
+      name: 'hex',
+      title: 'Hex Colour',
+      type: 'string',
+      validation: (Rule) => Rule.required().error('Hex Colour field required!'),
+    }),
   ],
 });

@@ -1,7 +1,7 @@
 'use client';
 
-const TotalProduct = ({ total }: { total: string }) => {
-  return <h6>{total} Products</h6>;
+const TotalProduct = ({ total }: { total: number }) => {
+  return <p>{total} Products</p>;
 };
 
 export default TotalProduct;

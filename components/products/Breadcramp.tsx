@@ -13,13 +13,13 @@ const Breadcramp = ({
   page_title: string;
 }) => {
   return (
-    <div className='mb-10'>
-      <div className="mb-4 flex gap-3">
+    <div className='my-10'>
+      <div className="mb-2 flex items-center gap-2">
         <Link href="/">Home</Link>
         <FaAngleRight />
         <Link href={link}>{link_name}</Link>
       </div>
-      <h2>{page_title}</h2>
+      <h6>{page_title}</h6>
     </div>
   );
 };
