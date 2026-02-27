@@ -25,6 +25,7 @@ import hero from './document/hero';
 import colour from './document/colour';
 import banners from './document/banners';
 import bodyCard from './object/bodyCard';
+import policies from './document/policies';
 
 export const schemaTypes = [
   blockContent,
@@ -54,4 +55,5 @@ export const schemaTypes = [
   topBar,
   post,
   banners,
+  policies
 ];
