@@ -22,11 +22,11 @@ const Item = ({
         )}
       </div>
       <div className="p-6">
-        <h6>{title}</h6>
-        <p className="py-4">{totalColours} {totalColours === 1 ? 'colour' : 'colours'}</p>
-        <h6 className="font-bold">
+        <p>{title}</p>
+        <p className="py-2">{totalColours} {totalColours === 1 ? 'colour' : 'colours'}</p>
+        <p>
           {currency} {price}.00
-        </h6>
+        </p>
       </div>
     </>
   );

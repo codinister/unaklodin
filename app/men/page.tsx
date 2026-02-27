@@ -26,12 +26,12 @@ const Men = () => {
         <Filter data={data} />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto">
+      <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
         {data.map((v, k) => {
           const totalColours = v.colour ? getColour(v.colour).length : 1
 
           return (
-            <div className="sm:basis-68" key={k}>
+            <div className="sm:basis-92" key={k}>
               <Item
                 title={v.title}
                 price={v.price}
