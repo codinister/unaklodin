@@ -2,6 +2,9 @@
 
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import menSlice from './reducers/menSlice';
+import womenSlice from './reducers/womenSlice';
+import unisexSlice from './reducers/unisexSlice';
+
 import storage from 'redux-persist/es/storage';
 import { persistReducer } from 'redux-persist';
 import { setupListeners } from '@reduxjs/toolkit/query';
@@ -13,6 +16,8 @@ const confg = {
 
 const comReducer = combineReducers({
   menSlice,
+  womenSlice,
+  unisexSlice,
 });
 
 const persReducers = persistReducer(confg, comReducer);
@@ -24,7 +29,6 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
-
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

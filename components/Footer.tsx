@@ -9,11 +9,15 @@ import { useEffect } from 'react';
 import { menThunk } from '@/state/redux/reducers/menSlice';
 
 import useDispatchselector from '@/state/redux/useDispatchselector';
+import { womenThunk } from '@/state/redux/reducers/womenSlice';
+import { unisexThunk } from '@/state/redux/reducers/unisexSlice';
 
 const Footer = () => {
   const { dispatch } = useDispatchselector();
   useEffect(() => {
     dispatch(menThunk());
+     dispatch(womenThunk());
+      dispatch(unisexThunk());
   }, [dispatch]);
 
 
@@ -24,7 +28,7 @@ const Footer = () => {
 
   return (
     <footer className="px-6 sm:px-0 py-10 bg-secondary text-white">
-      <div className="container mx-auto flex-wrap flex  flex-row gap-10">
+      <div className="cont mx-auto flex-wrap flex  flex-row gap-10">
         <div className="w-38 sm:flex-1">
           <h6 className="font-bold">TOP CATEGORIES</h6>
           <ul className="mt-6 space-y-3 text-white/70">
@@ -88,7 +92,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="my-10 container py-7 border-t-2 border-b-2 border-t-white border-b-white mx-auto flex  flex-row sm:justify-center justify-start">
+      <div className="my-10 cont py-7 border-t-2 border-b-2 border-t-white border-b-white mx-auto flex  flex-row sm:justify-center justify-start">
         <div>
           <h6 className="font-bold">Follow UNA Klodin</h6>
           <div className="mt-6 flex justify-center gap-10 ">
@@ -107,7 +111,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container  mx-auto items-start sm:items-center sm:justify-center  flex flex-col sm:flex-row gap-6 text-white/70">
+      <div className="cont  mx-auto items-start sm:items-center sm:justify-center  flex flex-col sm:flex-row gap-6 text-white/70">
         <Logo height={190} width={200} />
         <Link href="">Terms of Use</Link>
         <Link href="">Terms and Conditions of Sale</Link>

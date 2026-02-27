@@ -23,7 +23,7 @@ const MobileNav = () => {
 
   return (
     <nav className={`${getCount > 0.1 ? 'fixed top-0 left-0 shadow-lg bg-white/75 z-20' : ''} w-full block sm:hidden p-6`}>
-      <div className="flex gap-6 container mx-auto">
+      <div className="flex gap-6 cont mx-auto">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
             <Title></Title>

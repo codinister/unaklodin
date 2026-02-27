@@ -16,7 +16,7 @@ const Welcome = () => {
     },
   };
   return (
-    <div className="container mx-auto flex justify-center items-center h-screen">
+    <div className="cont mx-auto flex justify-center items-center h-screen">
       <div className="text-center">
         <motion.img
           variants={homeAnimations}

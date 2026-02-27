@@ -9,24 +9,24 @@ import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
 import getColour from '@/utils/getColour';
 
-const Men = () => {
+const Women = () => {
   const { selector } = useDispatchselector();
 
-  const state = selector((state) => state.menSlice) || [];
+  const state = selector((state) => state.womenSlice) || [];
   const data: ItemTypes[] = state?.data || [];
 
   const sett = useGetQuery('settings', '/settings') || [];
 
   return (
     <div className="cont mb-10">
-      <Breadcramp page_title="Men's Wear" link="" link_name="" />
+      <Breadcramp page_title="Women's Wear" link="" link_name="" />
 
       <div className="flex justify-between py-10 ">
         <TotalProduct total={data.length} />
         <Filter data={data} />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto">
+      <div className="flex sm:mx-auto flex-col sm:flex-row gap-6 flex-wrap">
         {data.map((v, k) => {
           const totalColours = v.colour ? getColour(v.colour).length : 1
 
@@ -48,4 +48,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Women;

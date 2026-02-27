@@ -8,7 +8,7 @@ const BlogPosts = () => {
   const data = useGetQuery('post', '/post') || [];
 
   return (
-    <div className="container mx-auto pt-6 pb-10  px-6 sm:px-0">
+    <div className="cont  pt-6 pb-10 ">
 
       <div className="text-center mb-10">
         <div className='flex justify-center items-center gap-1'>

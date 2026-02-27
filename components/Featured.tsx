@@ -1,6 +1,5 @@
 'use client';
 import useGetQuery from '@/state/query/useGetQuery';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   Carousel,
   CarouselContent,
