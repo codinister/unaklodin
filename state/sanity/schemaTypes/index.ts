@@ -19,7 +19,6 @@ import womenCat from './categories/womenCat';
 import featured from './document/featured';
 import women from './document/women';
 import item from './object/item';
-import topBar from './document/topBar';
 import youtube from './object/youtube';
 import hero from './document/hero';
 import colour from './document/colour';
@@ -52,7 +51,6 @@ export const schemaTypes = [
   women,
   unisex,
   featured,
-  topBar,
   post,
   banners,
   policies

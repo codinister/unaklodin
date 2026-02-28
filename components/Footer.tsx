@@ -16,13 +16,9 @@ const Footer = () => {
   const { dispatch } = useDispatchselector();
   useEffect(() => {
     dispatch(menThunk());
-     dispatch(womenThunk());
-      dispatch(unisexThunk());
+    dispatch(womenThunk());
+    dispatch(unisexThunk());
   }, [dispatch]);
-
-
-
-
 
   const sett = useGetQuery('settings', '/settings') || [];
 
@@ -33,13 +29,13 @@ const Footer = () => {
           <h6 className="font-bold">TOP CATEGORIES</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
-              <Link href="/">Men Category</Link>
+              <Link href="/men">Men's Wear</Link>
             </li>
             <li>
-              <Link href="/">Women Category</Link>
+              <Link href="/women">Women's Wear</Link>
             </li>
             <li>
-              <Link href="/">Unisex Category</Link>
+              <Link href="/unisex">Unisex</Link>
             </li>
           </ul>
         </div>
@@ -47,19 +43,19 @@ const Footer = () => {
           <h6 className="font-bold">Help</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
-              <Link href="">Delivery</Link>
+              <Link href="/policies/delivery">Delivery</Link>
             </li>
             <li>
-              <Link href="">Returns</Link>
+              <Link href="/policies/returns">Returns</Link>
             </li>
             <li>
-              <Link href="">In Store Services</Link>
+              <Link href="/policies/services">In Store Services</Link>
             </li>
             <li>
-              <Link href="">Secure Payments</Link>
+              <Link href="/policies/payments">Secure Payments</Link>
             </li>
             <li>
-              <Link href="">Contact Us</Link>
+              <Link href="/contact">Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -67,13 +63,13 @@ const Footer = () => {
           <h6 className="font-bold">About Us</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
-              <Link href="">Our Story</Link>
+              <Link href="/about">Our Story</Link>
             </li>
             <li>
-              <Link href="">Terms & Conditions of Sales</Link>
+              <Link href="/policies/terms">Terms & Conditions of Sales</Link>
             </li>
             <li>
-              <Link href="">Privacy Policy</Link>
+              <Link href="/policies/help">Need Help?</Link>
             </li>
           </ul>
         </div>
@@ -81,13 +77,10 @@ const Footer = () => {
           <h6 className="font-bold">Our Blog</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
-              <Link href="">Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="">FAQ</Link>
-            </li>
-            <li>
-              <Link href="">Events</Link>
+              <Link href="/blog">Events</Link>
             </li>
           </ul>
         </div>
@@ -96,27 +89,26 @@ const Footer = () => {
         <div>
           <h6 className="font-bold">Follow UNA Klodin</h6>
           <div className="mt-6 flex justify-center gap-10 ">
-            <Link
+            <a target="_blank"
               className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"
               href={sett[0] ? sett[0]?.facebook : ''}
             >
               <FaFacebookF />
-            </Link>
-            <Link
+            </a>
+            <a target="_blank"
               className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"
               href={sett[0] ? sett[0]?.instagram : ''}
             >
               <FaInstagram />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
       <div className="cont  mx-auto items-start sm:items-center sm:justify-center  flex flex-col sm:flex-row gap-6 text-white/70">
         <Logo height={190} width={200} />
-        <Link href="">Terms of Use</Link>
-        <Link href="">Terms and Conditions of Sale</Link>
-        <Link href="">Secure payments</Link>
-        <Link href="">Counterfeit Reporting</Link>
+        <Link href="/policies/terms">Terms and Conditions of Sale</Link>
+        <Link href="/policies/payments">Secure payments</Link>
+        <Link href="/policies/returns">Returns & Refunds</Link>
       </div>
     </footer>
   );

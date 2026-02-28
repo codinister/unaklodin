@@ -1,15 +1,16 @@
 import serverConfig from '@/state/sanity/server.config';
 import { groq } from 'next-sanity';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest, {params}: {
+  params: {id: string}
+}) {
   try {
     // Get query param properly
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get('id');
+    const { id } = params;
 
     if (!id) {
       return NextResponse.json(

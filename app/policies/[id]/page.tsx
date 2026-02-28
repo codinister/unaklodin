@@ -1,9 +1,16 @@
 'use client'
 
-const Men = () => {
+import { useParams } from "next/navigation"
+
+const Policies = () => {
+
+  const {id} = useParams()
+
+
+
   return (
-    <div>Men</div>
+    <div>{id}</div>
   )
 }
 
-export default Men
+export default Policies
