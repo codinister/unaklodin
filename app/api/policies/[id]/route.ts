@@ -11,7 +11,7 @@ export async function GET(req: NextRequest, {params}: {
   try {
     // Get query param properly
   const param = (await params).id
-  const id = parseInt(param, 10)
+  const id = param
 
     if (!id) {
       return NextResponse.json(
