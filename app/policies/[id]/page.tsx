@@ -1,16 +1,21 @@
-'use client'
+'use client';
 
-import { useParams } from "next/navigation"
+import useGetQuery from '@/state/query/useGetQuery';
+import { PortableText } from '@portabletext/react';
+import { useParams } from 'next/navigation';
 
 const Policies = () => {
+  const { id } = useParams();
 
-  const {id} = useParams()
-
+  const res = useGetQuery('policies', `/policies/${id}`) || [];
 
 
   return (
-    <div>{id}</div>
-  )
-}
+    <div className="py-15 container mx-auto">
+      <h5 className="mb-6">{res[0]?.title}</h5>
+      <PortableText value={res[0]?.body || ''} />
+    </div>
+  );
+};
 
-export default Policies
+export default Policies;

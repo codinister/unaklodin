@@ -43,6 +43,10 @@ const Footer = () => {
           <h6 className="font-bold">Help</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
+              <Link href="/policies/help">Need Help?</Link>
+            </li>
+
+            <li>
               <Link href="/policies/delivery">Delivery</Link>
             </li>
             <li>
@@ -55,7 +59,7 @@ const Footer = () => {
               <Link href="/policies/payments">Secure Payments</Link>
             </li>
             <li>
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/policies/terms">Terms & Conditions of Sales</Link>
             </li>
           </ul>
         </div>
@@ -66,10 +70,7 @@ const Footer = () => {
               <Link href="/about">Our Story</Link>
             </li>
             <li>
-              <Link href="/policies/terms">Terms & Conditions of Sales</Link>
-            </li>
-            <li>
-              <Link href="/policies/help">Need Help?</Link>
+              <Link href="/contact">Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -89,13 +90,15 @@ const Footer = () => {
         <div>
           <h6 className="font-bold">Follow UNA Klodin</h6>
           <div className="mt-6 flex justify-center gap-10 ">
-            <a target="_blank"
+            <a
+              target="_blank"
               className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"
               href={sett[0] ? sett[0]?.facebook : ''}
             >
               <FaFacebookF />
             </a>
-            <a target="_blank"
+            <a
+              target="_blank"
               className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center"
               href={sett[0] ? sett[0]?.instagram : ''}
             >
