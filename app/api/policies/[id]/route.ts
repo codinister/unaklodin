@@ -6,7 +6,7 @@ export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest, {params}: {
-  params: {id: string}
+  params: Promise<{id: string}>
 }) {
   try {
     // Get query param properly
