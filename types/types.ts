@@ -1,4 +1,8 @@
 export type ItemTypes = {
+  id: string;
+  type: string; 
+  createdAt: string; 
+  updatedAt: string;
   title: string;
   cat: string;
   colour: {

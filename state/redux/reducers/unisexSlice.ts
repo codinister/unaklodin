@@ -1,8 +1,8 @@
 'use client';
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import asyncThunk from '../asyncThunk';
-import { menTypes } from '@/types/types';
+import { ItemTypes, menTypes } from '@/types/types';
 
 const initialState: menTypes = {
   data: [],
@@ -16,7 +16,7 @@ const unisexSlice = createSlice({
   name: 'unisex',
   initialState,
   reducers: {
-    addUnisexData(state, action) {
+    addUnisexData(state, action: PayloadAction<ItemTypes[]>) {
       state.data = action.payload;
     },
   },
@@ -25,10 +25,15 @@ const unisexSlice = createSlice({
       .addCase(unisexThunk.pending, (state) => {
         state.data = [];
         state.error = '';
-        state.pending = "Unisex data fetching in progress";
+        state.pending = 'Unisex data fetching in progress';
       })
       .addCase(unisexThunk.fulfilled, (state, action) => {
-        state.data = action.payload;
+        state.data =
+          action.payload.sort((a: { price: number }, b: { price: number }) => {
+            if (a.price > b.price) return 1;
+            else if (a.price < b.price) return -1;
+            else return 0;
+          }) || [];
       })
       .addCase(unisexThunk.rejected, (state, action) => {
         state.error = 'Something went wrong';

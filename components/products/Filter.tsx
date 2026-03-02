@@ -9,17 +9,30 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import accordionData from '@/state/accordion/accordionData';
 import { ItemTypes } from '@/types/types';
 import { Input } from '../ui/input';
 import getSizes from '@/utils/getSizes';
 import getColours from '@/utils/getColours';
 import Colour from '../Colour';
 import getCategories from '@/utils/getCategories';
+import useDispatchselector from '@/state/redux/useDispatchselector';
+import { addMenData } from '@/state/redux/reducers/menSlice';
+import { useDispatch } from 'react-redux';
+import sortSearch from './sortSearch';
 
-const Filter = ({ data }: { data: ItemTypes[] }) => {
-  const sortChange = (e: any) => {
-    console.log(e.target.value);
+const Filter = ({
+  data,
+  dispatchFn,
+}: {
+  data: ItemTypes[];
+  dispatchFn: Function;
+}) => {
+  
+  const { dispatch } = useDispatchselector();
+
+  const sortChange = (value: string) => {
+    const output = sortSearch(data, value);
+    dispatch(dispatchFn(output));
   };
 
   const sizes = getSizes(data);
@@ -44,7 +57,7 @@ const Filter = ({ data }: { data: ItemTypes[] }) => {
               <RadioGroup
                 defaultValue="lowtohigh"
                 className="w-fit"
-                onChange={sortChange}
+                onValueChange={(value) => sortChange(value)}
               >
                 <div className="flex items-center gap-3">
                   <RadioGroupItem value="lowtohigh" id="r1" />

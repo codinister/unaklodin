@@ -1,8 +1,8 @@
 'use client';
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import asyncThunk from '../asyncThunk';
-import { menTypes } from '@/types/types';
+import { ItemTypes, menTypes } from '@/types/types';
 
 const initialState: menTypes = {
   data: [],
@@ -16,7 +16,7 @@ const womenSlice = createSlice({
   name: 'women',
   initialState,
   reducers: {
-    addWomenData(state, action) {
+    addWomenData(state, action: PayloadAction<ItemTypes[]>) {
       state.data = action.payload;
     },
   },
@@ -28,7 +28,11 @@ const womenSlice = createSlice({
         state.pending = "Women's data fetching in progress";
       })
       .addCase(womenThunk.fulfilled, (state, action) => {
-        state.data = action.payload;
+        state.data = action.payload.sort((a: { price: number }, b: { price: number }) => {
+            if (a.price > b.price) return 1;
+            else if (a.price < b.price) return -1;
+            else return 0;
+          }) || [];
       })
       .addCase(womenThunk.rejected, (state, action) => {
         state.error = 'Something went wrong';

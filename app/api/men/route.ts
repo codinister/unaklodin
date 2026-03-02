@@ -10,6 +10,10 @@ export async function GET() {
   try {
     const data = await serverConfig.fetch(groq`
     *[_type == 'men']{
+    'type': _type, 
+    'createdAt' : _createdAt, 
+    'updatedAt' : _updatedAt,
+    'id': _id,
     title,
     "cat" : category->title, 
     "colour": colour[]->{
