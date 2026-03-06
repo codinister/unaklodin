@@ -52,7 +52,7 @@ const NavLinks = ({
               </Link>
               <ul>
                 <li className="bg-gray-100 p-1 mb-3">
-                  <Link href={lnk}>View All {v?.link}</Link>
+                  <Link onClick={()=> closeMenu(false)} href={`/${lnk}`}>View All {v?.link}</Link>
                 </li>
                 {v.sub.map((v: any, ky: number) => (
                   <Links
