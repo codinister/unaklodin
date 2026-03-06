@@ -21,10 +21,12 @@ export type ItemTypes = {
   thumbnail: string;
 };
 
-export type menTypes = {
+export type stateTypes = {
   data: ItemTypes[];
+  dupData: ItemTypes[];
   pending: string;
   error: string;
+  cat: unknown[]
 };
 
 export type colourType = {

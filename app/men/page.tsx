@@ -5,20 +5,16 @@ import Filter from '@/components/products/Filter';
 import Item from '@/components/products/Item';
 import TotalProduct from '@/components/products/TotalProduct';
 import useGetQuery from '@/state/query/useGetQuery';
-import { addMenData } from '@/state/redux/reducers/menSlice';
+import { filterMenItems } from '@/state/redux/reducers/menSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
 import getColour from '@/utils/getColour';
 
 const Men = () => {
   const { selector } = useDispatchselector();
-
   const state = selector((state) => state.menSlice) || [];
-
   const data: ItemTypes[] = state?.data || [];
-
-
-
+  const dupData: ItemTypes[] = state?.dupData || [];
   const sett = useGetQuery('settings', '/settings') || [];
 
   return (
@@ -26,8 +22,8 @@ const Men = () => {
       <Breadcramp page_title="Men's Wear" link="" link_name="" />
 
       <div className="flex justify-between py-10 ">
-        <TotalProduct total={data?.length} />
-        <Filter data={data} dispatchFn={addMenData} />
+        <TotalProduct total={dupData?.length} />
+        <Filter data={dupData} dispatchFn={filterMenItems} />
       </div>
 
       <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">

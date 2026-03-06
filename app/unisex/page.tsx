@@ -5,6 +5,7 @@ import Filter from '@/components/products/Filter';
 import Item from '@/components/products/Item';
 import TotalProduct from '@/components/products/TotalProduct';
 import useGetQuery from '@/state/query/useGetQuery';
+import { filterUnisexItems } from '@/state/redux/reducers/unisexSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
 import getColour from '@/utils/getColour';
@@ -14,6 +15,7 @@ const Unisex = () => {
 
   const state = selector((state) => state.unisexSlice) || [];
   const data: ItemTypes[] = state?.data || [];
+  const dupData: ItemTypes[] = state?.dupData || [];
 
   const sett = useGetQuery('settings', '/settings') || [];
 
@@ -23,7 +25,7 @@ const Unisex = () => {
 
       <div className="flex justify-between py-10 ">
         <TotalProduct total={data.length} />
-        <Filter data={data} />
+        <Filter data={dupData} dispatchFn={filterUnisexItems} />
       </div>
 
       <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">

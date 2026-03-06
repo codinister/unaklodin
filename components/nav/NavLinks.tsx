@@ -5,9 +5,35 @@ import Link from 'next/link';
 import Links from './Links';
 import Logo from './Logo';
 import { FaAngleRight } from 'react-icons/fa6';
+import useDispatchselector from '@/state/redux/useDispatchselector';
 
-const NavLinks = ({ closeMenu, clss }: { closeMenu: Function; clss: string }) => {
-  const cats = useGetQuery('cats', '/cats');
+const NavLinks = ({
+  closeMenu,
+  clss,
+}: {
+  closeMenu: Function;
+  clss: string;
+}) => {
+  const { selector } = useDispatchselector();
+
+  const mencat = selector((state) => state.menSlice);
+  const womencat = selector((state) => state.womenSlice);
+  const unisexcat = selector((state) => state.unisexSlice);
+
+  const cats = [
+    {
+      link: 'Men',
+      sub: mencat.cat,
+    },
+    {
+      link: 'Unisex',
+      sub: unisexcat.cat,
+    },
+    {
+      link: 'Women',
+      sub: womencat.cat,
+    },
+  ];
 
   return (
     <div>
@@ -16,7 +42,7 @@ const NavLinks = ({ closeMenu, clss }: { closeMenu: Function; clss: string }) =>
       </div>
 
       <ul className={clss}>
-        {cats.map((v: { link: string; sub: {}[] }, k: number) => {
+        {cats.map((v: { link: string; sub: unknown[] }, k: number) => {
           const lnk = v.link.toLowerCase().split(' ').join('');
 
           return v.sub.length > 0 ? (
@@ -25,6 +51,9 @@ const NavLinks = ({ closeMenu, clss }: { closeMenu: Function; clss: string }) =>
                 {v.link} <FaAngleRight />
               </Link>
               <ul>
+                <li className="bg-gray-100 p-1 mb-3">
+                  <Link href={lnk}>View All {v?.link}</Link>
+                </li>
                 {v.sub.map((v: any, ky: number) => (
                   <Links
                     setOpen={closeMenu}

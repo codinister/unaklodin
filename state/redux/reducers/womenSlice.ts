@@ -2,12 +2,15 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import asyncThunk from '../asyncThunk';
-import { ItemTypes, menTypes } from '@/types/types';
+import { ItemTypes, stateTypes } from '@/types/types';
+import filterLogic from '@/components/products/filter-components/filterLogic';
 
-const initialState: menTypes = {
+const initialState: stateTypes = {
   data: [],
+  dupData: [],
   pending: '',
   error: '',
+  cat: []
 };
 
 export const womenThunk = asyncThunk('/women', 'women', 'wom22s');
@@ -19,6 +22,9 @@ const womenSlice = createSlice({
     addWomenData(state, action: PayloadAction<ItemTypes[]>) {
       state.data = action.payload;
     },
+    filterWomenItems(state, action) {
+      filterLogic(state,action)
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -28,11 +34,28 @@ const womenSlice = createSlice({
         state.pending = "Women's data fetching in progress";
       })
       .addCase(womenThunk.fulfilled, (state, action) => {
-        state.data = action.payload.sort((a: { price: number }, b: { price: number }) => {
+        const result =
+          action.payload.sort((a: { price: number }, b: { price: number }) => {
             if (a.price > b.price) return 1;
             else if (a.price < b.price) return -1;
             else return 0;
           }) || [];
+
+        state.data = result;
+        state.dupData = result;
+
+        state.cat = [
+          ...new Set(
+            result
+              .map((v: { cat: string }) => {
+                if (v.cat) {
+                  return v.cat;
+                }
+              })
+              .filter(Boolean),
+          ),
+        ];
+
       })
       .addCase(womenThunk.rejected, (state, action) => {
         state.error = 'Something went wrong';
@@ -40,5 +63,5 @@ const womenSlice = createSlice({
   },
 });
 
-export const { addWomenData } = womenSlice.actions;
+export const { addWomenData , filterWomenItems} = womenSlice.actions;
 export default womenSlice.reducer;

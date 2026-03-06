@@ -2,12 +2,15 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import asyncThunk from '../asyncThunk';
-import { ItemTypes, menTypes } from '@/types/types';
+import { ItemTypes, stateTypes } from '@/types/types';
+import filterLogic from '@/components/products/filter-components/filterLogic';
 
-const initialState: menTypes = {
+const initialState: stateTypes = {
   data: [],
+  dupData: [],
   pending: '',
   error: '',
+  cat: [],
 };
 
 export const unisexThunk = asyncThunk('/unisex', 'unisex', 'unix22s');
@@ -19,6 +22,9 @@ const unisexSlice = createSlice({
     addUnisexData(state, action: PayloadAction<ItemTypes[]>) {
       state.data = action.payload;
     },
+    filterUnisexItems(state, action) {
+      filterLogic(state, action);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -28,12 +34,27 @@ const unisexSlice = createSlice({
         state.pending = 'Unisex data fetching in progress';
       })
       .addCase(unisexThunk.fulfilled, (state, action) => {
-        state.data =
+        const result =
           action.payload.sort((a: { price: number }, b: { price: number }) => {
             if (a.price > b.price) return 1;
             else if (a.price < b.price) return -1;
             else return 0;
           }) || [];
+
+        state.data = result;
+        state.dupData = result;
+
+        state.cat = [
+          ...new Set(
+            result
+              .map((v: { cat: string }) => {
+                if (v.cat) {
+                  return v.cat;
+                }
+              })
+              .filter(Boolean),
+          ),
+        ];
       })
       .addCase(unisexThunk.rejected, (state, action) => {
         state.error = 'Something went wrong';
@@ -41,5 +62,5 @@ const unisexSlice = createSlice({
   },
 });
 
-export const { addUnisexData } = unisexSlice.actions;
+export const { addUnisexData, filterUnisexItems } = unisexSlice.actions;
 export default unisexSlice.reducer;
