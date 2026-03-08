@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import {
   Carousel,
   CarouselContent,
@@ -7,20 +8,22 @@ import {
   CarouselPrevious,
 } from '../ui/carousel';
 
-const ItemGallery = ({ gallery }: { gallery: string[] }) => {
+const ItemGallery = ({ gallery, id }: { gallery: string[]; id: string }) => {
   return (
     <Carousel className="w-full">
       <CarouselContent>
         {gallery.map((v, k: number) => (
           <CarouselItem key={k} className="basis-full">
-            <div
-              className="sm:h-75 lg:h-80 sm:py-0  py-50 sm:p-0"
-              style={{
-                backgroundImage: `url(${v})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'top',
-              }}
-            ></div>
+            <Link href={`/item/${id}`}>
+              <div
+                className="sm:h-75 lg:h-80 sm:py-0  py-50 sm:p-0"
+                style={{
+                  backgroundImage: `url(${v})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'top',
+                }}
+              ></div>
+            </Link>
           </CarouselItem>
         ))}
       </CarouselContent>

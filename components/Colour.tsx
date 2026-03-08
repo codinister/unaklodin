@@ -1,6 +1,6 @@
 'use client';
 
-const Colour = ({ hex, colorName, clickHandler }: { colorName: string; hex: string; clickHandler: Function }) => {
+const Colour = ({ hex, colorName, clickHandler }: { colorName: string; hex: string; clickHandler: Function  }) => {
   return (
     <div className="w-max" onClick={()=> clickHandler(colorName)}>
       <div

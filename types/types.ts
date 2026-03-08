@@ -36,6 +36,7 @@ export type colourType = {
 
 
 export type ItemCard  = {
+  id: string;
   title: string; 
   price: number; 
   totalColours: number, 

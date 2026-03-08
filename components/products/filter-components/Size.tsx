@@ -8,7 +8,6 @@ import {
 import { ItemTypes } from '@/types/types';
 import getSizes from '@/utils/getSizes';
 import useDispatchselector from '@/state/redux/useDispatchselector';
-import { filterMenItems } from '@/state/redux/reducers/menSlice';
 
 const Size = ({
   data,

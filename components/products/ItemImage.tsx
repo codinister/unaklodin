@@ -1,7 +1,10 @@
 'use client';
 
-const ItemImage = ({ img }: { img: string }) => {
+import Link from "next/link";
+
+const ItemImage = ({ img, id }: { img: string; id: string }) => {
   return (
+     <Link href={`/item/${id}`}>
     <div
       style={{
         backgroundImage: `url(${img})`,
@@ -10,6 +13,7 @@ const ItemImage = ({ img }: { img: string }) => {
       }}
       className="sm:h-75 lg:80  p-50 sm:p-0"
     ></div>
+    </Link>
   );
 };
 
