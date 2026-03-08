@@ -44,6 +44,7 @@ const Women = () => {
               return (
                 <div className="sm:basis-92" key={k}>
                   <Item
+                  id={v.id}
                     title={v.title}
                     price={v.price}
                     totalColours={totalColours}
