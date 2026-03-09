@@ -1,7 +1,7 @@
 'use client';
 
 import { ItemTypes } from '@/types/types';
-
+import { motion } from 'motion/react';
 
 const ImageBox = ({ data }: { data: ItemTypes[] }) => {
   const g = data[0]?.gallery;
@@ -27,7 +27,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
     <div key={k}>
       <div className="flex gap-1">
         <div
-          className="flex-1 h-90"
+          className={v.n1 ? `flex-1 h-90` : ``}
           style={{
             backgroundImage: `url(${v.n1})`,
             backgroundSize: 'cover',
@@ -35,7 +35,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
           }}
         ></div>
         <div
-          className="flex-1 h-90"
+          className={v.n2 ? `flex-1 h-90` : ``}
           style={{
             backgroundImage: `url(${v.n2})`,
             backgroundSize: 'cover',
@@ -44,7 +44,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
         ></div>
       </div>
       <div
-        className="h-120 mt-1"
+        className={v.n3 ? `mt-1 h-120` : ``}
         style={{
           backgroundImage: `url(${v.n3})`,
           backgroundSize: 'cover',

@@ -8,6 +8,7 @@ import Searchbox from './Searchbox';
 import BuscketIcon from './Buscket';
 import NavLinks from './NavLinks';
 import { useState } from 'react';
+import {motion} from 'motion/react'
 import {useScroll,useMotionValueEvent} from 'motion/react'
 
 const DesktopNav = () => {
@@ -22,7 +23,7 @@ const DesktopNav = () => {
   })
 
   return (
-    <nav className={`${getCount > 0.1 ? 'fixed top-0 left-0 shadow-lg bg-white/75 z-20' : ''}  w-full hidden sm:block`}>
+    <motion.nav layout className={`${getCount > 0.05 ? 'fixed top-0 left-0 shadow-lg bg-white/75 z-20' : ''}  w-full hidden sm:block`}>
       <div className="flex gap-6 cont mx-auto">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
@@ -48,7 +49,7 @@ const DesktopNav = () => {
           <BuscketIcon />
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
