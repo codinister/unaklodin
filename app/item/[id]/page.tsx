@@ -13,6 +13,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import SimilarItems from '@/components/SimilarItems';
+import ImageBoxMobile from '@/components/singleItem/ImageBoxMobile';
 
 const Item = () => {
   const param = useParams();
@@ -23,25 +24,29 @@ const Item = () => {
 
   return (
     <>
-      <div className="cont flex gap-4">
-        <div className="flex-2 h-150 overflow-y-scroll">
+      <div className="cont flex-col sm:flex-row flex gap-4">
+        <div className="block sm:hidden">
+          <ImageBoxMobile data={data} />
+        </div>
+        <div className="hidden sm:block flex-2 h-150 overflow-y-scroll">
           <ImageBox data={data} />
         </div>
+
         <div className="flex-1">
           <Description data={data} />
         </div>
       </div>
 
-      <div className="cont my-15">
+      <div className="p-6 sm:p-0 sm:w-200 mx-auto my-15">
         <Accordion
           type="single"
           collapsible
-          defaultValue="shipping"
+          defaultValue=""
           className="w-full"
         >
           <AccordionItem value="shipping">
             <AccordionTrigger>
-              <h5>{data[0]?.sub_title}</h5>
+              <h6>{data[0]?.sub_title}</h6>
             </AccordionTrigger>
             <AccordionContent>
               <PortableText value={data[0]?.description} />

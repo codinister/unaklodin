@@ -18,7 +18,7 @@ const SimilarItems = ({type}: {type: string}) => {
         <CarouselContent>
           {data.map(
             (v: { thumbnail: string; product: string; id: string }, k: number) => (
-              <CarouselItem key={k} className="basis-full sm:basis-1/6 pl-1">
+              <CarouselItem key={k} className="basis-1/2 sm:basis-1/6 pl-1">
                 <Link href={`/item/${v.id}`}>
                   <div
                     className="h-75
