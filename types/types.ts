@@ -1,12 +1,12 @@
 export type ItemTypes = {
   id: string;
-  type: string; 
-  createdAt: string; 
+  type: string;
+  createdAt: string;
   updatedAt: string;
   title: string;
   cat: string;
   colour: {
-    title: string; 
+    title: string;
     hex: string;
   }[];
   size: string[];
@@ -26,21 +26,35 @@ export type stateTypes = {
   dupData: ItemTypes[];
   pending: string;
   error: string;
-  cat: unknown[]
+  cat: unknown[];
 };
 
 export type colourType = {
-  title: string; 
+  title: string;
   hex: string;
-}
+};
 
-
-export type ItemCard  = {
+export type ItemCard = {
   id: string;
-  title: string; 
-  price: number; 
-  totalColours: number, 
-  img: string; 
-  gallery: string[], 
+  title: string;
+  price: number;
+  totalColours: number;
+  img: string;
+  gallery: string[];
   currency: string;
-}
+};
+
+export type cartItemType = {
+  id: string;
+  qty: number;
+  total: number;
+  title: string;
+  price: number;
+  size: string;
+  colour: string;
+  thumbnail: string;
+};
+
+export type cartType = {
+  carts: Record<string, cartItemType>;
+};

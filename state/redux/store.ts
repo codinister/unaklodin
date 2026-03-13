@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import menSlice from './reducers/menSlice';
 import womenSlice from './reducers/womenSlice';
 import unisexSlice from './reducers/unisexSlice';
+import cartSlice from './reducers/cartSlice'
 
 import storage from 'redux-persist/es/storage';
 import { persistReducer } from 'redux-persist';
@@ -18,6 +19,7 @@ const comReducer = combineReducers({
   menSlice,
   womenSlice,
   unisexSlice,
+  cartSlice
 });
 
 const persReducers = persistReducer(confg, comReducer);

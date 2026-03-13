@@ -40,9 +40,7 @@ const Item = () => {
         </div>
 
         <div className="flex-1">
-      
-            <Description data={data} />
-    
+          <Description data={data} />
         </div>
       </div>
 

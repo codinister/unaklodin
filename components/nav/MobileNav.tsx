@@ -9,6 +9,7 @@ import BuscketIcon from './Buscket';
 import NavLinks from './NavLinks';
 import { useState } from 'react';
 import {useScroll,useMotionValueEvent} from 'motion/react'
+import CartIcon from './CartIcon';
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,7 @@ const MobileNav = () => {
           <Searchbox />
         </div>
         <div className="flex-1 flex items-center justify-end">
-          <BuscketIcon />
+          <CartIcon />
         </div>
       </div>
     </nav>

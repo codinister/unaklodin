@@ -5,25 +5,28 @@ import Menu from './Menu';
 import { Title } from '@radix-ui/react-dialog';
 import Logo from './Logo';
 import Searchbox from './Searchbox';
-import BuscketIcon from './Buscket';
+
 import NavLinks from './NavLinks';
 import { useState } from 'react';
-import {motion} from 'motion/react'
-import {useScroll,useMotionValueEvent} from 'motion/react'
+import { motion } from 'motion/react';
+import { useScroll, useMotionValueEvent } from 'motion/react';
+import CartIcon from './CartIcon';
 
 const DesktopNav = () => {
   const [open, setOpen] = useState(false);
-  const [getCount,setCount] = useState(0)
+  const [getCount, setCount] = useState(0);
 
+  const { scrollYProgress } = useScroll();
 
-  const {scrollYProgress} = useScroll()
-
-  useMotionValueEvent(scrollYProgress, 'change', (latest)=>{
-    setCount(latest)
-  })
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    setCount(latest);
+  });
 
   return (
-    <motion.nav layout className={`${getCount > 0.05 ? 'fixed top-0 left-0 shadow-lg bg-white/75 z-20' : ''}  w-full hidden sm:block`}>
+    <motion.nav
+      layout
+      className={`${getCount > 0.05 ? 'fixed top-0 left-0 shadow-lg bg-white/75 z-20' : ''}  w-full hidden sm:block`}
+    >
       <div className="flex gap-6 cont mx-auto">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
@@ -46,7 +49,7 @@ const DesktopNav = () => {
           <Searchbox />
         </div>
         <div className="flex-1 flex items-center justify-end">
-          <BuscketIcon />
+          <CartIcon />
         </div>
       </div>
     </motion.nav>
