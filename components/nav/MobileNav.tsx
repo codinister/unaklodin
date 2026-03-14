@@ -3,9 +3,7 @@
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import Menu from './Menu';
 import { Title } from '@radix-ui/react-dialog';
-import Logo from './Logo';
 import Searchbox from './Searchbox';
-import BuscketIcon from './Buscket';
 import NavLinks from './NavLinks';
 import { useState } from 'react';
 import {useScroll,useMotionValueEvent} from 'motion/react'

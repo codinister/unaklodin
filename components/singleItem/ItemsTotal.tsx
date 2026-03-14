@@ -9,9 +9,7 @@ const ItemsTotal = () => {
 
   return (
     <>
-      {Object.values(cartData.carts).reduce((a, b) => {
-        return a + b.qty;
-      }, 0)}
+      {Object.values(cartData.carts).length}
     </>
   );
 };

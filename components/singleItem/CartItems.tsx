@@ -20,7 +20,7 @@ const CartItems = ({
   return (
     <div className="flex gap-2 p-4">
       <div
-        className="relative h-40 flex-2 rounded-lg"
+        className="relative h-40 flex-1 rounded-lg"
         style={{
           backgroundImage: `url(${value.thumbnail})`,
           backgroundSize: 'cover',

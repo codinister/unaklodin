@@ -11,7 +11,7 @@ const OrderTotal = () => {
 
   return (
     <div className="p-6 bg-muted mb-6">
-      <div className="border-b border-b-gray-500  flex justify-between">
+      <div className="border-b border-b-gray-500  flex justify-between pb-3">
         <h6>
           Subtotal (<ItemsTotal /> items)
         </h6>
@@ -20,7 +20,7 @@ const OrderTotal = () => {
         </h6>
       </div>
 
-      <div className="border-b border-b-gray-500  flex justify-between">
+      <div className="border-b border-b-gray-500  flex justify-between py-4">
         <div>
           <p>Shipping</p>
           <p>Standard Shipping: Estimated Delivery: 2-4 business days</p>
@@ -28,7 +28,7 @@ const OrderTotal = () => {
         <div>Free</div>
       </div>
 
-      <div className="border-b border-b-gray-500  flex justify-between">
+      <div className="border-b border-b-gray-500  flex justify-between py-4">
         <h6>Order Total</h6>
         <h6>
           <CartTotal />

@@ -1,5 +1,6 @@
 'use client';
 
+import BillingAddress from '@/components/singleItem/BillingAddress';
 import CartButton from '@/components/singleItem/CartButton';
 import Carts from '@/components/singleItem/Carts';
 import ItemsTotal from '@/components/singleItem/ItemsTotal';
@@ -8,17 +9,13 @@ import OrderTotal from '@/components/singleItem/OrderTotal';
 const Cart = () => {
   return (
     <div className="cont">
-      <h6 className="p-4 border-b border-b-gray-400">
-        Cart (<ItemsTotal />)
-      </h6>
-
-      <div className="py-10 flex gap-10 flex-col sm:flex-row">
+      <div className="py-10 flex gap-20 flex-col sm:flex-row">
         <div className="flex-1">
-          <Carts checkout={false} />
+          <BillingAddress />
         </div>
         <div className="flex-1">
-          <OrderTotal />
-          <CartButton title="Checkout" link="/checkout" />
+          <p className="mb-6">Order Summary</p>
+          <Carts checkout={true} />
         </div>
       </div>
     </div>
