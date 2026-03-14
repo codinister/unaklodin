@@ -47,7 +47,7 @@ const AddToCartBtn = ({
           <h6>Added to Cart!</h6>
         </SheetTitle>
         <div className="h-full pb-10 overflow-y-scroll">
-          <Carts />
+          <Carts checkout={false} />
           <EstTotal />
         </div>
       </SheetContent>

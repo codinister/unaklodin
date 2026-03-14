@@ -4,12 +4,9 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import useGetQuery from '@/state/query/useGetQuery';
+import CartTotal from './CartTotal';
 
 const EstTotal = () => {
-  const { selector } = useDispatchselector();
-  const cartData = selector((state) => state.cartSlice);
-
-  const sett = useGetQuery('settings', '/settings');
   return (
     <div className="mt-4 px-4">
       <div className="flex justify-between mb-4">
@@ -19,14 +16,11 @@ const EstTotal = () => {
         </div>
         <div>
           <h6>
-            {sett[0]?.currency} 
-            {Object.values(cartData.carts).reduce((a, b) => {
-              return a + b.total;
-            }, 0)}
+            <CartTotal />
           </h6>
         </div>
       </div>
-      <Link href="/cart" >
+      <Link href="/cart">
         <Button className="w-full">View Cart</Button>
       </Link>
     </div>

@@ -4,7 +4,7 @@ import useDispatchselector from '@/state/redux/useDispatchselector';
 import CartItems from './CartItems';
 import CheckoutItems from './CheckoutItems';
 
-const Carts = ({ checkout = false }: { checkout: boolean }) => {
+const Carts = ({ checkout }: { checkout: boolean }) => {
   const { dispatch, selector } = useDispatchselector();
 
   const cartData = selector((state) => state.cartSlice);
