@@ -3,9 +3,9 @@ import { addCart, deleteCart } from '@/state/redux/reducers/cartSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { useState } from 'react';
-import CartItems from './CartItems';
-import { ValueError } from 'sanity';
+
 import EstTotal from './EstTotal';
+import Carts from './Carts';
 
 const AddToCartBtn = ({
   data,
@@ -16,10 +16,8 @@ const AddToCartBtn = ({
   getSize: string;
   getColour: string;
 }) => {
-  const { dispatch, selector } = useDispatchselector();
+  const { dispatch } = useDispatchselector();
   const [open, setOpen] = useState(false);
-
-  const cartData = selector((state) => state.cartSlice);
 
   const handleClick = () => {
     dispatch(
@@ -36,36 +34,6 @@ const AddToCartBtn = ({
     );
   };
 
-  const incrementalFn = (val: cartItemType) => {
-    const qty = val.qty + 1;
-    const total = val.price * qty;
-    dispatch(
-      addCart({
-        ...val,
-        qty,
-        total,
-      }),
-    );
-  };
-
-  const decrementalFn = (val: cartItemType) => {
-    const qty = val.qty - 1;
-    if (qty > 0) {
-      const total = val.price * qty;
-      dispatch(
-        addCart({
-          ...val,
-          qty,
-          total,
-        }),
-      );
-    }
-  };
-
-  const deletecartFn = (id: string) => {
-    dispatch(deleteCart(id));
-  };
-
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
@@ -79,16 +47,7 @@ const AddToCartBtn = ({
           <h6>Added to Cart!</h6>
         </SheetTitle>
         <div className="h-full pb-10 overflow-y-scroll">
-          {Object.values(cartData.carts).map((v, k) => (
-            <CartItems
-              key={k}
-              value={v}
-              incrementalFn={incrementalFn}
-              decrementalFn={decrementalFn}
-              deletecartFn={deletecartFn}
-            />
-          ))}
-
+          <Carts />
           <EstTotal />
         </div>
       </SheetContent>

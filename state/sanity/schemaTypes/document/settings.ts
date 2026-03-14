@@ -74,11 +74,16 @@ export default defineType({
       title: 'Digital Address',
       type: 'string',
     }),
-        defineField({
+    defineField({
       name: 'currency',
       title: 'Currency',
       type: 'string',
-      initialValue: 'GHS'
-    })
+      initialValue: 'GHS',
+    }),
+    defineField({
+      name: 'body',
+      title: 'Note',
+      type: 'blockContent',
+    }),
   ],
 });

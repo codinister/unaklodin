@@ -27,7 +27,6 @@ const CartItems = ({
           backgroundPosition: 'top',
         }}
       >
-
         <span className="w-6 h-6 rounded-full bg-secondary text-white flex justify-center items-center absolute top-2 left-2 cursor-pointer" title="Remove" onClick={()=> deletecartFn(value.id)}>
           x
         </span>
