@@ -8,8 +8,8 @@ import PostContent from '@/components/post/PostContent';
 const Post = () => {
   return (
     <div className="cont">
-      <div className="flex flex-col sm:flex-row gap-10">
-        <div className="flex flex-col sm:flex-row flex-wrap gap-10 flex-5">
+      <div className="flex flex-col sm:flex-row gap-6">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-10 flex-6">
           <PostContent />
         </div>
         <div className="flex-3 bg-muted">
