@@ -2,6 +2,7 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
 const AboutWidget = () => {
   const about = useGetQuery('about', '/about') || [];
@@ -18,7 +19,9 @@ const AboutWidget = () => {
       <div className="text-center">
         <h6 className="mb-2">{about[1]?.title}</h6>
         <p className="my-10">{about[1]?.excerpt}</p>
+        <Link href="/about">
         <Button variant="outline">About Us</Button>
+        </Link>
       </div>
     </div>
   );
