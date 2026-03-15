@@ -41,13 +41,13 @@ const PostContent = () => {
         <div>
           {data[0]?.content.map((v: any, k: number) => (
             <div className="mb-10" key={k}>
-              <PortableText value={v.body} />
+              <PortableText value={v.body ? v.body : ''} />
             </div>
           ))}
         </div>
 
         <div className="flex gap-10 flex-wrap flex-col sm:flex-row my-15">
-          {data[0]?.gallery.map((v: string, k: number) => (
+          {data[0]?.gallery ? data[0]?.gallery.map((v: string, k: number) => (
             <div
               className="h-60 cursor-pointer basis-82 rounded-xl"
               style={{
@@ -58,14 +58,14 @@ const PostContent = () => {
               onClick={() => handleClick(v)}
               key={k}
             ></div>
-          ))}
+          )): ''}
         </div>
         <div>
-          {data[0]?.youtube.map((v: string, k: number) => (
+          {data[0]?.youtube ? data[0]?.youtube.map((v: string, k: number) => (
             <div key={k} className="mb-10">
               <PostYoutube width="100%" height="400" url={v} />
             </div>
-          ))}
+          )): ''}
         </div>
       </div>
       <Modal img={img} showModal={showModal} setShowModal={setShowModal} />
