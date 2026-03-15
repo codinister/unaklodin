@@ -40,7 +40,7 @@ const ModalContent = ({
           <motion.div
             className="overflow-y-scroll z-20 fixed 
             w-[80%]
-            sm:w-[50%] h-130 left-[50%] top-[50%] transform -translate-y-[50%] -translate-x-[50%]"
+            sm:w-[50%] max-h-130 left-[50%] top-[50%] transform -translate-y-[50%] -translate-x-[50%]"
             initial={{
               opacity: 0,
             }}

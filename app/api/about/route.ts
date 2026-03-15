@@ -12,6 +12,11 @@ export async function GET() {
     *[_type == 'about']{
     title, 
     body,
+    'excerpt': array::join(
+    string::split(
+    (pt::text(body)), ''
+    )[0..120] , ''
+    )+"...", 
     'image': image.img.asset->url, 
     'gallery': cards[]{
     title, 
