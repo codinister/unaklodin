@@ -12,7 +12,7 @@ const MenWidget = () => {
   const data: ItemTypes[] = state?.data || [];
 
   return (
-    <div className="bg-white p-6 rounded-xl mb-10 sm:mx-6">
+    <div className="bg-white sm:p-6 rounded-xl mb-10 sm:mx-6">
       {data.slice(0, 5).map((v, k) => (
         <Link key={k} href={`/item/${v.id}`}>
           <div
