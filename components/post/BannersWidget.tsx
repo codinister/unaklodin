@@ -13,7 +13,7 @@ const BannersWidget = () => {
   const data = useGetQuery('banners', '/banners') || [];
 
   return (
-    <div className="sm:w-90 w-80 mx-auto mb-10 ">
+    <div className="sm:w-90 w-80 mx-auto  ">
       <Carousel  className="w-full">
         <CarouselContent>
           {data.map(

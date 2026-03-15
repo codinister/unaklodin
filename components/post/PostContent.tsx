@@ -31,7 +31,7 @@ const PostContent = () => {
           ))}
         </div>
 
-        <div className="mb-6">
+        <div className="mb-6 mt-6">
           {data[0]?.gallery
             ? data[0]?.gallery.map((v: string, k: number) => (
                 <div className="mb-6" key={k}>

@@ -2,6 +2,7 @@
 
 import AboutWidget from '@/components/post/AboutWidget';
 import BannersWidget from '@/components/post/BannersWidget';
+import FeaturedVideo from '@/components/post/FeaturedVideo';
 import MenWidget from '@/components/post/MenWidget';
 import PostContent from '@/components/post/PostContent';
 
@@ -13,14 +14,16 @@ const Post = () => {
           <PostContent />
         </div>
         <div className="flex-3 bg-muted">
+          <AboutWidget />
+          <FeaturedVideo />
+
+          <MenWidget />
+          <BannersWidget />
           <iframe
             src="https://widgets.sociablekit.com/facebook-page-posts/iframe/25663282"
             width="100%"
             height="500px"
           ></iframe>
-          <AboutWidget />
-          <MenWidget />
-          <BannersWidget />
         </div>
       </div>
     </div>

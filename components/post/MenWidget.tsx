@@ -12,14 +12,14 @@ const MenWidget = () => {
   const data: ItemTypes[] = state?.data || [];
 
   return (
-    <div className="bg-white sm:p-6 rounded-xl mb-10 sm:mx-6">
+    <div className=" bg-white   my-6">
       {data.slice(0, 5).map((v, k) => (
         <Link key={k} href={`/item/${v.id}`}>
           <div
             className="mb-6  flex gap-6 flex-wrap flex-col sm:flex-row"
           >
             <div
-              className="h-20 p-40 sm:p-0 flex-2"
+              className="h-25 p-40 sm:p-0 flex-3"
               style={{
                 backgroundImage: `url(${v.thumbnail})`,
                 backgroundSize: 'cover',
@@ -27,9 +27,9 @@ const MenWidget = () => {
               }}
             ></div>
 
-            <div className="flex-4 flex items-center">
+            <div className="flex-3 flex items-center">
               <div>
-                <p className="mb-2">{v.title}</p>
+                <p className="font-bold mb-2">{v.title}</p>
                 <p className="font-bold">
                   {sett[0]?.currency}
                   {v.price}
