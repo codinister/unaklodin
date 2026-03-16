@@ -26,7 +26,7 @@ const PostCard = ({
         ></div>
         <div className="bg-white">
           <h6>{v.title}</h6>
-          <p className="my-6">{v.excerpt}</p>
+          <p className="mt-6">{v.excerpt}</p>
         </div>
       </Link>
     </div>
