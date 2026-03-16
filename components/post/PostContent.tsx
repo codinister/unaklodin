@@ -48,7 +48,7 @@ const PostContent = () => {
           {data[0]?.youtube
             ? data[0]?.youtube.map((v: string, k: number) => (
                 <div key={k} className="mb-6">
-                  <PostYoutube width="100%" height="400" url={v} />
+                  <PostYoutube  url={v} />
                 </div>
               ))
             : ''}

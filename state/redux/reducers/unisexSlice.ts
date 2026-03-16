@@ -34,12 +34,12 @@ const unisexSlice = createSlice({
         state.pending = 'Unisex data fetching in progress';
       })
       .addCase(unisexThunk.fulfilled, (state, action) => {
-        const result =
+        const result = action.payload ?
           action.payload.sort((a: { price: number }, b: { price: number }) => {
             if (a.price > b.price) return 1;
             else if (a.price < b.price) return -1;
             else return 0;
-          }) || [];
+          }) : [];
 
         state.data = result;
         state.dupData = result;

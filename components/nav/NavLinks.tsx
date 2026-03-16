@@ -38,7 +38,8 @@ const NavLinks = ({
   return (
     <div>
       <div className="p-6">
-        <Logo height={190} width={200} />
+        <Logo onClick={()=> closeMenu(false)} 
+        height={190} width={200} />
       </div>
 
       <ul className={clss}>

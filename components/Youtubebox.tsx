@@ -1,13 +1,24 @@
+import { useEffect, useState } from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
 const getYouTubeID = require('get-youtube-id');
 
 type UR = {
   url: string;
-  width: string;
-  height: string;
 };
 
-const Youtubebox = ({ url, width, height }: UR) => {
+const Youtubebox = ({ url }: UR) => {
+
+
+  const [getHeight, setHeight] = useState('500');
+
+  useEffect(() => {
+    const size = window.innerWidth;
+    if (size < 769) {
+      setHeight('270');
+    }
+  }, []);
+
+
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     event.target.playVideo();
     event.target.mute();
@@ -17,12 +28,11 @@ const Youtubebox = ({ url, width, height }: UR) => {
     event.target.playVideo();
   };
 
-  const VIDEO_WIDTH = width;
-  const VIDEO_HEIGHT = height;
+
 
   const opts: YouTubeProps['opts'] = {
-    height: VIDEO_HEIGHT,
-    width: VIDEO_WIDTH,
+    height: getHeight,
+    width: '100%',
     mute: 1,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters

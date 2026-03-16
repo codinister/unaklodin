@@ -1,20 +1,28 @@
+import { useEffect, useState } from 'react';
 import YouTube, { YouTubeProps } from 'react-youtube';
 const getYouTubeID = require('get-youtube-id');
 
 type UR = {
   url: string;
-  width: string;
-  height: string;
 };
 
-const PostYoutube = ({ url, width, height }: UR) => {
+const PostYoutube = ({ url}: UR) => {
 
-  const VIDEO_WIDTH = width;
-  const VIDEO_HEIGHT = height;
+  const [getHeight, setHeight] = useState('400');
+
+  useEffect(() => {
+    const size = window.innerWidth;
+    if (size < 769) {
+      setHeight('200');
+    }
+  }, []);
+
+
+
 
   const opts: YouTubeProps['opts'] = {
-    height: VIDEO_HEIGHT,
-    width: VIDEO_WIDTH,
+    height: getHeight,
+    width: '100%',
     mute: 1,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters

@@ -3,14 +3,22 @@
 import useGetQuery from '@/state/query/useGetQuery';
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 
-const Logo = ({ width, height }: { width: number; height: number }) => {
+
+type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  width: number;
+  height: number;
+};
+
+const Logo = ( { width, height, ...props }: Props) => {
   const sett = useGetQuery('settings', '/settings') || [];
+
 
   return (
     <div>
       {sett[0] ? (
-        <Link href="/">
+        <Link {...props} href="/"  >
         <Image src={sett[0]?.logo} alt="" width={width} height={height} />
         </Link>
       ) : (

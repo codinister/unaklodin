@@ -22,7 +22,7 @@ const MobileNav = () => {
 
   return (
     <nav className={`${getCount > 0.1 ? 'fixed top-0 left-0 shadow-lg bg-white/75 z-20' : ''} w-full block sm:hidden p-6`}>
-      <div className="flex gap-6 cont mx-auto">
+      <div className="flex justify-between  mx-auto">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
             <Title></Title>
@@ -37,7 +37,7 @@ const MobileNav = () => {
           </SheetContent>
         </Sheet>
 
-        <div className="flex-3 flex items-center justify-end">
+        <div className="flex-8  flex items-center justify-center">
           <Searchbox />
         </div>
         <div className="flex-1 flex items-center justify-end">
