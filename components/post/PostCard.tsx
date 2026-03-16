@@ -14,7 +14,7 @@ const PostCard = ({
   };
 }) => {
   return (
-    <div className="sm:basis-82 grow   mb-6">
+    <div className="sm:basis-82 sm:grow   mb-6">
       <Link href={`/post/${v.id}`}>
         <div
           className="py-40 sm:py-0 h-55 mb-6"
