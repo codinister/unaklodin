@@ -19,5 +19,10 @@ export default defineType({
         layout: 'grid',
       },
     }),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    })
   ]
 });

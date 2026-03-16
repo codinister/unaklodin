@@ -38,7 +38,7 @@ const MainCategories = () => {
       <div
         className="flex-1 h-100
       sm:p-0
-      p-50
+      py-50
       relative 
     
       "
