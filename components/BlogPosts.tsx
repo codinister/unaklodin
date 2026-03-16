@@ -19,9 +19,9 @@ const BlogPosts = () => {
         <h3>Our Blog</h3>
       </div>
 
-      <div className="flex-col sm:flex-row flex gap-10">
+      <div className="flex-col sm:flex-row flex gap-4">
         {data
-          .slice(0, 3)
+          .slice(0, 4)
           .map(
             (
               v: { title: string; thumb: string; excerpt: string; id: string },
