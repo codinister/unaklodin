@@ -14,10 +14,10 @@ const PostCard = ({
   };
 }) => {
   return (
-    <div className="sm:basis-82 grow   mb-8">
+    <div className="sm:basis-82 grow   mb-6">
       <Link href={`/post/${v.id}`}>
         <div
-          className="p-40 sm:p-0 h-55 mb-6"
+          className="py-40 sm:py-0 h-55 mb-6"
           style={{
             backgroundImage: `url(${v.thumb})`,
             backgroundSize: 'cover',
