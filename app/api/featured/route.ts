@@ -9,6 +9,7 @@ export async function GET() {
   try {
     const data = await serverConfig.fetch(groq`
     *[_type == 'men' || _type == 'women' || _type == 'unisex']{
+    'id': _id,
     'image': items.thumbnail.img.asset->url,
     'product': items.product,
     'sub_title': items.sub_title
