@@ -13,11 +13,11 @@ const Blog = () => {
         <PostHero />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-10 flex-wrap">
+      <div className="flex flex-col sm:flex-row gap-6 flex-wrap">
 
 
 
-        <div className="flex flex-col sm:flex-row flex-wrap gap-10 flex-5">
+        <div className="flex flex-col sm:flex-row flex-wrap gap-4 flex-5">
           <Posts />
         </div>
 

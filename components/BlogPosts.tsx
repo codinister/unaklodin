@@ -21,7 +21,7 @@ const BlogPosts = () => {
 
       <div className="flex-col sm:flex-row flex gap-4">
         {data
-          .slice(0, 4)
+          .slice(0, 3)
           .map(
             (
               v: { title: string; thumb: string; excerpt: string; id: string },
@@ -36,7 +36,7 @@ const BlogPosts = () => {
         href="/blog"
         className="mt-12 mx-auto block w-max text-primary  border-b border-b-primary"
       >
-        <h6>View All</h6>
+        <Button>View All</Button>
       </Link>
     </div>
   );

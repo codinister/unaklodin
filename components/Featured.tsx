@@ -19,32 +19,30 @@ const Featured = () => {
         <CarouselContent>
           {data.map(
             (
-              v: { image: string; product: string; sub_title: string },
+              v: { image: string; product: string; sub_title: string; id: string },
               k: number,
             ) => (
               <CarouselItem key={k} className="basis-full sm:basis-1/4 pl-1">
-                <div
-                  className="h-75
+                <Link href={`/item/${v.id}`}>
+                  <div
+                    className="h-75
                     text-white
                     flex  
                     items-end 
                     relative  
                     "
-                  style={{
-                    backgroundImage: `url(${v.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'top',
-                  }}
-                >
-                  <div className="p-8 sm:p-4 bg-linear-to-t from-black to-transparent w-full">
-                    <p className="font-extrabold">{v.product}</p>
-                    <p className="mb-4 text-white/80">{v.sub_title}</p>
-
-                    <Link  href="/men">
-                      <Button>Shop men</Button>
-                    </Link>
+                    style={{
+                      backgroundImage: `url(${v.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'top',
+                    }}
+                  >
+                    <div className="p-8 sm:p-4 bg-linear-to-t from-black to-transparent w-full">
+                      <p className="font-extrabold">{v.product}</p>
+                      <p className="mb-4 text-white/80">{v.sub_title}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </CarouselItem>
             ),
           )}

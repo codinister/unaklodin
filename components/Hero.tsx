@@ -11,7 +11,7 @@ const Hero = () => {
     <div className="relative">
       <Youtubebox
         width="100%"
-        height="400"
+        height="500"
         url={heroData[0] ? heroData[0]?.link : ''}
       />
 
