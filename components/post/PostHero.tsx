@@ -11,9 +11,9 @@ const PostHero = () => {
 
   return (
     <div
-      className="h-150 before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:-z-1 text-white relative z-2
+      className="sm:h-150 py-50 sm:py-0 before:content-[''] before:absolute before:inset-0 before:bg-black/40 before:-z-1 text-white relative z-2
       flex items-center justify-start
-      p-10
+      my-10
       "
       style={{
         backgroundImage: `url(${data[num]?.thumb})`,
