@@ -3,8 +3,10 @@
 import BillingAddress from '@/components/singleItem/BillingAddress';
 import Carts from '@/components/singleItem/Carts';
 import OrderTotal from '@/components/singleItem/OrderTotal';
+import useRedirect from '@/utils/useRedirect';
 
-const Cart = () => {
+const Checkout = () => {
+    useRedirect()
   return (
     <div className="cont">
       <div className="py-10 flex gap-20 flex-col sm:flex-row">
@@ -21,4 +23,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Checkout

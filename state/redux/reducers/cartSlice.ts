@@ -33,8 +33,18 @@ const cartSlice = createSlice({
       };
     },
     addCart(state, actions) {
-      const { id, title, price, size, colour, thumbnail, qty, total, createdAt, date } =
-        actions.payload;
+      const {
+        id,
+        title,
+        price,
+        size,
+        colour,
+        thumbnail,
+        qty,
+        total,
+        createdAt,
+        date,
+      } = actions.payload;
 
       state.carts = {
         ...state.carts,
@@ -47,8 +57,8 @@ const cartSlice = createSlice({
           size,
           colour,
           thumbnail,
-          createdAt, 
-          date
+          createdAt,
+          date,
         },
       };
     },
@@ -59,9 +69,12 @@ const cartSlice = createSlice({
         delete state.carts[id];
       }
     },
+    clearCart(state) {
+      state.carts = {};
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addBilling, deleteBilling, addCart, deleteCart } =
+export const { addBilling,clearCart, deleteBilling, addCart, deleteCart } =
   cartSlice.actions;

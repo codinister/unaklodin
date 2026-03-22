@@ -3,8 +3,12 @@ import format_number from '@/utils/format_number';
 
 import { Button } from './ui/button';
 import useCartBilling from '@/utils/useCartBilling';
+import useDispatchselector from '@/state/redux/useDispatchselector';
+import { clearCart, deleteBilling } from '@/state/redux/reducers/cartSlice';
+import useRedirect from '@/utils/useRedirect';
 
 const Paystack = () => {
+useRedirect()
   const {
     currency,
     amount,
@@ -12,6 +16,8 @@ const Paystack = () => {
     reference,
     date,
   } = useCartBilling();
+
+  const { dispatch } = useDispatchselector();
 
   const onSuccess = (reference: string) => {
     // Implementation for whatever you want to do with reference and after success call.
@@ -24,17 +30,20 @@ const Paystack = () => {
     console.log('closed');
   };
 
+  const cancelOrder = () => {
+        dispatch(deleteBilling());
+    dispatch(clearCart());
+  };
+
   const config = {
     reference,
     email,
     currency,
     amount: Number(amount * 100), //Amount is in the country's lowest currency. E.g Pesewas, so 100 pesewas = 10 pesewas
-    publicKey: 'pk_live_86d2df60ee9f3ef0336b8db3cd09ecb92d00a22b',
+    publicKey: 'pk_live_e801cc080f71f773de0c92dbffe79ea8e91dbeb7',
   };
 
   const initializePayment = usePaystackPayment(config);
-
-  const cancelOrder = () => {};
 
   return (
     <>
