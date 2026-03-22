@@ -8,13 +8,13 @@ import {
   CarouselPrevious,
 } from '../ui/carousel';
 
-const ItemGallery = ({ gallery, id }: { gallery: string[]; id: string }) => {
+const ItemGallery = ({ gallery, id, fn }: { gallery: string[]; id: string; fn: Function }) => {
   return (
     <Carousel className="w-full">
       <CarouselContent>
         {gallery.map((v, k: number) => (
           <CarouselItem key={k} className="basis-full">
-            <Link href={`/item/${id}`}>
+            <Link onClick={()=>fn(false)} href={`/item/${id}`}>
               <div
                 className="sm:h-75 lg:h-80 sm:py-0  py-50 sm:p-0"
                 style={{

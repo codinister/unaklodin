@@ -21,7 +21,7 @@ const CountryDropdown = ({ form }: { form: any }) => {
               onValueChange={(value) => field.onChange(value)}
               value={field.value?.toString()}
             >
-              <SelectTrigger>
+              <SelectTrigger className="border border-gray-600 w-full" >
                 <SelectValue placeholder="Select Country" />
               </SelectTrigger>
               <SelectContent>

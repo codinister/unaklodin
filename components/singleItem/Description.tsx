@@ -5,13 +5,11 @@ import getColours from '@/utils/getColours';
 import Colour from '../Colour';
 import getSizes from '@/utils/getSizes';
 import useGetQuery from '@/state/query/useGetQuery';
-import { Button } from '../ui/button';
 import { useEffect, useState } from 'react';
-import useDispatchselector from '@/state/redux/useDispatchselector';
-import { addCart } from '@/state/redux/reducers/cartSlice';
 import AddToCartBtn from './AddToCartBtn';
 
 const Description = ({ data }: { data: ItemTypes[] }) => {
+
   const sett = useGetQuery('settings', '/settings');
   const sizes = getSizes(data);
   const colors = getColours(data);

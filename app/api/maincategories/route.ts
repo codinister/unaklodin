@@ -9,13 +9,15 @@ export async function GET() {
   try {
     const men = await serverConfig.fetch(groq`
     *[_type == 'men'][0]{
-    'menImg': items.thumbnail.img.asset->url
+    'menImg': items.thumbnail.img.asset->url, 
+    'menTitle': title
     }
     `);
 
     const women = await serverConfig.fetch(groq`
     *[_type == 'women'][4]{
-    'womenImg': items.thumbnail.img.asset->url
+    'womenImg': items.thumbnail.img.asset->url, 
+    'womenTitle': title
     }
     `);
 

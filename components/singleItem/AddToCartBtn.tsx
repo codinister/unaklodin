@@ -1,5 +1,5 @@
-import { cartItemType, ItemTypes } from '@/types/types';
-import { addCart, deleteCart } from '@/state/redux/reducers/cartSlice';
+import { ItemTypes } from '@/types/types';
+import { addCart } from '@/state/redux/reducers/cartSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { useState } from 'react';
@@ -30,6 +30,7 @@ const AddToCartBtn = ({
         size: getSize,
         colour: getColour,
         thumbnail: data[0]?.thumbnail,
+        createdAt: data[0]?.createdAt
       }),
     );
   };
@@ -44,7 +45,7 @@ const AddToCartBtn = ({
       </SheetTrigger>
       <SheetContent side="right" className="w-[85%] sm:w-[40%]">
         <SheetTitle className="border-b border-b-gray-400 p-3">
-          <h6>Added to Cart!</h6>
+          <span className="text-[24px]">Added to Cart!</span>
         </SheetTitle>
         <div className="h-full pb-10 overflow-y-scroll">
           <Carts checkout={false} />

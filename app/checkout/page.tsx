@@ -1,9 +1,7 @@
 'use client';
 
 import BillingAddress from '@/components/singleItem/BillingAddress';
-import CartButton from '@/components/singleItem/CartButton';
 import Carts from '@/components/singleItem/Carts';
-import ItemsTotal from '@/components/singleItem/ItemsTotal';
 import OrderTotal from '@/components/singleItem/OrderTotal';
 
 const Cart = () => {
@@ -14,8 +12,9 @@ const Cart = () => {
           <BillingAddress />
         </div>
         <div className="flex-1">
-          <p className="mb-6">Order Summary</p>
+          <p className="mb-6 font-bold">Order Summary</p>
           <Carts checkout={true} />
+          <OrderTotal />
         </div>
       </div>
     </div>

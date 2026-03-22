@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-const ItemImage = ({ img, id }: { img: string; id: string }) => {
+const ItemImage = ({ img, id, fn }: { img: string; id: string ; fn: Function}) => {
   return (
-     <Link href={`/item/${id}`}>
+     <Link onClick={()=>fn(false)} href={`/item/${id}`}>
     <div
       style={{
         backgroundImage: `url(${img})`,

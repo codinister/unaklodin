@@ -161,9 +161,11 @@
   ul{
     list-style: none;
   }
+
 }
 
 @layer utilities {
+
   .mob-menus {
     margin-top: 2.5rem;
     padding-block: 1.5rem;

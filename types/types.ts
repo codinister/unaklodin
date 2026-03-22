@@ -1,3 +1,6 @@
+import { billing } from '@/schema/schemaTypes';
+import { z } from 'zod';
+
 export type ItemTypes = {
   id: string;
   type: string;
@@ -42,6 +45,7 @@ export type ItemCard = {
   img: string;
   gallery: string[];
   currency: string;
+  closeOpenFn?: Function
 };
 
 export type cartItemType = {
@@ -53,8 +57,10 @@ export type cartItemType = {
   size: string;
   colour: string;
   thumbnail: string;
+  createdAt: string;
 };
 
 export type cartType = {
   carts: Record<string, cartItemType>;
+  billingInfo: z.infer<typeof billing>
 };

@@ -5,6 +5,8 @@ import ItemImage from './ItemImage';
 import ItemGallery from './ItemGallery';
 
 
+
+
 const Item = ({
   id,
   title,
@@ -13,16 +15,17 @@ const Item = ({
   img,
   gallery,
   currency,
+  closeOpenFn
 }: ItemCard) => {
 
 
   return (
     <>
       <div>
-        {gallery.length > 0 ? (
-          <ItemGallery id={id} gallery={gallery} />
+        {gallery?.length > 0 ? (
+          <ItemGallery fn={closeOpenFn} id={id} gallery={gallery} />
         ) : (
-          <ItemImage  id={id} img={img} />
+          <ItemImage fn={closeOpenFn}  id={id} img={img} />
         )}
       </div>
       <div className="p-6">
