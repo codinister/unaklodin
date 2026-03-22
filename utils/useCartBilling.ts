@@ -30,7 +30,7 @@ const useCartBilling = () => {
 
   const currency = sett[0]?.currency.toUpperCase();
   const reference = new Date().getTime().toString();
-  const createdAt = Object.values(ct)[0]?.createdAt;
+  const createdAt = Object.values(ct)[0]?.date;
   const date = formatDate(createdAt);
   return { currency, amount, info, reference, date };
 };

@@ -29,10 +29,11 @@ const Men = () => {
       <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
         {data.map((v, k) => {
           const totalColours = v.colour ? getColour(v.colour).length : 1;
-
+const fn = (val: Boolean)=>{}
           return (
             <div className="sm:basis-92" key={k}>
               <Item
+              closeOpenFn={fn}
               id={v.id}
                 title={v.title}
                 price={v.price}

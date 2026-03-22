@@ -33,7 +33,7 @@ const cartSlice = createSlice({
       };
     },
     addCart(state, actions) {
-      const { id, title, price, size, colour, thumbnail, qty, total, createdAt } =
+      const { id, title, price, size, colour, thumbnail, qty, total, createdAt, date } =
         actions.payload;
 
       state.carts = {
@@ -47,7 +47,8 @@ const cartSlice = createSlice({
           size,
           colour,
           thumbnail,
-          createdAt
+          createdAt, 
+          date
         },
       };
     },

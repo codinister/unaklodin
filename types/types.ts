@@ -22,6 +22,7 @@ export type ItemTypes = {
   stock: number;
   sub_title: string;
   thumbnail: string;
+  date: string;
 };
 
 export type stateTypes = {
@@ -45,7 +46,7 @@ export type ItemCard = {
   img: string;
   gallery: string[];
   currency: string;
-  closeOpenFn?: Function
+  closeOpenFn: Function;
 };
 
 export type cartItemType = {
@@ -58,9 +59,10 @@ export type cartItemType = {
   colour: string;
   thumbnail: string;
   createdAt: string;
+  date: string;
 };
 
 export type cartType = {
   carts: Record<string, cartItemType>;
-  billingInfo: z.infer<typeof billing>
+  billingInfo: z.infer<typeof billing>;
 };

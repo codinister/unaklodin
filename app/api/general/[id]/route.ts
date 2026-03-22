@@ -1,14 +1,22 @@
 import Links from '@/components/nav/Links';
 import serverConfig from '@/state/sanity/server.config';
+import { ItemTypes } from '@/types/types';
 import { groq } from 'next-sanity';
 import { NextRequest, NextResponse } from 'next/server';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
-export async function GET(req: NextRequest,{params}: {params: Promise<{id: string}>}) {
-const id = (await params).id
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const id = (await params).id;
+
+  const date = new Date().toISOString();
+
   try {
-    const data = await serverConfig.fetch(groq`
+    const data = await serverConfig.fetch(
+      groq`
     *[_id == $id]{
     'type': _type, 
     'createdAt' : _createdAt, 
@@ -32,8 +40,15 @@ const id = (await params).id
     "thumbnail": items.thumbnail.img.asset->url
     
     }
-    `, {id});
-    return NextResponse.json(data);
+    `,
+      { id },
+    );
+    return NextResponse.json(
+      data.map((v: ItemTypes) => ({
+        ...v,
+        date,
+      })),
+    );
   } catch (err) {
     console.log(err);
   }

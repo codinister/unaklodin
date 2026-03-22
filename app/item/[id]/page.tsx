@@ -23,7 +23,6 @@ const Item = () => {
 
   const data = useGetQuery('general', `/general/${id}`) || [];
 
-
   const { scrollYProgress } = useScroll();
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {

@@ -40,11 +40,12 @@ const Women = () => {
             .filter((v) => v.cat === decodeURIComponent(String(param.id)))
             .map((v, k) => {
               const totalColours = v.colour ? getColour(v.colour).length : 1;
-
+              const fn = (val: Boolean) => {};
               return (
                 <div className="sm:basis-92" key={k}>
                   <Item
-                  id={v.id}
+                    closeOpenFn={fn}
+                    id={v.id}
                     title={v.title}
                     price={v.price}
                     totalColours={totalColours}

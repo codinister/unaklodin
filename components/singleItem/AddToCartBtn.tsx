@@ -30,7 +30,8 @@ const AddToCartBtn = ({
         size: getSize,
         colour: getColour,
         thumbnail: data[0]?.thumbnail,
-        createdAt: data[0]?.createdAt
+        createdAt: data[0]?.createdAt, 
+        date: data[0]?.date
       }),
     );
   };

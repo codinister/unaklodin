@@ -1,11 +1,13 @@
 import Links from '@/components/nav/Links';
 import serverConfig from '@/state/sanity/server.config';
+import { ItemTypes } from '@/types/types';
 import { groq } from 'next-sanity';
 import { NextResponse } from 'next/server';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
+  const date = new Date().toISOString();
 
   try {
     const data = await serverConfig.fetch(groq`
@@ -33,7 +35,12 @@ export async function GET() {
     
     }
     `);
-    return NextResponse.json(data);
+    return NextResponse.json(
+      data.map((v: ItemTypes) => ({
+        ...v,
+        date,
+      })),
+    );
   } catch (err) {
     console.log(err);
   }
