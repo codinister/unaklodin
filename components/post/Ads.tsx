@@ -12,8 +12,8 @@ const Ads = () => {
       {data.length > 0
         ? data.map(
             (v: { image: string; title: string; link: string }, k: number) => (
-              <Link key={k} href={v.link} className="mb-4">
-                <Image src={v.image} width={300} height={500} alt="" />
+              <Link key={k} href={v.link} className="block mb-4">
+                <Image src={v.image} width={700} height={900} alt="" />
               </Link>
             ),
           )
