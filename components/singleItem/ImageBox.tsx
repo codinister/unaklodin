@@ -42,7 +42,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
           className={`group relative overflow-hidden   ${v.n1 ? 'flex-1 h-90' : ''} `}
         >
           <div
-            className={`group-hover:scale-400  transform transition-transform duration-500 cursor-pointer   ${v.n1 ? 'h-90' : ''} `}
+            className={`group-hover:scale-400  transform transition-transform duration-500 cursor-pointer   ${v.n1 ? 'h-110' : ''} `}
             style={{
               backgroundImage: `url(${v.n1})`,
               backgroundSize: 'cover',
@@ -56,7 +56,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
           className={`group relative overflow-hidden   ${v.n2 ? 'flex-1 h-90' : ''} `}
         >
           <div
-            className={`group-hover:scale-400  transform transition-transform duration-500 cursor-pointer   ${v.n2 ? 'h-90' : ''} `}
+            className={`group-hover:scale-400  transform transition-transform duration-500 cursor-pointer   ${v.n2 ? 'h-110' : ''} `}
             style={{
               backgroundImage: `url(${v.n2})`,
               backgroundSize: 'cover',
@@ -71,7 +71,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
         className={`mt-1 group relative overflow-hidden   ${v.n3 ? ' h-120' : ''} `}
       >
         <div
-          className={`group-hover:scale-400  transform transition-transform duration-500 cursor-pointer   ${v.n3 ? 'h-120' : ''} `}
+          className={`group-hover:scale-400  transform transition-transform duration-500 cursor-pointer   ${v.n3 ? 'h-200' : ''} `}
           style={{
             backgroundImage: `url(${v.n3})`,
             backgroundSize: 'cover',

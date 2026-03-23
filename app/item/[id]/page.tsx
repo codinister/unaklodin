@@ -45,8 +45,8 @@ const Item = () => {
       </div>
 
       <div className="p-6 sm:p-0 sm:w-200 mx-auto my-15">
-        <Accordion type="single" collapsible defaultValue="" className="w-full">
-          <AccordionItem value="shipping">
+        <Accordion type="single" collapsible defaultValue="desc" className="w-full">
+          <AccordionItem value="desc">
             <AccordionTrigger>
               <h6>{data[0]?.sub_title}</h6>
             </AccordionTrigger>

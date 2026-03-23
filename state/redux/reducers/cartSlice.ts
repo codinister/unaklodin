@@ -3,15 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState: cartType = {
   carts: {},
-  billingInfo: {
-    country: '',
-    firstname: '',
-    lastname: '',
-    email: '',
-    address: '',
-    city: '',
-    phone: '',
-  },
+  billingInfo: {},
 };
 
 const cartSlice = createSlice({
@@ -22,15 +14,7 @@ const cartSlice = createSlice({
       state.billingInfo = actions.payload;
     },
     deleteBilling(state) {
-      state.billingInfo = {
-        country: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-        address: '',
-        city: '',
-        phone: '',
-      };
+      state.billingInfo = {};
     },
     addCart(state, actions) {
       const {
@@ -76,5 +60,5 @@ const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
-export const { addBilling,clearCart, deleteBilling, addCart, deleteCart } =
+export const { addBilling, clearCart, deleteBilling, addCart, deleteCart } =
   cartSlice.actions;

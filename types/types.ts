@@ -64,5 +64,5 @@ export type cartItemType = {
 
 export type cartType = {
   carts: Record<string, cartItemType>;
-  billingInfo: z.infer<typeof billing>;
+  billingInfo: Record<string, z.infer<typeof billing>>;
 };
