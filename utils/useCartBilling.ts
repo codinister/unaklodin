@@ -11,7 +11,7 @@ const useCartBilling = () => {
   const cart = selector((state) => state.cartSlice);
 
   const b = cart?.billingInfo;
-  const ct = cart?.carts;
+  const data = cart?.carts;
 
   const amount = Object.values(cart.carts).reduce((a, b) => {
     return a + b.total;
@@ -30,9 +30,9 @@ const useCartBilling = () => {
 
   const currency = sett[0]?.currency.toUpperCase();
   const reference = new Date().getTime().toString();
-  const createdAt = Object.values(ct)[0]?.date;
+  const createdAt = Object.values(data)[0]?.date;
   const date = formatDate(createdAt);
-  return { currency, amount, info, reference, date };
+  return { data,currency, amount, info, reference, date };
 };
 
 export default useCartBilling;

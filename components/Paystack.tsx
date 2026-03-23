@@ -6,15 +6,19 @@ import useCartBilling from '@/utils/useCartBilling';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { clearCart, deleteBilling } from '@/state/redux/reducers/cartSlice';
 import useRedirect from '@/utils/useRedirect';
+import fetchApi from '@/state/query/fetchApi';
+import useGetQuery from '@/state/query/useGetQuery';
 
 const Paystack = () => {
-useRedirect()
+  const sett = useGetQuery('settings', '/settings');
+  useRedirect();
   const {
     currency,
     amount,
     info: { country, firstname, lastname, email, address, city, phone },
     reference,
     date,
+    data,
   } = useCartBilling();
 
   const { dispatch } = useDispatchselector();
@@ -25,13 +29,42 @@ useRedirect()
   };
 
   // you can call this function anything
-  const onClose = () => {
+  const onClose = async () => {
+    const resp = await fetchApi({
+      url: '/orders',
+      method: 'Post',
+      data: {
+        items: Object.values(data).map((v) => ({
+          title: v.title,
+          size: v.size,
+          colour: v.colour,
+          qty: v.qty,
+          price: v.price,
+          total: v.total,
+        })),
+        customerName: firstname + ' ' + lastname,
+        orderId: reference,
+        total: amount,
+        companyName: sett?.[0].comp_name,
+        companyLogo: sett?.[0].logo,
+        companyLocation: sett?.[0].comp_location, 
+        companyPhone: sett?.[0].phone1,
+        email, 
+        phone, 
+        city, 
+        address,
+        country,
+        date, 
+        currency
+      },
+    });
+
     // implementation for  whatever you want to do when the Paystack dialog closed.
     console.log('closed');
   };
 
   const cancelOrder = () => {
-        dispatch(deleteBilling());
+    dispatch(deleteBilling());
     dispatch(clearCart());
   };
 
