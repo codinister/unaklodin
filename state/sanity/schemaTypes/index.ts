@@ -25,6 +25,7 @@ import colour from './document/colour';
 import banners from './document/banners';
 import bodyCard from './object/bodyCard';
 import policies from './document/policies';
+import ads from './document/ads';
 
 export const schemaTypes = [
   blockContent,
@@ -53,5 +54,6 @@ export const schemaTypes = [
   featured,
   post,
   banners,
-  policies
+  policies, 
+  ads
 ];
