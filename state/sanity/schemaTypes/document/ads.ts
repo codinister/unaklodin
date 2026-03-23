@@ -15,6 +15,7 @@ export default defineType({
       name: 'link',
       title: 'Link',
       type: 'string',
+      description: 'e.g https://www.businessname.com'
     }),
     defineField({
       name: 'image',
