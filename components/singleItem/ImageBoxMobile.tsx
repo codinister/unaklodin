@@ -27,7 +27,7 @@ const ImageBoxMobile = ({ data }: { data: ItemTypes[] }) => {
           {data[0]?.gallery.map((v, k: number) => (
             <CarouselItem key={k} className="basis-full pl-1">
               <div
-                className="h-75
+                className="h-100
                     text-white
                     flex  
                     items-end 

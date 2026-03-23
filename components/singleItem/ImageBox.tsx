@@ -14,7 +14,7 @@ const ImageBox = ({ data }: { data: ItemTypes[] }) => {
     setImg(val);
   };
 
-  const g = data[0]?.gallery;
+  const g = [data[0]?.thumbnail, ...data[0]?.gallery];
   const newArr = [
     {
       n1: g && g[0],
