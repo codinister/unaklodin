@@ -2,59 +2,55 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
-import { useState } from 'react';
 import PostYoutube from './PostYoutube';
 
-const PostContent = () => {
-  const param = useParams();
+const PostContent = ({ id }: { id: string }) => {
 
-  const data = useGetQuery('singlepost', `/single-post/${param.id}`) || [];
+
+
+  const data = useGetQuery(
+    'singlepost',
+    `/single-post/${id}`
+  ) 
+
+  const post = data?.[0];
+
+
+  if (!post) return <p>No post found</p>;
 
   return (
-    <>
-      <div className="py-10">
-        <h5 className="mb-10 font-bold">{data[0]?.title}</h5>
-        <div className="mb-6">
-          {data[0] ? (
-            <Image src={data[0]?.thumb} alt="" width={1000} height={1500} />
-          ) : (
-            ''
-          )}
-        </div>
-        <div>
-          {data[0]?.content.map((v: any, k: number) => (
-            <div className="mb-6" key={k}>
-              <PortableText value={v.body ? v.body : ''} />
-            </div>
-          ))}
-        </div>
+    <div className="py-10">
+      <h5 className="mb-10 font-bold">{post.title}</h5>
 
-        <div className="mb-6 mt-6">
-          {data[0]?.gallery
-            ? data[0]?.gallery.map((v: string, k: number) => (
-                <div className="mb-6" key={k}>
-                  {data[0] ? (
-                    <Image src={v} alt="" width={1000} height={1500} />
-                  ) : (
-                    ''
-                  )}
-                </div>
-              ))
-            : ''}
-        </div>
-        <div>
-          {data[0]?.youtube
-            ? data[0]?.youtube.map((v: string, k: number) => (
-                <div key={k} className="mb-6">
-                  <PostYoutube  url={v} />
-                </div>
-              ))
-            : ''}
-        </div>
+      <div className="mb-6">
+        <Image src={post.thumb} alt={post.title} width={1000} height={1500} />
       </div>
-    </>
+
+      <div>
+        {post.content?.map((v: any, k: number) => (
+          <div className="mb-6" key={k}>
+            <PortableText value={v.body} />
+          </div>
+        ))}
+      </div>
+
+      <div className="mb-6 mt-6">
+        {post.gallery?.map((img: string, k: number) => (
+          <div className="mb-6" key={k}>
+            <Image src={img} alt="" width={1000} height={1500} />
+          </div>
+        ))}
+      </div>
+
+      <div>
+        {post.youtube?.map((url: string, k: number) => (
+          <div key={k} className="mb-6">
+            <PostYoutube url={url} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
