@@ -6,6 +6,7 @@ import FeaturedVideo from '@/components/post/FeaturedVideo';
 import MenWidget from '@/components/post/MenWidget';
 import PostHero from '@/components/post/PostHero';
 import Posts from '@/components/post/Posts';
+import PostSidebar from '@/components/post/PostSidebar';
 
 const Blog = () => {
   return (
@@ -20,16 +21,7 @@ const Blog = () => {
         </div>
 
         <div className="flex-3 bg-muted">
-          <AboutWidget />
-          <FeaturedVideo />
-          <MenWidget />
-          <BannersWidget />
-          <iframe
-            className="mb-10"
-            src="https://widgets.sociablekit.com/facebook-page-posts/iframe/25663282"
-            width="100%"
-            height="500px"
-          ></iframe>
+          <PostSidebar />
         </div>
       </div>
     </div>

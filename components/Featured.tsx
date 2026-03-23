@@ -25,11 +25,14 @@ const Featured = () => {
               <CarouselItem key={k} className="basis-full sm:basis-1/4 pl-1">
                 <Link href={`/item/${v.id}`}>
                   <div
-                    className="h-75
+                    className="sm:h-110
+                    h-140
                     text-white
                     flex  
                     items-end 
                     relative  
+
+                    overflow-hidden
                     "
                     style={{
                       backgroundImage: `url(${v.image})`,

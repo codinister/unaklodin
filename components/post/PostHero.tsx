@@ -22,7 +22,7 @@ const PostHero = () => {
       }}
     >
 
-      <div className="sm:w-100 ">
+      <div className="sm:w-100 p-4 sm:p-6">
       <h6 className="mb-6">{data[num]?.title}</h6>
       <p>{data[num]?.excerpt}</p>
       </div>

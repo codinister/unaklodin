@@ -4,10 +4,15 @@ import useGetQuery from '@/state/query/useGetQuery';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import PostYoutube from './PostYoutube';
+import ShareButtons from './ShareButtons';
+import { usePathname } from 'next/navigation';
 
 const PostContent = ({ id }: { id: string }) => {
 
+const path = usePathname()
 
+const url = 'https://unaklodin.com'+path
+console.log(url)
 
   const data = useGetQuery(
     'singlepost',
@@ -25,7 +30,9 @@ const PostContent = ({ id }: { id: string }) => {
 
       <div className="mb-6">
         <Image src={post.thumb} alt={post.title} width={1000} height={1500} />
-      </div>
+
+   
+       <ShareButtons url={url} title={post.title} excerpt={post.excerpt} />    </div>
 
       <div>
         {post.content?.map((v: any, k: number) => (

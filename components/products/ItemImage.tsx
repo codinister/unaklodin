@@ -11,7 +11,7 @@ const ItemImage = ({ img, id, fn }: { img: string; id: string ; fn: Function}) =
         backgroundSize: 'cover',
         backgroundPosition: 'top',
       }}
-      className="sm:h-75 lg:80  p-50 sm:p-0"
+      className="sm:h-120   py-80 sm:py-0"
     ></div>
     </Link>
   );

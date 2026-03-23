@@ -16,7 +16,7 @@ const ItemGallery = ({ gallery, id, fn }: { gallery: string[]; id: string; fn: F
           <CarouselItem key={k} className="basis-full">
             <Link onClick={()=>fn(false)} href={`/item/${id}`}>
               <div
-                className="sm:h-75 lg:h-80 sm:py-0  py-50 sm:p-0"
+                className="sm:h-120 sm:py-0  py-80 sm:p-0"
                 style={{
                   backgroundImage: `url(${v})`,
                   backgroundSize: 'cover',
