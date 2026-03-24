@@ -37,14 +37,8 @@ const Paystack = () => {
 
   const { dispatch } = useDispatchselector();
 
-  const onSuccess = (reference: string) => {
-    // Implementation for whatever you want to do with reference and after success call.
-    console.log(reference);
-  };
-
-  // you can call this function anything
-  const onClose = async () => {
-    const resp = await fetchApi({
+  const onSuccess = async (reference: string) => {
+     await fetchApi({
       url: '/orders',
       method: 'Post',
       data: {
@@ -76,6 +70,12 @@ const Paystack = () => {
 
     showModal();
 
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+  };
+
+  // you can call this function anything
+  const onClose =  () => {
     // implementation for  whatever you want to do when the Paystack dialog closed.
     console.log('closed');
   };
