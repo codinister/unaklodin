@@ -1,4 +1,5 @@
-
+import { billing } from '@/schema/schemaTypes';
+import { z } from 'zod';
 
 export type ItemTypes = {
   id: string;
@@ -61,17 +62,8 @@ export type cartItemType = {
   date: string;
 };
 
-export type billingType = {
-   country: string;
-    firstname: string;
-    lastname: string;
-    email: string;
-    address: string;
-    city: string;
-    phone: string;
-}
-
 export type cartType = {
   carts: Record<string, cartItemType>;
-  billingInfo: Record<string, any>;
+  billingInfo: z.infer<typeof billing>;
+  
 };

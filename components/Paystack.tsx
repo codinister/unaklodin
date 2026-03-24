@@ -8,8 +8,22 @@ import { clearCart, deleteBilling } from '@/state/redux/reducers/cartSlice';
 import useRedirect from '@/utils/useRedirect';
 import fetchApi from '@/state/query/fetchApi';
 import useGetQuery from '@/state/query/useGetQuery';
+import CardModal from './modal/CardModal';
+import { useState } from 'react';
 
 const Paystack = () => {
+  const [value, setValue] = useState(false);
+
+  const showModal = () => {
+    setValue(true);
+  };
+
+  const hideModal = () => {
+    setValue(false);
+    dispatch(deleteBilling());
+    dispatch(clearCart());
+  };
+
   const sett = useGetQuery('settings', '/settings');
   useRedirect();
   const {
@@ -47,17 +61,20 @@ const Paystack = () => {
         total: amount,
         companyName: sett?.[0].comp_name,
         companyLogo: sett?.[0].logo,
-        companyLocation: sett?.[0].comp_location, 
+        companyLocation: sett?.[0].comp_location,
         companyPhone: sett?.[0].phone1,
-        email, 
-        phone, 
-        city, 
+        email,
+        phone,
+        city,
         address,
         country,
-        date, 
-        currency
+        date,
+        currency,
+        comp_email: sett?.[0].comp_email,
       },
     });
+
+    showModal();
 
     // implementation for  whatever you want to do when the Paystack dialog closed.
     console.log('closed');
@@ -150,6 +167,12 @@ const Paystack = () => {
           CANCEL ORDER
         </Button>
       </div>
+      <CardModal
+        value={value}
+        email={email}
+        showModal={showModal}
+        hideModal={hideModal}
+      />
     </>
   );
 };

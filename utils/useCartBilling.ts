@@ -5,7 +5,6 @@ import format_number from '@/utils/format_number';
 import formatDate from '@/utils/DateFormats';
 import {z} from 'zod'
 import { billing } from '@/schema/schemaTypes';
-import { billingType } from '@/types/types';
 
 const useCartBilling = () => {
   const sett = useGetQuery('settings', '/settings');
@@ -20,7 +19,7 @@ const useCartBilling = () => {
     return a + b.total;
   }, 0);
 
-  const info = {
+  const info: z.infer<typeof billing> = {
     country: b?.country,
     firstname: b?.firstname,
     lastname: b?.lastname,

@@ -20,6 +20,7 @@ import useDispatchselector from '@/state/redux/useDispatchselector';
 import { addBilling } from '@/state/redux/reducers/cartSlice';
 import { Database } from 'lucide-react';
 import Paystack from '../Paystack';
+import CardModal from '../modal/CardModal';
 
 const BillingAddress = () => {
   const { selector, dispatch } = useDispatchselector();
@@ -42,10 +43,10 @@ const BillingAddress = () => {
   };
 
   const {
-    formState: { isSubmitted, isSubmitting },
+    formState: { isSubmitSuccessful, isSubmitting },
   } = form;
 
-  if (isSubmitted) {
+  if (isSubmitSuccessful) {
     return <Paystack />;
   } else {
     return (

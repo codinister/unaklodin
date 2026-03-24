@@ -6,11 +6,11 @@ export async function POST(req: NextRequest) {
   const data = await req.json();
 
   try {
-    const cce = 'codinister@gmail.com';
+    const comp_email = data?.comp_email
     resend.emails.send({
       from: 'sales@unaklodin.com',
       to: data.email,
-      cc: cce,
+      cc: comp_email,
       subject: 'UNA Klodin Order Invoice',
       react: InvoiceEmail({
         customerName: data?.customerName,

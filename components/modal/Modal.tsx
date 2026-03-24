@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import ModalContent from './ModalContent';
-import { AnimatePresence } from 'motion/react';
+
 
 const Modal = ({
   img,
