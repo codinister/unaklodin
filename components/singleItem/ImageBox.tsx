@@ -5,13 +5,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const ImageBox = ({ data }: { data: ItemTypes[] }) => {
-  const g = data[0]?.gallery;
+  const gall = data[0]?.gallery || [];
 
-  const arr = g.map((v, k) => (
+  const arr = gall ? gall.map((v, k) => (
     <div key={k} className="mb-1">
-      <Image src={v} alt="" width={1000} height="2000" />
+      <Image src={v} alt="" width={1000} height={2000} />
     </div>
-  ));
+  )) : ''
 
   return <div>{arr}</div>;
 };
