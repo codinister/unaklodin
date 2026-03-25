@@ -7,9 +7,9 @@ import getSizes from '@/utils/getSizes';
 import useGetQuery from '@/state/query/useGetQuery';
 import { useEffect, useState } from 'react';
 import AddToCartBtn from './AddToCartBtn';
+import { PortableText } from '@portabletext/react';
 
 const Description = ({ data }: { data: ItemTypes[] }) => {
-
   const sett = useGetQuery('settings', '/settings');
   const sizes = getSizes(data);
   const colors = getColours(data);
@@ -32,7 +32,9 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
     <div className="py-7">
       <h6 className="font-bold">{data[0]?.title}</h6>
 
-      <p className="my-6">{data[0]?.excerpt}</p>
+      <div className="my-6">
+        <PortableText value={data[0]?.description} />
+      </div>
 
       <p className="my-10 font-bold">
         {sett[0]?.currency} {data[0]?.price.toLocaleString()}

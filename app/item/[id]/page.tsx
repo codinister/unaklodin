@@ -14,7 +14,6 @@ import {
 } from '@/components/ui/accordion';
 import SimilarItems from '@/components/SimilarItems';
 
-
 const Item = () => {
   const [scrolls, setScrolls] = useState(0);
   const param = useParams();
@@ -29,30 +28,64 @@ const Item = () => {
     setScrolls(latest);
   });
 
+  const feature = data?.[0] ? data[0]?.features : [];
+
   return (
     <>
-      <div className="cont flex-col sm:flex-row flex gap-4">
-
+      <div className="cont flex-col sm:flex-row flex gap-4 mb-6">
         <div className="flex-2">
           <ImageBox data={data} />
+
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue=""
+            className="w-full mt-6"
+          >
+            <AccordionItem
+              className="border-t-gray-400 border-t-2"
+              value="desc"
+            >
+              <AccordionTrigger>
+                <h6>Description</h6>
+              </AccordionTrigger>
+              <AccordionContent>
+                <PortableText value={data[0]?.description} />
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem
+              className="border-t-gray-400 border-t-2"
+              value="features"
+            >
+              <AccordionTrigger>
+                <h6>Features</h6>
+              </AccordionTrigger>
+              <AccordionContent>
+                {feature.map(
+                  (
+                    v: { title: string; sub_title: string; body: any },
+                    k: number,
+                  ) => {
+                    return (
+                      <div key={k} className="mb-6">
+                        <h6>{v.title}</h6>
+                        <p>{v.sub_title}</p>
+                        <div className="mt-4">
+                          <PortableText value={v.body} />
+                        </div>
+                      </div>
+                    );
+                  },
+                )}
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
 
         <div className="flex-1">
           <Description data={data} />
         </div>
-      </div>
-
-      <div className="p-6 sm:p-0 sm:w-200 mx-auto my-15">
-        <Accordion type="single" collapsible defaultValue="desc" className="w-full">
-          <AccordionItem value="desc">
-            <AccordionTrigger>
-              <h6>{data[0]?.sub_title}</h6>
-            </AccordionTrigger>
-            <AccordionContent>
-              <PortableText value={data[0]?.description} />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
       </div>
 
       <div className="mb-10 cont">

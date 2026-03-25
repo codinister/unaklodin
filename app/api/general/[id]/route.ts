@@ -31,7 +31,11 @@ export async function GET(
     "size": sizes[]->title,
     "description": items.description,
     "excerpt": array::join(string::split((pt::text(items.description)), "")[0..200], "")+"...",
-    "features": items.features[].title,
+    "features": items.features[]{
+    title, 
+    sub_title, 
+    body
+    },
     "gallery": items.gallery.images[].img.asset->url,
     "price": items.price,
     "product": items.product,
