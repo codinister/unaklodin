@@ -13,7 +13,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import SimilarItems from '@/components/SimilarItems';
-import ImageBoxMobile from '@/components/singleItem/ImageBoxMobile';
+
 
 const Item = () => {
   const [scrolls, setScrolls] = useState(0);
@@ -32,10 +32,8 @@ const Item = () => {
   return (
     <>
       <div className="cont flex-col sm:flex-row flex gap-4">
-        <div className="block sm:hidden">
-          <ImageBoxMobile data={data} />
-        </div>
-        <div className="hidden  sm:block flex-2">
+
+        <div className="flex-2">
           <ImageBox data={data} />
         </div>
 
