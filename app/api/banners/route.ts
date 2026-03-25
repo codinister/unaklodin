@@ -9,8 +9,9 @@ export async function GET() {
   try {
     const data = await serverConfig.fetch(groq`
     *[ _type == 'banners']{
-      image.images[].img.asset->url,
-      link
+      'image': image.asset->url,
+      link, 
+      title
     }`
     );
 
