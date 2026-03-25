@@ -7,10 +7,12 @@ import { FaInstagram } from 'react-icons/fa';
 import useGetQuery from '@/state/query/useGetQuery';
 import { useEffect } from 'react';
 import { menThunk } from '@/state/redux/reducers/menSlice';
+import { BsEnvelope } from 'react-icons/bs';
 
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { womenThunk } from '@/state/redux/reducers/womenSlice';
 import { unisexThunk } from '@/state/redux/reducers/unisexSlice';
+import { BsTelephone } from 'react-icons/bs';
 
 const Footer = () => {
   const { dispatch } = useDispatchselector();
@@ -71,6 +73,15 @@ const Footer = () => {
             </li>
             <li>
               <Link href="/contact">Contact Us</Link>
+            </li>
+          </ul>
+
+          <ul className="mt-6 text-white">
+            <li  className="flex gap-2">
+              <BsTelephone className="text-5xl" /> <span>{sett?.[0].phone1}</span>
+            </li>
+            <li className="flex gap-2">
+              <BsEnvelope className="text-5xl" /> <span>sales@unaklodin.com</span>
             </li>
           </ul>
         </div>
