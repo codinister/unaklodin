@@ -77,11 +77,11 @@ const Footer = () => {
           </ul>
 
           <ul className="mt-6 text-white">
-            <li  className="flex gap-3 mb-4">
-              <BsTelephone className="text-2xl flex-1" /> <span className="flex-1">{sett[0]?.phone1}</span> 
+            <li  className="flex gap-4 mb-4">
+              <BsTelephone className="text-2xl" /> <span>{sett[0]?.phone1}</span> 
             </li> 
-            <li className="flex gap-3">
-              <BsEnvelope className="flex-1 text-2xl" /> <span className="flex-1">sales@unaklodin.com</span>
+            <li className="flex gap-4">
+              <BsEnvelope className="text-2xl" /> <span>sales@unaklodin.com</span>
             </li>
           </ul>
         </div>
