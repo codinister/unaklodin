@@ -13,43 +13,21 @@ const Banners = () => {
   const data = useGetQuery('banners', '/banners') || [];
 
   return (
-    <div className="mb-7 w-full">
-      <Carousel className="w-full">
-        <CarouselContent>
-          {data.map(
-            (
-              v: string,
-              k: number,
-            ) => (
-              <CarouselItem key={k} className="basis-full sm:basis-1/3 pl-1">
-                <div
-                  className="h-80
-            text-white
-            p-6 
- 
-            flex  
-            items-end 
-            relative  
-            
-            "
-                  style={{
-                    backgroundImage: `url(${v})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'top',
-                  }}
-                >
-      
-       
-                </div>
-              </CarouselItem>
-            ),
-          )}
-        </CarouselContent>
-        <CarouselPrevious className="left-4" />
-        <CarouselNext className="right-4" />
-      </Carousel>
+    <div className="mb-7 flex gap-1 sm:flex-row flex-col">
+      {data.slice(0, 2).map((v: { image: string; link: string }, k: number) => (
+        <a
+          href={v.link}
+          key={k}
+          className="h-100 flex-1"
+          style={{
+            backgroundImage: `url(${v.image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'top',
+          }}
+        ></a>
+      ))}
     </div>
   );
 };
 
-export default Banners
+export default Banners;

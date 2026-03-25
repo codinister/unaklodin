@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'UNA Klodin',
-    description: 'African wears',
+    description: `U&A KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas`,
     images: ['/preview.jpg'],
   },
 };

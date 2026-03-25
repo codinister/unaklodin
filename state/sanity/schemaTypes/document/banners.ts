@@ -9,13 +9,21 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      initialValue: 'Banners',
+      validation: (Rule) => Rule.required().error('Title field required!'),
     }),
-
+    defineField({
+      name: 'link',
+      title: 'Link',
+      type: 'string',
+    }),
     defineField({
       name: 'image',
-      title: 'Gallery',
-      type: 'gallery'
+      title: 'Image',
+      type: 'image',
+      validation: (Rule) => Rule.required().error('Image field required!'),
+      options: {
+        hotspot: true,
+      },
     }),
   ],
 });
