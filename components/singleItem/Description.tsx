@@ -85,6 +85,7 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
                 <Colour
                   onClick={() => colorFn(v?.title)}
                   hex={v?.hex}
+                  colorName=""
                 />
               </div>
             ))}

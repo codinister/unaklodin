@@ -1,8 +1,8 @@
 'use client';
 
-type ColourProps = { hex: string } & React.HTMLAttributes<HTMLDivElement>;
+type ColourProps = { hex: string; colorName: string } & React.HTMLAttributes<HTMLDivElement>;
 
-const Colour = ({ hex, ...props }: ColourProps) => {
+const Colour = ({ hex,colorName, ...props }: ColourProps) => {
   return (
     <div className="w-max" {...props}>
       <div
@@ -11,6 +11,7 @@ const Colour = ({ hex, ...props }: ColourProps) => {
           backgroundColor: hex,
         }}
       ></div>
+      <p className="text-2">{colorName}</p>
     </div>
   );
 };

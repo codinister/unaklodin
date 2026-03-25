@@ -37,7 +37,7 @@ const Colours = ({
       <AccordionContent className="flex gap-2 flex-wrap">
         {colors.map((v, k) => (
           <Colour
-            clickHandler={handleClick}
+            onClick={()=>handleClick(v.title)}
             key={k}
             colorName={v?.title}
             hex={v?.hex}
