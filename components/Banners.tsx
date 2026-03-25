@@ -18,7 +18,7 @@ const Banners = () => {
         <a
           href={v.link}
           key={k}
-          className="h-100 flex-1"
+          className="h-100 p-1 flex-1"
           style={{
             backgroundImage: `url(${v.image})`,
             backgroundSize: 'cover',
