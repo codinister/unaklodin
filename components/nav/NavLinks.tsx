@@ -33,40 +33,52 @@ const NavLinks = ({
       link: 'Women',
       sub: womencat.cat,
     },
+    {
+      link: 'Accessories',
+      sub: [],
+    },
   ];
 
   return (
     <div>
       <div className="p-6">
-        <Logo onClick={()=> closeMenu(false)} 
-        height={190} width={200} />
+        <Logo onClick={() => closeMenu(false)} height={190} width={200} />
       </div>
 
       <ul className={clss}>
         {cats.map((v: { link: string; sub: unknown[] }, k: number) => {
           const lnk = v.link.toLowerCase().split(' ').join('');
+          const mainlink =
+            v.sub.length === 0 ? '/' + v.link.toLowerCase() : '#';
 
-          return v.sub.length > 0 ? (
+          return (
             <li key={k}>
-              <Link href="#">
-                {v.link} <FaAngleRight />
+              <Link
+                href={mainlink}
+                onClick={() => closeMenu(v.sub.length > 0 ? true : false)}
+              >
+                {v.link} {v.sub.length > 0 ? <FaAngleRight /> : ''}
               </Link>
-              <ul>
-                <li className="bg-gray-100 p-1 mb-3">
-                  <Link onClick={()=> closeMenu(false)} href={`/${lnk}`}>View All {v?.link}</Link>
-                </li>
-                {v.sub.map((v: any, ky: number) => (
-                  <Links
-                    setOpen={closeMenu}
-                    key={ky}
-                    url={lnk + `/${v}`}
-                    name={v}
-                  />
-                ))}
-              </ul>
+              {v.sub.length > 0 ? (
+                <ul>
+                  <li className="bg-gray-100 p-1 mb-3">
+                    <Link onClick={() => closeMenu(false)} href={`/${lnk}`}>
+                      View All {v?.link}
+                    </Link>
+                  </li>
+                  {v.sub.map((v: any, ky: number) => (
+                    <Links
+                      setOpen={closeMenu}
+                      key={ky}
+                      url={lnk + `/${v}`}
+                      name={v}
+                    />
+                  ))}
+                </ul>
+              ) : (
+                ''
+              )}
             </li>
-          ) : (
-            ''
           );
         })}
       </ul>

@@ -28,7 +28,7 @@ const Item = () => {
     setScrolls(latest);
   });
 
-  const feature = data?.[0] ? data[0]?.features : [];
+ 
 
   return (
     <>
@@ -62,7 +62,7 @@ const Item = () => {
                 <h6>Features</h6>
               </AccordionTrigger>
               <AccordionContent>
-                {feature.map(
+                {data[0] ? data[0]?.features.map(
                   (
                     v: { title: string; sub_title: string; body: any },
                     k: number,
@@ -77,7 +77,7 @@ const Item = () => {
                       </div>
                     );
                   },
-                )}
+                ) : ''}
               </AccordionContent>
             </AccordionItem>
           </Accordion>

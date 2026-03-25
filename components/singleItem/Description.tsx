@@ -43,6 +43,8 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
       {sizes.length > 0 ? (
         <div className="my-4 ">
           <span className="block mb-3 text-xs">Click to choose size</span>
+
+          <div className="flex gap-2">
           {sizes.map((v, k) => (
             <div
               key={k}
@@ -61,10 +63,10 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
             </div>
           ))}
         </div>
+        </div>
       ) : (
         ''
       )}
-
       {colors.length > 0 ? (
         <div>
           <span className="block mb-3 text-xs">Click to choose colour</span>
@@ -73,6 +75,7 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
             {colors.map((v, k) => (
               <div
                 key={k}
+                title={v.title}
                 className={
                   getColour === v.title
                     ? ` border-b-primary border-b-2 w-max p-1`
@@ -80,8 +83,7 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
                 }
               >
                 <Colour
-                  clickHandler={() => colorFn(v?.hex)}
-                  colorName=""
+                  onClick={() => colorFn(v?.title)}
                   hex={v?.hex}
                 />
               </div>

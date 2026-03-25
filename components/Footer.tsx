@@ -13,6 +13,7 @@ import useDispatchselector from '@/state/redux/useDispatchselector';
 import { womenThunk } from '@/state/redux/reducers/womenSlice';
 import { unisexThunk } from '@/state/redux/reducers/unisexSlice';
 import { BsTelephone } from 'react-icons/bs';
+import { accessoriesThunk } from '@/state/redux/reducers/accessoriesSlice';
 
 const Footer = () => {
   const { dispatch } = useDispatchselector();
@@ -20,6 +21,7 @@ const Footer = () => {
     dispatch(menThunk());
     dispatch(womenThunk());
     dispatch(unisexThunk());
+    dispatch(accessoriesThunk())
   }, [dispatch]);
 
   const sett = useGetQuery('settings', '/settings') || [];
