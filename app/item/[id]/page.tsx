@@ -62,7 +62,7 @@ const Item = () => {
                 <h6>Features</h6>
               </AccordionTrigger>
               <AccordionContent>
-                {data[0] ? data[0]?.features.map(
+                {data[0]?.features?.length > 0 ? data[0]?.features.map(
                   (
                     v: { title: string; sub_title: string; body: any },
                     k: number,
