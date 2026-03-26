@@ -1,4 +1,3 @@
-
 import Links from '@/components/nav/Links';
 import serverConfig from '@/state/sanity/server.config';
 import { ItemTypes } from '@/types/types';
@@ -6,15 +5,13 @@ import { groq } from 'next-sanity';
 import getDollarRate from './getDollarRate';
 
 const getProducts = async (type: string) => {
-
   const date = new Date().toISOString();
-  const rate = await getDollarRate()
+  const rate = await getDollarRate();
 
-  const settt = await serverConfig.fetch(groq`*[_type == 'settings']{
-    currency
-    }`)
+  const sett = await serverConfig.fetch(groq`*[_type == 'settings'].currency`);
 
-    const data = await serverConfig.fetch(groq`
+  const data = await serverConfig.fetch(
+    groq`
         *[_type == $type]{
           'type': _type, 
           'createdAt' : _create5dAt, 
@@ -37,15 +34,22 @@ const getProducts = async (type: string) => {
           "sub_title": items.sub_title ,
           "thumbnail": items.thumbnail.img.asset->url
         }
-    `, {type});
+    `,
+    { type },
+  );
 
-    return data.map((v: ItemTypes) => ({ ...v, date ,
+  return data.map((v: ItemTypes) => {
+    const cedi = Number(v.price);
+    const usd = Number(rate * v.price);
 
-      cediPrice: Number(v.price), 
-      dollarPrice: Number(rate * v.price), 
-      price: v.price,
-    }))
+    return {
+      ...v,
+      date,
+      cediPrice: cedi,
+      dollarPrice: usd,
+      price: sett[0] === '$' ? usd : cedi,
+    };
+  });
+};
 
-}
-
-export default getProducts
+export default getProducts;
