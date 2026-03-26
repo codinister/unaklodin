@@ -75,15 +75,24 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'currency',
-      title: 'Currency',
-      type: 'string',
-      initialValue: 'GHS',
-    }),
-    defineField({
       name: 'body',
       title: 'Note',
       type: 'blockContent',
+    }),
+
+    defineField({
+      title: 'Default Currency',
+      description: 'Select Currency',
+      name: 'currency',
+      type: 'string',
+      initialValue: '$',
+      options: {
+        list: [
+          { title: 'Dollar', value: '$' },
+          { title: 'Cedi', value: 'GHS' },
+        ],
+      },
+      validation: (Rule) => Rule.required().error('Currency field required'),
     }),
   ],
 });

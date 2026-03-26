@@ -3,10 +3,16 @@ import Links from '@/components/nav/Links';
 import serverConfig from '@/state/sanity/server.config';
 import { ItemTypes } from '@/types/types';
 import { groq } from 'next-sanity';
+import getDollarRate from './getDollarRate';
 
 const getProducts = async (type: string) => {
 
   const date = new Date().toISOString();
+  const rate = await getDollarRate()
+
+  const settt = await serverConfig.fetch(groq`*[_type == 'settings']{
+    currency
+    }`)
 
     const data = await serverConfig.fetch(groq`
         *[_type == $type]{
@@ -33,7 +39,12 @@ const getProducts = async (type: string) => {
         }
     `, {type});
 
-    return data.map((v: ItemTypes) => ({ ...v, date }))
+    return data.map((v: ItemTypes) => ({ ...v, date ,
+
+      cediPrice: Number(v.price), 
+      dollarPrice: Number(rate * v.price), 
+      price: v.price,
+    }))
 
 }
 

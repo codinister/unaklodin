@@ -8,6 +8,8 @@ export type ItemTypes = {
   updatedAt: string;
   title: string;
   cat: string;
+  cediPrice: number;
+  dollarPrice: number;
   colour: {
     title: string;
     hex: string;
@@ -65,5 +67,4 @@ export type cartItemType = {
 export type cartType = {
   carts: Record<string, cartItemType>;
   billingInfo: z.infer<typeof billing>;
-  
 };
