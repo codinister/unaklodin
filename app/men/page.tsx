@@ -17,6 +17,8 @@ const Men = () => {
   const dupData: ItemTypes[] = state?.dupData || [];
   const sett = useGetQuery('settings', '/settings') || [];
 
+  console.log(data)
+
   return (
     <div className="cont mb-10">
       <Breadcramp page_title="Men's Wear" link="" link_name="" />

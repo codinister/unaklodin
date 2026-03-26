@@ -46,8 +46,8 @@ const getProducts = async (type: string) => {
       ...v,
       date,
       cediPrice: cedi,
-      dollarPrice: usd,
-      price: sett[0] === '$' ? usd : cedi,
+      dollarPrice: Math.floor(usd),
+      price: sett[0] === '$' ? Math.floor(usd) : cedi,
     };
   });
 };
