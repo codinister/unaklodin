@@ -34,6 +34,8 @@ const accessoriesSlice = createSlice({
         state.pending = "Accessories data fetching in progress";
       })
       .addCase(accessoriesThunk.fulfilled, (state, action) => {
+
+
         const result = action.payload ?
           action.payload.sort((a: { price: number }, b: { price: number }) => {
             if (a.price > b.price) return 1;

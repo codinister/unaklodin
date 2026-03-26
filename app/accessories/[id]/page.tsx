@@ -6,19 +6,19 @@ import Filter from '@/components/products/Filter';
 import Item from '@/components/products/Item';
 import TotalProduct from '@/components/products/TotalProduct';
 import useGetQuery from '@/state/query/useGetQuery';
-import { filterMenItems } from '@/state/redux/reducers/menSlice';
+import { filterAccessoriesItems } from '@/state/redux/reducers/accessoriesSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
 import getColour from '@/utils/getColour';
 import { useParams } from 'next/navigation';
-import { useEffect } from 'react';
 
-const Men = () => {
+
+const Accessories = () => {
   const param = useParams();
 
   const { selector} = useDispatchselector();
 
-  const state = selector((state) => state.menSlice) || [];
+  const state = selector((state) => state.accessoriesSlice) || [];
   const data: ItemTypes[] = state?.data || [];
   const dupData: ItemTypes[] = state?.dupData || [];
   const sett = useGetQuery('settings', '/settings') || [];
@@ -28,11 +28,11 @@ const Men = () => {
     <>
       <ItemBanner data={dupData} />
       <div className="cont mb-10">
-        <Breadcramp page_title="Men's Wear" link="" link_name="" />
+        <Breadcramp page_title="Accessories" link="" link_name="" />
 
         <div className="flex justify-between py-10 ">
           <TotalProduct total={dupData?.length} />
-          <Filter data={dupData} dispatchFn={filterMenItems} />
+          <Filter data={dupData} dispatchFn={filterAccessoriesItems} />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
@@ -62,4 +62,4 @@ const Men = () => {
   );
 };
 
-export default Men;
+export default Accessories

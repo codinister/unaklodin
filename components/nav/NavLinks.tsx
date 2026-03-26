@@ -19,6 +19,8 @@ const NavLinks = ({
   const mencat = selector((state) => state.menSlice);
   const womencat = selector((state) => state.womenSlice);
   const unisexcat = selector((state) => state.unisexSlice);
+    const accessoriescat = selector((state) => state.accessoriesSlice);
+
 
   const cats = [
     {
@@ -35,7 +37,7 @@ const NavLinks = ({
     },
     {
       link: 'Accessories',
-      sub: [],
+      sub: accessoriescat.cat
     },
   ];
 
