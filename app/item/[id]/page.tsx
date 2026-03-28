@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/accordion';
 import SimilarItems from '@/components/SimilarItems';
 import useCurrency from '@/utils/useCurrency';
+import { ItemTypes } from '@/types/types';
 
 const Item = () => {
   const [scrolls, setScrolls] = useState(0);
@@ -88,7 +89,7 @@ const Item = () => {
 
         <div className="flex-1">
           <Description
-            data={data.map((v) => {
+            data={data.map((v: ItemTypes) => {
               return {
                 ...v,
                 price: Number(defaultPrice(v.dollarPrice, v.cediPrice)),
