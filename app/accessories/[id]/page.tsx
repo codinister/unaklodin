@@ -12,18 +12,15 @@ import getColour from '@/utils/getColour';
 import useCurrency from '@/utils/useCurrency';
 import { useParams } from 'next/navigation';
 
-
 const Accessories = () => {
   const param = useParams();
 
-  const { selector} = useDispatchselector();
+  const { selector } = useDispatchselector();
 
   const state = selector((state) => state.accessoriesSlice) || [];
   const data: ItemTypes[] = state?.data || [];
   const dupData: ItemTypes[] = state?.dupData || [];
   const { defaultPrice, currency } = useCurrency();
-
-
 
   return (
     <>
@@ -37,30 +34,32 @@ const Accessories = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
-          {data.filter(v => v.cat === decodeURIComponent(String(param.id))).map((v, k) => {
-            const totalColours = v.colour ? getColour(v.colour).length : 1;
+          {data
+            .filter((v) => v.cat === decodeURIComponent(String(param.id)))
+            .map((v, k) => {
+              const totalColours = v.colour ? getColour(v.colour).length : 1;
 
-            const fn = (val: Boolean) => {}
+              const fn = (val: Boolean) => {};
 
-            return (
-              <div className="sm:basis-92" key={k}>
-                <Item
-                closeOpenFn={fn}
-                id={v.id}
-                  title={v.title}
-                   price={defaultPrice(v.dollarPrice, v.cediPrice)}
-                  totalColours={totalColours}
-                  img={v.thumbnail}
-                  gallery={v.gallery}
-                  currency={currency}
-                />
-              </div>
-            );
-          })}
+              return (
+                <div className="sm:basis-92" key={k}>
+                  <Item
+                    closeOpenFn={fn}
+                    id={v.id}
+                    title={v.title}
+                    price={defaultPrice(v.dollarPrice, v.cediPrice)}
+                    totalColours={totalColours}
+                    img={v.thumbnail}
+                    gallery={v.gallery}
+                    currency={currency}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
     </>
   );
 };
 
-export default Accessories
+export default Accessories;
