@@ -36,7 +36,7 @@ const Accessories = () => {
                 closeOpenFn={fn}
                 id={v.id}
                 title={v.title}
-                price={Number(defaultPrice(v.dollarPrice, v.cediPrice))}
+                price={defaultPrice(v.dollarPrice, v.cediPrice)}
                 totalColours={totalColours}
                 img={v.thumbnail}
                 gallery={v.gallery}

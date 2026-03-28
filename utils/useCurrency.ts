@@ -11,7 +11,7 @@ const useCurrency = () => {
   const currSign = currency === '$' ? 'USD' : 'GHS';
 
   const defaultPrice = (dollarPrice: number, cediPrice: number) => {
-    const price = currSign === 'GHS' ? cediPrice : dollarPrice;
+    const price = currency === 'GHS' ? cediPrice : dollarPrice;
     return format_number(String(price))
   };
 

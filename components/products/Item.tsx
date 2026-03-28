@@ -34,7 +34,7 @@ const Item = ({
           {totalColours} {totalColours === 1 ? 'colour' : 'colours'}
         </p>
         <p>
-          {currency} {price}.00
+          {currency} {price}
         </p>
       </div>
     </>

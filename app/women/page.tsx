@@ -32,13 +32,14 @@ const Women = () => {
         {data.map((v, k) => {
           const totalColours = v.colour ? getColour(v.colour).length : 1;
           const fn = (val: Boolean) => {};
+      
           return (
             <div className="sm:basis-92" key={k}>
               <Item
                 closeOpenFn={fn}
                 id={v.id}
                 title={v.title}
-                price={Number(defaultPrice(v.dollarPrice, v.cediPrice))}
+                price={defaultPrice(v.dollarPrice, v.cediPrice)}
                 totalColours={totalColours}
                 img={v.thumbnail}
                 gallery={v.gallery}
