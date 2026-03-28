@@ -42,6 +42,7 @@ const Carts = ({ checkout }: { checkout: boolean }) => {
   return (
     <>
       {Object.values(cartData.carts).map((v, k) => {
+        console.log('ct', v)
         if (checkout) {
           return <CheckoutItems key={k} value={v} />;
         } else {

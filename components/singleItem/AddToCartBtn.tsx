@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 import EstTotal from './EstTotal';
 import Carts from './Carts';
+import useGetCartById from '@/utils/useGetCartById';
 
 const AddToCartBtn = ({
   data,
@@ -19,19 +20,23 @@ const AddToCartBtn = ({
   const { dispatch } = useDispatchselector();
   const [open, setOpen] = useState(false);
 
+  const carts = useGetCartById(data);
+
   const handleClick = () => {
     dispatch(
       addCart({
         id: data[0]?.id,
-        qty: 1,
-        total: data[0]?.price,
+        qty: carts?.qty ? Number(carts.qty) : 1,
+        total: carts?.total ? Number(carts.total) : data[0]?.price,
         title: data[0]?.title,
         price: data[0]?.price,
+        cediPrice: data[0]?.cediPrice,
+        dollarPrice: data[0]?.dollarPrice,
         size: getSize,
         colour: getColour,
         thumbnail: data[0]?.thumbnail,
-        createdAt: data[0]?.createdAt, 
-        date: data[0]?.date
+        createdAt: data[0]?.createdAt,
+        date: data[0]?.date,
       }),
     );
   };

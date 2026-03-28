@@ -18,6 +18,8 @@ const CartItems = ({
   deletecartFn: (id: string) => any;
 }) => {
   const { currency } = useCurrency();
+
+console.log(value)
   return (
     <div className="flex gap-2 p-4">
       <div
@@ -33,10 +35,10 @@ const CartItems = ({
         </span>
       </div>
       <div className="flex-3">
-        <strong>{value.title}</strong>
-        <p>{currency} {value.total}</p>
+        <strong>{value?.title}</strong>
+        <p>{currency} {value?.total}</p>
         <p>Size: {value.size}</p>
-        <p>Colour: {value.colour}</p>
+        <p>Colour: {value?.colour}</p>
         <div className="flex gap-1 mt-4">
           <button
             className="cursor-pointer border border-gray-500 rounded-sm w-10 h-6 flex justify-center items-center text-sm  text-gray-500 hover:bg-primary hover:text-white"

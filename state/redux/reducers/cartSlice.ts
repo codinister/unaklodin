@@ -37,6 +37,8 @@ const cartSlice = createSlice({
         id,
         title,
         price,
+        cediPrice,
+        dollarPrice,
         size,
         colour,
         thumbnail,
@@ -54,6 +56,8 @@ const cartSlice = createSlice({
           total,
           title,
           price,
+          cediPrice,
+          dollarPrice,
           size,
           colour,
           thumbnail,
@@ -76,5 +80,5 @@ const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
-export const { addBilling,clearCart, deleteBilling, addCart, deleteCart } =
+export const { addBilling, clearCart, deleteBilling, addCart, deleteCart } =
   cartSlice.actions;
