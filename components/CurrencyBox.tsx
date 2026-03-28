@@ -43,9 +43,9 @@ const CurrencyBox = () => {
   };
 
   return (
-    <div className="fixed w-60 h-32 top-[50%] transform -translate-y-[50%] right-0">
+    <div className="fixed max-w-60 h-32 top-[50%] transform -translate-y-[50%] right-0">
       <div
-        className="fixed w-60 h-32  top-[50%] transform -translate-y-[50%]  right-0 flex-col flex items-center"
+        className="fixed max-w-60 h-32  top-[50%] transform -translate-y-[50%]  right-0 flex-col flex items-center"
         onMouseLeave={() => setChange(false)}
       >
         <motion.div
