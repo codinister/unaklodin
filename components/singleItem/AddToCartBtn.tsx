@@ -22,14 +22,15 @@ const AddToCartBtn = ({
 
   const carts = useGetCartById(data);
 
+
   const handleClick = () => {
     dispatch(
       addCart({
         id: data[0]?.id,
         qty: carts?.qty ? Number(carts.qty) : 1,
-        total: carts?.total ? Number(carts.total) : data[0]?.price,
+        total: carts?.total ? Number(carts.total) : Number(data[0]?.price),
         title: data[0]?.title,
-        price: data[0]?.price,
+        price: Number(data[0]?.price),
         cediPrice: data[0]?.cediPrice,
         dollarPrice: data[0]?.dollarPrice,
         size: getSize,

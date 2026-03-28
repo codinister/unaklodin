@@ -2,6 +2,7 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import { cartItemType, ItemTypes } from '@/types/types';
+import itemTotal from '@/utils/itemTotal';
 import useCurrency from '@/utils/useCurrency';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
@@ -19,7 +20,6 @@ const CartItems = ({
 }) => {
   const { currency } = useCurrency();
 
-console.log(value)
   return (
     <div className="flex gap-2 p-4">
       <div
@@ -30,13 +30,24 @@ console.log(value)
           backgroundPosition: 'top',
         }}
       >
-        <span className="w-6 h-6 rounded-full bg-secondary text-white flex justify-center items-center absolute top-2 left-2 cursor-pointer" title="Remove" onClick={()=> deletecartFn(value.id)}>
+        <span
+          className="w-6 h-6 rounded-full bg-secondary text-white flex justify-center items-center absolute top-2 left-2 cursor-pointer"
+          title="Remove"
+          onClick={() => deletecartFn(value.id)}
+        >
           x
         </span>
       </div>
       <div className="flex-3">
         <strong>{value?.title}</strong>
-        <p>{currency} {value?.total}</p>
+        <p>
+          {currency}{' '}
+          {itemTotal({
+            cediPrice: value?.cediPrice,
+            dollarPrice: value?.dollarPrice,
+            qty: value?.qty,
+          })}
+        </p>
         <p>Size: {value.size}</p>
         <p>Colour: {value?.colour}</p>
         <div className="flex gap-1 mt-4">

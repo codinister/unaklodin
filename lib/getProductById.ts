@@ -41,13 +41,12 @@ const getProductById = async (id: string) => {
   return data.map((v: ItemTypes) => {
     const cedi = Number(v.price);
     const usd = Number(rate * v.price);
-
     return {
       ...v,
       date,
       cediPrice: cedi,
       dollarPrice: Math.floor(usd),
-      price: sett[0] === '$' ? Math.floor(usd) : cedi,
+      price: sett[0] === '$' ? Math.floor(usd) : Number(cedi),
     };
   });
 };

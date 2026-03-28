@@ -58,6 +58,8 @@ export type cartItemType = {
   total: number;
   title: string;
   price: number;
+  cediPrice: number;
+  dollarPrice: number;
   size: string;
   colour: string;
   thumbnail: string;

@@ -12,7 +12,7 @@ const useCurrency = () => {
 
   const defaultPrice = (dollarPrice: number, cediPrice: number) => {
     const price = currency === 'GHS' ? cediPrice : dollarPrice;
-    return format_number(String(price))
+    return Number(price)
   };
 
   return { defaultPrice,currency, currSign };

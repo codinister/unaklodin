@@ -91,7 +91,7 @@ const Paystack = () => {
   const config = {
     reference,
     email,
-    currency: currSign,
+    currency: 'GHS',
     amount: Number(amount * 100), //Amount is in the country's lowest currency. E.g Pesewas, so 100 pesewas = 10 pesewas
     publicKey: 'pk_live_e801cc080f71f773de0c92dbffe79ea8e91dbeb7',
   };
