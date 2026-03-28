@@ -53,7 +53,7 @@ const CurrencyBox = () => {
           className={
             change
               ? ' ml-0 w-60 h-10 px-2 py-1 flex items-center bg-black text-white'
-              : 'py-1 w-60 ml-120 h-10 px-2 py-1 flex items-center bg-black text-white'
+              : 'py-1 w-60 -mr-120 h-10 px-2 py-1 flex items-center bg-black text-white'
           }
         >
           SELECT YOUR CURRENCY
@@ -64,7 +64,7 @@ const CurrencyBox = () => {
           className={
             change
               ? 'ml-0 w-60  my-1 h-10 bg-black text-white'
-              : 'w-60 ml-94 my-1 h-10 bg-black text-white'
+              : 'w-60 -mr-94 my-1 h-10 bg-black text-white'
           }
           onMouseEnter={() => setChange(true)}
         >
@@ -80,7 +80,7 @@ const CurrencyBox = () => {
           className={
             change
               ? 'ml-0 w-60 my-1 h-10 bg-black text-white'
-              : 'w-60 ml-120 my-1 h-10 bg-black text-white'
+              : 'w-60 -mr-120 my-1 h-10 bg-black text-white'
           }
         >
           {currency === '$' ? (
