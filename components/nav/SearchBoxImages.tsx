@@ -20,13 +20,13 @@ const SearchBoxImages = ({ ...props }: SearchBoxImgType) => {
         z-2
         "
         style={{
-          backgroundImage: `url(${data ? data?.menImg : ''})`,
+          backgroundImage: `url(${data ? data[0]?.image : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
       >
         <div className="text-white p-4 mt-25">
-          <strong>{data.menTitle}</strong>
+          <strong>{data[0]?.title}</strong>
           <br />
           <Link {...props} href="/men">
             Shop Now
@@ -42,13 +42,13 @@ const SearchBoxImages = ({ ...props }: SearchBoxImgType) => {
         before:-z-1
         z-2"
         style={{
-          backgroundImage: `url(${data ? data?.womenImg : ''})`,
+          backgroundImage: `url(${data ? data[1]?.image : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
       >
         <div className="text-white p-4 mt-25">
-          <strong>{data.womenTitle}</strong>
+          <strong>{data[1]?.title}</strong>
           <br />
           <Link {...props} href="/women">
             Shop Now
