@@ -10,7 +10,7 @@ const MainCategories = () => {
   return (
     <div className="flex-col  sm:flex-row flex my-7">
       <div
-        className="flex-1 h-100  relative  flex  items-end"
+        className="flex-1 h-150  relative  flex  items-end"
         style={{
           backgroundImage: `url(${data ? data[0]?.image : ''})`,
           backgroundSize: 'cover',
@@ -36,8 +36,8 @@ const MainCategories = () => {
         </div>
       </div>
       <div
-        className="flex-1 h-100
-      sm:p-0
+        className="flex-1 h-150
+      sm:py-0
       py-50
       relative 
     
