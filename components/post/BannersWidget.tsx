@@ -10,7 +10,7 @@ import {
 } from '../ui/carousel';
 
 const BannersWidget = () => {
-  const data = useGetQuery('banners', '/banners') || [];
+  const data = useGetQuery('banners', '/v1/banners') || [];
 
   return (
     <div className="sm:w-90 w-80 mx-auto  ">

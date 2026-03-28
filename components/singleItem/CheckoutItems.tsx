@@ -2,11 +2,12 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import { cartItemType, ItemTypes } from '@/types/types';
+import useCurrency from '@/utils/useCurrency';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
 
 const CheckoutItems = ({ value }: { value: cartItemType }) => {
-  const sett = useGetQuery('settings', '/settings');
+  const { currency } = useCurrency();
   return (
     <div className="flex gap-2 p-4">
       <div
@@ -20,7 +21,7 @@ const CheckoutItems = ({ value }: { value: cartItemType }) => {
       <div className="flex-3">
         <strong>{value.title}</strong>
         <p>
-          {sett[0]?.currency} {value.total}
+          {currency} {value.total}
         </p>
         <p>Size: {value.size}</p>
         <p>Colour: {value.colour}</p>

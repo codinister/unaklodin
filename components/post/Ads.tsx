@@ -4,7 +4,7 @@ import useGetQuery from '@/state/query/useGetQuery';
 import Image from 'next/image';
 
 const Ads = () => {
-  const data = useGetQuery('ads', '/ads') || [];
+  const data = useGetQuery('ads', '/v1/ads') || [];
 
   return (
     <>

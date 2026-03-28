@@ -10,7 +10,7 @@ import {
 import Link from 'next/link';
 
 const SimilarItems = ({type}: {type: string}) => {
-  const data = useGetQuery(type, `/${type}`) || [];
+  const data = useGetQuery(type, `/v2/products/${type}`) || [];
 
   return (
     <div className="mb-7 w-full">

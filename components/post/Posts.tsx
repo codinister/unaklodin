@@ -6,7 +6,7 @@ import Link from 'next/link';
 import PostCard from './PostCard';
 
 const Posts = () => {
-  const data = useGetQuery('post', '/post') || [];
+  const data = useGetQuery('post', '/v1/posts') || [];
 
   return (
     <>

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import PostCard from './post/PostCard';
 
 const BlogPosts = () => {
-  const data = useGetQuery('post', '/post') || [];
+  const data = useGetQuery('post', '/v1/posts') || [];
 
   return (
     <div className="cont  pt-6 pb-10 ">

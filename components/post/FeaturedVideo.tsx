@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import PostYoutube2 from './PostYoutube2';
 
 const FeaturedVideo = () => {
-  const heroData = useGetQuery('hero', '/hero') || [];
+  const heroData = useGetQuery('hero', '/v1/hero') || [];
 
 
   return (

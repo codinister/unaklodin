@@ -10,11 +10,12 @@ import { ItemTypes } from '@/types/types';
 import fetchApi from '@/state/query/fetchApi';
 import Item from '../products/Item';
 import getColour from '@/utils/getColour';
+import useCurrency from '@/utils/useCurrency';
 
 const Searchbox = () => {
   const [open, setOpen] = useState(false);
   const [searchResult, setSearchResult] = useState<ItemTypes[]>([]);
-  const sett = useGetQuery('settings', '/settings') || [];
+  const sett = useGetQuery('settings', '/v1/settings') || [];
 
   const searchRef = useRef<HTMLInputElement | null>(null);
 
@@ -27,7 +28,7 @@ const Searchbox = () => {
 
     if (val.length >= 3) {
       const vals = await fetchApi({
-        url: `/search/${val}`,
+        url: `/v1/search/${val}`,
       });
 
       setSearchResult(vals.data);
@@ -37,6 +38,9 @@ const Searchbox = () => {
   const closeOpenFn = (val: any) => {
     setOpen(val);
   };
+
+  const { defaultPrice, currency } = useCurrency();
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger>
@@ -59,11 +63,11 @@ const Searchbox = () => {
                     closeOpenFn={closeOpenFn}
                     id={v.id}
                     title={v.title}
-                    price={v.price}
+                    price={Number(defaultPrice(v.dollarPrice, v.cediPrice))}
                     totalColours={totalColours}
                     img={v.thumbnail}
                     gallery={v.gallery}
-                    currency={sett[0]?.currency}
+                    currency={currency}
                   />
                 </div>
               );

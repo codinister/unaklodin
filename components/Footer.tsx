@@ -14,17 +14,26 @@ import { womenThunk } from '@/state/redux/reducers/womenSlice';
 import { unisexThunk } from '@/state/redux/reducers/unisexSlice';
 import { BsTelephone } from 'react-icons/bs';
 import { accessoriesThunk } from '@/state/redux/reducers/accessoriesSlice';
+import { addCurrency } from '@/state/redux/reducers/defaultCurrency';
 
 const Footer = () => {
-  const { dispatch } = useDispatchselector();
+  const { dispatch, selector } = useDispatchselector();
+  const sett = useGetQuery('settings', '/v1/settings') || [];
+
+  const cur = selector((state) => state.curSlice);
+  const currency = cur.currency;
+
   useEffect(() => {
     dispatch(menThunk());
     dispatch(womenThunk());
     dispatch(unisexThunk());
-    dispatch(accessoriesThunk())
-  }, [dispatch]);
+    dispatch(accessoriesThunk());
 
-  const sett = useGetQuery('settings', '/settings') || [];
+    const settCur = sett[0]?.currency;
+
+    const defCur = currency ? currency : settCur;
+    dispatch(addCurrency(defCur));
+  }, [dispatch, sett, currency]);
 
   return (
     <footer className="px-6 sm:px-0 py-10 bg-secondary text-white">
@@ -79,11 +88,13 @@ const Footer = () => {
           </ul>
 
           <ul className="mt-6 text-white">
-            <li  className="flex gap-4 mb-4">
-              <BsTelephone className="text-2xl" /> <span>{sett[0]?.phone1}</span> 
-            </li> 
+            <li className="flex gap-4 mb-4">
+              <BsTelephone className="text-2xl" />{' '}
+              <span>{sett[0]?.phone1}</span>
+            </li>
             <li className="flex gap-4">
-              <BsEnvelope className="text-2xl" /> <span>sales@unaklodin.com</span>
+              <BsEnvelope className="text-2xl" />{' '}
+              <span>sales@unaklodin.com</span>
             </li>
           </ul>
         </div>

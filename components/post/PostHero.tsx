@@ -5,7 +5,7 @@ const PostHero = () => {
     title: string;
     thumb: string;
     excerpt: string;
-  }[] = useGetQuery('post', '/post') || [];
+  }[] = useGetQuery('post', '/v1/posts') || [];
 
   const num = Math.floor(Math.random() * 5);
 

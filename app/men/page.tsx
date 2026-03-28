@@ -4,21 +4,20 @@ import Breadcramp from '@/components/products/Breadcramp';
 import Filter from '@/components/products/Filter';
 import Item from '@/components/products/Item';
 import TotalProduct from '@/components/products/TotalProduct';
-import useGetQuery from '@/state/query/useGetQuery';
 import { filterMenItems } from '@/state/redux/reducers/menSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
 import getColour from '@/utils/getColour';
+import useCurrency from '@/utils/useCurrency';
 
 const Men = () => {
   const { selector } = useDispatchselector();
   const state = selector((state) => state.menSlice) || [];
   const data: ItemTypes[] = state?.data || [];
   const dupData: ItemTypes[] = state?.dupData || [];
-  const sett = useGetQuery('settings', '/settings') || [];
 
-  console.log(data)
-
+  const { defaultPrice, currency } = useCurrency();
+  
   return (
     <div className="cont mb-10">
       <Breadcramp page_title="Men's Wear" link="" link_name="" />
@@ -31,18 +30,18 @@ const Men = () => {
       <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
         {data.map((v, k) => {
           const totalColours = v.colour ? getColour(v.colour).length : 1;
-const fn = (val: Boolean)=>{}
+          const fn = (val: Boolean) => {};
           return (
             <div className="sm:basis-92" key={k}>
               <Item
-              closeOpenFn={fn}
-              id={v.id}
+                closeOpenFn={fn}
+                id={v.id}
                 title={v.title}
-                price={v.price}
+                price={Number(defaultPrice(v.dollarPrice, v.cediPrice))}
                 totalColours={totalColours}
                 img={v.thumbnail}
                 gallery={v.gallery}
-                currency={sett[0]?.currency}
+                currency={currency}
               />
             </div>
           );

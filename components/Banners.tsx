@@ -10,7 +10,7 @@ import {
 } from './ui/carousel';
 
 const Banners = () => {
-  const data = useGetQuery('banners', '/banners') || [];
+  const data = useGetQuery('banners', '/v1/banners') || [];
 
   return (
     <div className="mb-7 flex gap-1 sm:flex-row flex-col">

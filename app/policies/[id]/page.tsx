@@ -7,7 +7,7 @@ import { useParams } from 'next/navigation';
 const Policies = () => {
   const { id } = useParams();
 
-  const res = useGetQuery('policies', `/policies/${id}`) || [];
+  const res = useGetQuery('policies', `/v1/policies/${id}`) || [];
 
 
   return (

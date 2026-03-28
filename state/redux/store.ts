@@ -6,10 +6,10 @@ import womenSlice from './reducers/womenSlice';
 import unisexSlice from './reducers/unisexSlice';
 import accessoriesSlice from './reducers/accessoriesSlice'
 import cartSlice from './reducers/cartSlice'
-
 import storage from 'redux-persist/es/storage';
 import { persistReducer } from 'redux-persist';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import defaultCurrency from './reducers/defaultCurrency'
 
 const confg = {
   key: 'root',
@@ -21,7 +21,8 @@ const comReducer = combineReducers({
   womenSlice,
   unisexSlice,
   cartSlice,
-  accessoriesSlice
+  accessoriesSlice, 
+  curSlice: defaultCurrency
 });
 
 const persReducers = persistReducer(confg, comReducer);

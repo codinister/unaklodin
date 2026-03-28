@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 
 const AboutWidget = () => {
-  const about = useGetQuery('about', '/about') || [];
+  const about = useGetQuery('about', '/v1/about') || [];
 
   return (
     <div

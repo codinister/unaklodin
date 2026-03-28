@@ -7,7 +7,7 @@ const OrderTotal = () => {
   const { selector } = useDispatchselector();
   const cartData = selector((state) => state.cartSlice);
 
-  const sett = useGetQuery('settings', '/settings');
+  const sett = useGetQuery('settings', '/v1/settings');
 
   return (
     <div className="p-6 bg-muted mb-6">

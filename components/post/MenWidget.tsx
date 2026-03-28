@@ -3,10 +3,11 @@
 import useGetQuery from '@/state/query/useGetQuery';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
+import useCurrency from '@/utils/useCurrency';
 import Link from 'next/link';
 
 const MenWidget = () => {
-  const sett = useGetQuery('settings', '/settings') || [];
+  const { currency } = useCurrency();
   const { selector } = useDispatchselector();
   const state = selector((state) => state.menSlice) || [];
   const data: ItemTypes[] = state?.data || [];
@@ -31,7 +32,7 @@ const MenWidget = () => {
               <div>
                 <p className="font-bold mb-2">{v.title}</p>
                 <p className="font-bold">
-                  {sett[0]?.currency}
+                  {currency}
                   {v.price}
                 </p>
               </div>

@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 type SearchBoxImgType = React.AnchorHTMLAttributes<HTMLAnchorElement>;
 const SearchBoxImages = ({ ...props }: SearchBoxImgType) => {
-  const data = useGetQuery('maincategories', '/maincategories') || [];
+  const data = useGetQuery('maincategories', '/v1/maincategories') || [];
 
   return (
     <div className="space-y-4">

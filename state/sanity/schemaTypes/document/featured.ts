@@ -12,37 +12,12 @@ export default defineType({
       validation: (Rule) => Rule.required().error('Title field required!'),
     }),
     defineField({
-      name: 'man',
-      title: 'Men',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'men' }],
-        },
-      ],
-    }),
-    defineField({
-      name: 'woman',
-      title: 'Women',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'women' }],
-        },
-      ],
-    }),
-    defineField({
-      name: 'unisexs',
-      title: 'Unisex',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{ type: 'unisex' }],
-        },
-      ],
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
   ],
 });

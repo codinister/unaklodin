@@ -5,11 +5,11 @@ import Breadcramp from '@/components/products/Breadcramp';
 import Filter from '@/components/products/Filter';
 import Item from '@/components/products/Item';
 import TotalProduct from '@/components/products/TotalProduct';
-import useGetQuery from '@/state/query/useGetQuery';
 import { filterWomenItems } from '@/state/redux/reducers/womenSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
 import getColour from '@/utils/getColour';
+import useCurrency from '@/utils/useCurrency';
 import { useParams } from 'next/navigation';
 
 const Women = () => {
@@ -21,7 +21,7 @@ const Women = () => {
   const data: ItemTypes[] = state?.data || [];
   const dupData: ItemTypes[] = state?.dupData || [];
 
-  const sett = useGetQuery('settings', '/settings') || [];
+  const { defaultPrice, currency } = useCurrency();
 
   return (
     <>
@@ -47,11 +47,11 @@ const Women = () => {
                     closeOpenFn={fn}
                     id={v.id}
                     title={v.title}
-                    price={v.price}
+                    price={Number(defaultPrice(v.dollarPrice, v.cediPrice))}
                     totalColours={totalColours}
                     img={v.thumbnail}
                     gallery={v.gallery}
-                    currency={sett[0]?.currency}
+                    currency={currency}
                   />
                 </div>
               );

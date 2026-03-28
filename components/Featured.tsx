@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { Button } from './ui/button';
 
 const Featured = () => {
-  const data = useGetQuery('featured', '/featured') || [];
+  const data = useGetQuery('featured', '/v1/featured') || [];
 
   return (
     <div className="mb-7 w-full">

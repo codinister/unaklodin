@@ -16,7 +16,7 @@ console.log(url)
 
   const data = useGetQuery(
     'singlepost',
-    `/single-post/${id}`
+    `/v1/posts/${id}`
   ) 
 
   const post = data?.[0];

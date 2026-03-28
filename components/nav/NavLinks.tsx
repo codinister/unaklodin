@@ -1,6 +1,5 @@
 'use client';
 
-import useGetQuery from '@/state/query/useGetQuery';
 import Link from 'next/link';
 import Links from './Links';
 import Logo from './Logo';

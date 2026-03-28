@@ -5,14 +5,14 @@ import { Button } from './ui/button';
 import useGetQuery from '@/state/query/useGetQuery';
 
 const MainCategories = () => {
-  const data = useGetQuery('maincategories', '/maincategories') || [];
+  const data = useGetQuery('maincategories', '/v1/maincategories') || [];
 
   return (
     <div className="flex-col  sm:flex-row flex my-7">
       <div
         className="flex-1 h-100  relative  flex  items-end"
         style={{
-          backgroundImage: `url(${data ? data?.menImg : ''})`,
+          backgroundImage: `url(${data ? data[0]?.image : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
@@ -43,7 +43,7 @@ const MainCategories = () => {
     
       "
         style={{
-          backgroundImage: `url(${data ? data?.womenImg : ''})`,
+          backgroundImage: `url(${data ? data[0]?.image : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}

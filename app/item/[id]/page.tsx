@@ -13,6 +13,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import SimilarItems from '@/components/SimilarItems';
+import useCurrency from '@/utils/useCurrency';
 
 const Item = () => {
   const [scrolls, setScrolls] = useState(0);
@@ -20,7 +21,7 @@ const Item = () => {
 
   const id = decodeURIComponent(String(param.id));
 
-  const data = useGetQuery('general', `/general/${id}`) || [];
+  const data = useGetQuery('general', `/v1/products/${id}`) || [];
 
   const { scrollYProgress } = useScroll();
 
@@ -28,7 +29,7 @@ const Item = () => {
     setScrolls(latest);
   });
 
- 
+  const { defaultPrice, currency } = useCurrency();
 
   return (
     <>
@@ -62,29 +63,39 @@ const Item = () => {
                 <h6>Features</h6>
               </AccordionTrigger>
               <AccordionContent>
-                {data[0]?.features?.length > 0 ? data[0]?.features.map(
-                  (
-                    v: { title: string; sub_title: string; body: any },
-                    k: number,
-                  ) => {
-                    return (
-                      <div key={k} className="mb-6">
-                        <h6>{v.title}</h6>
-                        <p>{v.sub_title}</p>
-                        <div className="mt-4">
-                          <PortableText value={v.body} />
-                        </div>
-                      </div>
-                    );
-                  },
-                ) : ''}
+                {data[0]?.features?.length > 0
+                  ? data[0]?.features.map(
+                      (
+                        v: { title: string; sub_title: string; body: any },
+                        k: number,
+                      ) => {
+                        return (
+                          <div key={k} className="mb-6">
+                            <h6>{v.title}</h6>
+                            <p>{v.sub_title}</p>
+                            <div className="mt-4">
+                              <PortableText value={v.body} />
+                            </div>
+                          </div>
+                        );
+                      },
+                    )
+                  : ''}
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
 
         <div className="flex-1">
-          <Description data={data} />
+          <Description
+            data={data.map((v) => {
+              return {
+                ...v,
+                price: Number(defaultPrice(v.dollarPrice, v.cediPrice)),
+                currency,
+              };
+            })}
+          />
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import useGetQuery from '@/state/query/useGetQuery';
 import { PortableText } from '@portabletext/react';
 
 const About = () => {
-  const about = useGetQuery('about', '/about') || [];
+  const about = useGetQuery('about', '/v1/about') || [];
 
   return (
     <div>

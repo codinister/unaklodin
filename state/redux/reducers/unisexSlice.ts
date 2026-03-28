@@ -13,7 +13,7 @@ const initialState: stateTypes = {
   cat: [],
 };
 
-export const unisexThunk = asyncThunk('/unisex', 'unisex', 'unix22s');
+export const unisexThunk = asyncThunk('/v2/products/unisex', 'unisex', 'unix22s');
 
 const unisexSlice = createSlice({
   name: 'unisex',

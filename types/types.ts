@@ -10,6 +10,7 @@ export type ItemTypes = {
   cat: string;
   cediPrice: number;
   dollarPrice: number;
+  currency: string;
   colour: {
     title: string;
     hex: string;

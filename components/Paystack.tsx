@@ -10,9 +10,13 @@ import fetchApi from '@/state/query/fetchApi';
 import useGetQuery from '@/state/query/useGetQuery';
 import CardModal from './modal/CardModal';
 import { useState } from 'react';
+import useCurrency from '@/utils/useCurrency';
 
 const Paystack = () => {
   const [value, setValue] = useState(false);
+
+  const {currency,currSign} = useCurrency()
+
 
   const showModal = () => {
     setValue(true);
@@ -27,7 +31,6 @@ const Paystack = () => {
   const sett = useGetQuery('settings', '/settings');
   useRedirect();
   const {
-    currency,
     amount,
     info: { country, firstname, lastname, email, address, city, phone },
     reference,
@@ -88,7 +91,7 @@ const Paystack = () => {
   const config = {
     reference,
     email,
-    currency,
+    currency: currSign,
     amount: Number(amount * 100), //Amount is in the country's lowest currency. E.g Pesewas, so 100 pesewas = 10 pesewas
     publicKey: 'pk_live_e801cc080f71f773de0c92dbffe79ea8e91dbeb7',
   };

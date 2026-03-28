@@ -8,9 +8,10 @@ import useGetQuery from '@/state/query/useGetQuery';
 import { useEffect, useState } from 'react';
 import AddToCartBtn from './AddToCartBtn';
 import { PortableText } from '@portabletext/react';
+import useCurrency from '@/utils/useCurrency';
 
 const Description = ({ data }: { data: ItemTypes[] }) => {
-  const sett = useGetQuery('settings', '/settings');
+  const { currency, defaultPrice } = useCurrency();
   const sizes = getSizes(data);
   const colors = getColours(data);
 
@@ -37,7 +38,7 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
       </div>
 
       <p className="my-10 font-bold">
-        {sett[0]?.currency} {data[0]?.price.toLocaleString()}
+        {currency} {defaultPrice(data[0]?.dollarPrice, data[0]?.cediPrice)}
       </p>
 
       {sizes.length > 0 ? (
@@ -45,24 +46,24 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
           <span className="block mb-3 text-xs">Click to choose size</span>
 
           <div className="flex gap-2">
-          {sizes.map((v, k) => (
-            <div
-              key={k}
-              className={
-                getSize === v
-                  ? ` border-b-primary border-b-2 w-max p-1`
-                  : 'p-1 w-max  hover:border-b-primary hover:border-b-2 border-b-2 border-b-white'
-              }
-            >
-              <button
-                className="cursor-pointer border-2 border-black/10 rounded-lg px-1"
-                onClick={() => setSize(v)}
+            {sizes.map((v, k) => (
+              <div
+                key={k}
+                className={
+                  getSize === v
+                    ? ` border-b-primary border-b-2 w-max p-1`
+                    : 'p-1 w-max  hover:border-b-primary hover:border-b-2 border-b-2 border-b-white'
+                }
               >
-                {v}
-              </button>
-            </div>
-          ))}
-        </div>
+                <button
+                  className="cursor-pointer border-2 border-black/10 rounded-lg px-1"
+                  onClick={() => setSize(v)}
+                >
+                  {v}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         ''

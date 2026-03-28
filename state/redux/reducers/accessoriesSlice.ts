@@ -13,7 +13,7 @@ const initialState: stateTypes = {
   cat: [],
 };
 
-export const accessoriesThunk = asyncThunk('/accessories', 'accessories', 'access22s');
+export const accessoriesThunk = asyncThunk('/v2/products/accessories', 'accessories', 'access22s');
 
 const accessoriesSlice = createSlice({
   name: 'accessories',

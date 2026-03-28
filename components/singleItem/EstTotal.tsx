@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import useDispatchselector from '@/state/redux/useDispatchselector';
-import useGetQuery from '@/state/query/useGetQuery';
 import CartTotal from './CartTotal';
 
 const EstTotal = () => {

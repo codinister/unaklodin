@@ -9,11 +9,6 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
 
-
-const rate = await getDollarRate()
-
-
-
     const data = await serverConfig.fetch(groq`
     *[_type == 'men' || _type == 'women' || _type == 'unisex']{
     'id': _id,

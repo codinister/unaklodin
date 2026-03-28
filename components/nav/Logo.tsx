@@ -12,7 +12,7 @@ type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 const Logo = ( { width, height, ...props }: Props) => {
-  const sett = useGetQuery('settings', '/settings') || [];
+  const sett = useGetQuery('settings', '/v1/settings') || [];
 
 
   return (

@@ -4,6 +4,7 @@ import QueryProvider from '@/state/query/QueryProvider';
 import Nav from '@/components/nav/Nav';
 import Footer from '@/components/Footer';
 import StoreProvider from '@/state/redux/StoreProvider';
+import CurrencyBox from '@/components/CurrencyBox';
 
 
 
@@ -52,6 +53,7 @@ export default function RootLayout({
             <Nav />
             {children}
             <Footer />
+            <CurrencyBox />
           </StoreProvider>
         </QueryProvider>
       </body>

@@ -5,7 +5,7 @@ import Youtubebox from './Youtubebox';
 import { Button } from './ui/button';
 
 const Hero = () => {
-  const heroData = useGetQuery('hero', '/hero') || [];
+  const heroData = useGetQuery('hero', '/v1/hero') || [];
 
   return (
     <div className="relative">
