@@ -43,7 +43,7 @@ const MainCategories = () => {
     
       "
         style={{
-          backgroundImage: `url(${data ? data[0]?.image : ''})`,
+          backgroundImage: `url(${data ? data[1]?.image : ''})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top',
         }}
