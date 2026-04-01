@@ -19,11 +19,39 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Image',
-      type: 'image',
-      validation: (Rule) => Rule.required().error('Image field required!'),
+      type: 'gallery',
+      validation: (Rule) => Rule.required().error('Image field required!')
+    }),
+    defineField({
+      name: 'type',
+      title: 'Banner Type',
+      description: 'Choose a banner type',
+      validation: (Rule) => Rule.required().error('Type field required!'),
       options: {
-        hotspot: true,
+        list: [
+          {
+            title: 'Home Page',
+            value: 'home-page',
+          },
+          {
+            title: 'Men Page',
+            value: 'men-page',
+          },
+          {
+            title: 'Women Page',
+            value: 'women-page',
+          },
+          {
+            title: 'Unisex Page',
+            value: 'unisex-page',
+          },
+          {
+            title: 'Accessories Page',
+            value: 'access-page',
+          },
+        ],
       },
+      type: 'string',
     }),
   ],
 });
