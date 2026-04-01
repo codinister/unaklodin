@@ -16,13 +16,23 @@ export default defineType({
       title: 'Link',
       type: 'string',
     }),
+
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'gallery',
-      description: 'Upload only 2 images', 
-      validation: (Rule) => Rule.required().error('Image field required!')
+      name: 'images',
+      title: 'Images',
+      description: 'Upload only 2 images',
+      validation: (Rule) => Rule.required().error('Image field required!'),
+      type: 'array',
+      of: [
+        {
+          type: 'imageObj',
+        },
+      ],
+      options: {
+        layout: 'grid',
+      },
     }),
+
     defineField({
       name: 'type',
       title: 'Banner Type',
