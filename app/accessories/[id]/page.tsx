@@ -5,6 +5,7 @@ import Breadcramp from '@/components/products/Breadcramp';
 import Filter from '@/components/products/Filter';
 import Item from '@/components/products/Item';
 import TotalProduct from '@/components/products/TotalProduct';
+import useGetQuery from '@/state/query/useGetQuery';
 import { filterAccessoriesItems } from '@/state/redux/reducers/accessoriesSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { ItemTypes } from '@/types/types';
@@ -21,10 +22,14 @@ const Accessories = () => {
   const data: ItemTypes[] = state?.data || [];
   const dupData: ItemTypes[] = state?.dupData || [];
   const { defaultPrice, currency } = useCurrency();
-
+  const ban = useGetQuery('banners', '/v1/banners/access-page') || [];
   return (
     <>
-      <ItemBanner data={dupData} />
+      <ItemBanner
+        img={
+          ban[0] && ban[0]?.images[1] ? ban[0]?.images[1] : ban[0]?.images[0]
+        }
+      />
       <div className="cont mb-10">
         <Breadcramp page_title="Accessories" link="" link_name="" />
 
