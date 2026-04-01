@@ -20,6 +20,7 @@ export default defineType({
       name: 'image',
       title: 'Image',
       type: 'gallery',
+      description: 'Upload only 2 images', 
       validation: (Rule) => Rule.required().error('Image field required!')
     }),
     defineField({
