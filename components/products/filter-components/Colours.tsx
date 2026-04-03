@@ -10,13 +10,14 @@ import useDispatchselector from '@/state/redux/useDispatchselector';
 import getColours from '@/utils/getColours';
 import Colour from '@/components/Colour';
 
-
 const Colours = ({
   data,
   dispatchFn,
+  setOpen,
 }: {
   data: ItemTypes[];
   dispatchFn: Function;
+  setOpen: (open: boolean) => void;
 }) => {
   const { dispatch } = useDispatchselector();
 
@@ -29,6 +30,8 @@ const Colours = ({
         type: 'colour',
       }),
     );
+
+    setOpen(false);
   };
 
   return (
@@ -37,7 +40,7 @@ const Colours = ({
       <AccordionContent className="flex gap-2 flex-wrap">
         {colors.map((v, k) => (
           <Colour
-            onClick={()=>handleClick(v.title)}
+            onClick={() => handleClick(v.title)}
             key={k}
             colorName={v?.title}
             hex={v?.hex}

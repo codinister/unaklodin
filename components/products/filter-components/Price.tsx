@@ -8,12 +8,19 @@ import {
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { Input } from '@/components/ui/input';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 
-const Price = ({ dispatchFn }: { dispatchFn: Function }) => {
+const Price = ({
+  dispatchFn,
+  setOpen,
+}: {
+  dispatchFn: Function;
+  setOpen: (open: boolean) => void;
+}) => {
   const [num, setNum] = useState({ min: 0, max: 0 });
   const { dispatch } = useDispatchselector();
 
-  useEffect(() => {
+  const handleClick = () => {
     if (num.min > 0 && num.max > 0) {
       dispatch(
         dispatchFn({
@@ -21,8 +28,10 @@ const Price = ({ dispatchFn }: { dispatchFn: Function }) => {
           type: 'price',
         }),
       );
+
+      setOpen(false);
     }
-  }, [num, dispatch]);
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -35,7 +44,7 @@ const Price = ({ dispatchFn }: { dispatchFn: Function }) => {
   return (
     <AccordionItem value="price">
       <AccordionTrigger>Price</AccordionTrigger>
-      <AccordionContent className="flex gap-2">
+      <AccordionContent className="items-center flex gap-2">
         <Input
           name="min"
           onChange={handleChange}
@@ -48,6 +57,9 @@ const Price = ({ dispatchFn }: { dispatchFn: Function }) => {
           type="number"
           name="max"
         />
+        <Button onClick={handleClick} size="sm">
+          Search
+        </Button>
       </AccordionContent>
     </AccordionItem>
   );

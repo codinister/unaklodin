@@ -13,7 +13,7 @@ const About = () => {
 
       <div className="flex flex-col sm:flex-row">
         <div
-          className="h-100 flex-1 p-50 sm:p-10"
+          className="h-100 flex-1 py-50 sm:py-0 sm:p-10"
           style={{
             backgroundImage: `url(${about[1]?.image})`,
             backgroundSize: 'cover',
@@ -37,7 +37,7 @@ const About = () => {
           </div>
         </div>
         <div
-          className="order-1 sm:order-2  h-100 flex-1 p-50 sm:p-10"
+          className="order-1 sm:order-2  h-100 flex-1 py-50 sm:py-0 sm:p-10"
           style={{
             backgroundImage: `url(${about[0]?.image})`,
             backgroundSize: 'cover',

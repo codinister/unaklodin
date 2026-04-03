@@ -11,7 +11,7 @@ const Policies = () => {
 
 
   return (
-    <div className="py-15 container mx-auto">
+    <div className="py-15 px-6 sm:px-0 container mx-auto">
       <h5 className="mb-6">{res[0]?.title}</h5>
       <PortableText value={res[0]?.body || ''} />
     </div>

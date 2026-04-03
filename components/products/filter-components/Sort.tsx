@@ -6,16 +6,19 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { ItemTypes } from '@/types/types';
 import { Label } from '@/components/ui/label';
 import useDispatchselector from '@/state/redux/useDispatchselector';
+import { useState } from 'react';
 
 const Sort = ({
-  dispatchFn
+  dispatchFn,
+  setOpen,
 }: {
-  dispatchFn: Function
+  dispatchFn: Function;
+  setOpen: (open: boolean) => void;
 }) => {
   const { dispatch } = useDispatchselector();
+
 
   const sortChange = (value: string) => {
     dispatch(
@@ -24,6 +27,8 @@ const Sort = ({
         type: 'sort',
       }),
     );
+
+    setOpen(false);
   };
 
   return (
@@ -31,7 +36,7 @@ const Sort = ({
       <AccordionTrigger>Sort</AccordionTrigger>
       <AccordionContent>
         <RadioGroup
-          defaultValue="lowtohigh"
+          defaultValue=""
           className="w-fit"
           onValueChange={(value) => sortChange(value)}
         >

@@ -9,6 +9,7 @@ import Sort from './filter-components/Sort';
 import Size from './filter-components/Size';
 import Price from './filter-components/Price';
 import Categories from './filter-components/Categories';
+import { useState } from 'react';
 
 const Filter = ({
   data,
@@ -17,8 +18,10 @@ const Filter = ({
   data: ItemTypes[];
   dispatchFn: Function;
 }) => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="flex gap-2 items-center cursor-pointer">
         <span>Filter + Sort</span> <RiSortAsc />
       </SheetTrigger>
@@ -30,12 +33,11 @@ const Filter = ({
           className="max-w-lg"
           defaultValue={['notifications']}
         >
-          <Sort dispatchFn={dispatchFn} />
-          <Size data={data} dispatchFn={dispatchFn} />
-          <Price dispatchFn={dispatchFn} />
-          <Colours data={data} dispatchFn={dispatchFn} />
-          <Categories data={data} dispatchFn={dispatchFn} />
-
+          <Sort setOpen={setOpen} dispatchFn={dispatchFn} />
+          <Size setOpen={setOpen} data={data} dispatchFn={dispatchFn} />
+          <Price setOpen={setOpen} dispatchFn={dispatchFn} />
+          <Colours setOpen={setOpen} data={data} dispatchFn={dispatchFn} />
+          <Categories setOpen={setOpen} data={data} dispatchFn={dispatchFn} />
         </Accordion>
       </SheetContent>
     </Sheet>

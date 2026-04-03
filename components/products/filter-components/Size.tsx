@@ -12,9 +12,11 @@ import useDispatchselector from '@/state/redux/useDispatchselector';
 const Size = ({
   data,
   dispatchFn,
+  setOpen,
 }: {
   data: ItemTypes[];
   dispatchFn: Function;
+  setOpen: (open: boolean) => void;
 }) => {
   const sizes = getSizes(data);
 
@@ -27,6 +29,8 @@ const Size = ({
         payload: value,
       }),
     );
+
+    setOpen(false);
   };
 
   return (

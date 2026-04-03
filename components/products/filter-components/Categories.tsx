@@ -12,9 +12,11 @@ import getCategories from '@/utils/getCategories';
 const Categories = ({
   data,
   dispatchFn,
+    setOpen
 }: {
   data: ItemTypes[];
   dispatchFn: Function;
+    setOpen: (open: boolean) => void;
 }) => {
   const { dispatch } = useDispatchselector();
 
@@ -27,6 +29,9 @@ const Categories = ({
         type: 'cat',
       }),
     );
+
+
+        setOpen(false);
   };
 
   return (
