@@ -72,10 +72,10 @@ const Item = () => {
                       ) => {
                         return (
                           <div key={k} className="mb-6">
-                            <h6>{v.title}</h6>
-                            <p>{v.sub_title}</p>
+                            <h6>{v?.title}</h6>
+                            <p>{v?.sub_title}</p>
                             <div className="mt-4">
-                              <PortableText value={v.body} />
+                              <PortableText value={v?.body} />
                             </div>
                           </div>
                         );
@@ -92,7 +92,7 @@ const Item = () => {
             data={data.map((v: ItemTypes) => {
               return {
                 ...v,
-                price: Number(defaultPrice(v.dollarPrice, v.cediPrice)),
+                price: Number(defaultPrice(v?.dollarPrice, v?.cediPrice)),
                 currency,
               };
             })}

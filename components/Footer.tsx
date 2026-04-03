@@ -7,7 +7,8 @@ import { FaInstagram } from 'react-icons/fa';
 import useGetQuery from '@/state/query/useGetQuery';
 import { useEffect } from 'react';
 import { menThunk } from '@/state/redux/reducers/menSlice';
-import { BsEnvelope } from 'react-icons/bs';
+import { FaRegEnvelope } from "react-icons/fa";
+
 
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { womenThunk } from '@/state/redux/reducers/womenSlice';
@@ -38,7 +39,7 @@ const Footer = () => {
   return (
     <footer className="px-6 sm:px-0 py-10 bg-secondary text-white">
       <div className="cont mx-auto flex-wrap flex  flex-row gap-10">
-        <div className="w-38 sm:flex-1">
+        <div className="sm:flex-1">
           <h6 className="font-bold">TOP CATEGORIES</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
@@ -52,7 +53,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-38 sm:flex-1">
+        <div className=" sm:flex-1">
           <h6 className="font-bold">Help</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
@@ -76,25 +77,27 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-38 sm:flex-1">
+        <div className="sm:flex-1">
           <h6 className="font-bold">About Us</h6>
           <ul className="mt-6 space-y-3 text-white/70">
             <li>
               <Link href="/about">Our Story</Link>
             </li>
             <li>
-              <Link href="/contact">Contact Us</Link>
+              <Link href="#">Contact Us</Link>
             </li>
           </ul>
 
           <ul className="mt-6 text-white">
             <li className="flex gap-4 mb-4">
-              <BsTelephone className="text-2xl" />{' '}
+              <BsTelephone className="text-2xl" />
               <span>{sett[0]?.phone1}</span>
             </li>
             <li className="flex gap-4">
-              <BsEnvelope className="text-2xl" />{' '}
+
+              <FaRegEnvelope className="text-2xl text-white" />
               <span>sales@unaklodin.com</span>
+            
             </li>
           </ul>
         </div>
