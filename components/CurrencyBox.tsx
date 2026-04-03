@@ -40,6 +40,7 @@ const CurrencyBox = () => {
 
   const handleClick = (val: string) => {
     dispatch(addCurrency(val));
+    setChange(false)
   };
 
   return (
