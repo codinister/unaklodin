@@ -27,9 +27,10 @@ const Paystack = () => {
     dispatch(deleteBilling());
     dispatch(clearCart());
   };
-
+  
   const sett = useGetQuery('settings', '/settings');
   useRedirect();
+
   const {
     amount,
     info: { country, firstname, lastname, email, address, city, phone },

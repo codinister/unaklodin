@@ -5,19 +5,18 @@ import format_number from '@/utils/format_number';
 import formatDate from '@/utils/DateFormats';
 import {z} from 'zod'
 import { billing } from '@/schema/schemaTypes';
+import useCheckoutTotal from './useCheckoutTotal';
 
 const useCartBilling = () => {
   const sett = useGetQuery('settings', '/settings');
   const { selector, dispatch } = useDispatchselector();
-
+ 
   const cart = selector((state) => state.cartSlice);
 
   const b = cart?.billingInfo;
   const data = cart?.carts;
 
-  const amount = Object.values(cart.carts).reduce((a, b) => {
-    return a + b.total;
-  }, 0);
+  const amount = useCheckoutTotal()
 
   const info: z.infer<typeof billing> = {
     country: b?.country,
