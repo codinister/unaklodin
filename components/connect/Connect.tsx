@@ -8,16 +8,14 @@ import { BsThreeDots } from 'react-icons/bs';
 import { MdOutlineClose } from 'react-icons/md';
 import { motion } from 'motion/react';
 import { useState } from 'react';
-import useFetchdata from '@/state/query/useFetchdata';
+import useGetQuery from '@/state/query/useGetQuery';
 
 const Connect = () => {
-
   const [clicked, setClicked] = useState(false);
 
-  const data = useFetchdata('settings', 'settings');
+  const data = useGetQuery('settings', '/v1/settings') || [];
 
-
-  const encoded = encodeURIComponent("https://codenesta.com");
+  const encoded = encodeURIComponent('https://codenesta.com');
   const url = `https://wa.me/?text=${encoded}`;
 
   const whatsappEncode = encodeURIComponent(

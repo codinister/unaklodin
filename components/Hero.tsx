@@ -11,20 +11,19 @@ const Hero = () => {
   const heroData = useGetQuery('hero', '/v1/hero') || [];
 
   return (
-    <motion.div 
-            variants={staggerChildren}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{
-          once: false,
-          amount: 0.3,
-        }}
-    className="relative">
+    <motion.div
+      variants={staggerChildren}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: false,
+        amount: 0.5,
+      }}
+      className="relative"
+    >
       <Youtubebox url={heroData[0] ? heroData[0]?.link : ''} />
 
-      <div
-        className="absolute left-6 sm:left-7.5 bottom-6 sm:bottom-15 text-white  py-10 w-70"
-      >
+      <div className="absolute left-6 sm:left-7.5 bottom-6 sm:bottom-15 text-white  py-10 w-70">
         <motion.h5
           custom={0.4}
           variants={fadeUpCustom}
