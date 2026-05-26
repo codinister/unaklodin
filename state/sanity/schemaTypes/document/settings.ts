@@ -99,5 +99,10 @@ export default defineType({
       title: 'WhatsApp',
       type: 'number',
     }),
+            defineField({
+      name: 'domain',
+      title: 'Domain',
+      type: 'string',
+    }),
   ],
 });

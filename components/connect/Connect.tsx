@@ -15,7 +15,7 @@ const Connect = () => {
 
   const data = useGetQuery('settings', '/v1/settings') || [];
 
-  const encoded = encodeURIComponent('https://codenesta.com');
+  const encoded = encodeURIComponent(data[0]?.domain);
   const url = `https://wa.me/?text=${encoded}`;
 
   const whatsappEncode = encodeURIComponent(
