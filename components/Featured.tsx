@@ -8,23 +8,40 @@ import {
   CarouselPrevious,
 } from './ui/carousel';
 import Link from 'next/link';
-import { Button } from './ui/button';
+import { motion } from 'motion/react';
+import { fadeUp, fadeUpCustom, staggerChildren } from '@/variants/variants';
 
 const Featured = () => {
   const data = useGetQuery('featured', '/v1/featured') || [];
 
   return (
-    <div className="mb-7 w-full">
+    <motion.div
+      variants={staggerChildren}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.3,
+      }}
+      className="mb-7 w-full"
+    >
       <Carousel className="w-full">
         <CarouselContent>
           {data.map(
             (
-              v: { image: string; product: string; sub_title: string; id: string },
+              v: {
+                image: string;
+                product: string;
+                sub_title: string;
+                id: string;
+              },
               k: number,
             ) => (
               <CarouselItem key={k} className="basis-full sm:basis-1/4 pl-1">
                 <Link href={`/item/${v.id}`}>
-                  <div
+                  <motion.div
+                    variants={fadeUpCustom}
+                    custom={(Number(k) + 1) * 0.2}
                     className="sm:h-110
                     h-140
                     text-white
@@ -44,7 +61,7 @@ const Featured = () => {
                       <p className="font-extrabold">{v.product}</p>
                       <p className="mb-4 text-white/80">{v.sub_title}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </Link>
               </CarouselItem>
             ),
@@ -53,7 +70,7 @@ const Featured = () => {
         <CarouselPrevious className="left-4" />
         <CarouselNext className="right-4" />
       </Carousel>
-    </div>
+    </motion.div>
   );
 };
 
