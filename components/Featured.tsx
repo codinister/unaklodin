@@ -15,16 +15,7 @@ const Featured = () => {
   const data = useGetQuery('featured', '/v1/featured') || [];
 
   return (
-    <motion.div
-      variants={staggerChildren}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.3,
-      }}
-      className="mb-7 w-full"
-    >
+    <div className="mb-7 w-full">
       <Carousel className="w-full">
         <CarouselContent>
           {data.map(
@@ -41,6 +32,12 @@ const Featured = () => {
                 <Link href={`/item/${v.id}`}>
                   <motion.div
                     variants={fadeUpCustom}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{
+                      once: true,
+                      amount: 0.3,
+                    }}
                     custom={(Number(k) + 1) * 0.2}
                     className="sm:h-110
                     h-140
@@ -70,7 +67,7 @@ const Featured = () => {
         <CarouselPrevious className="left-4" />
         <CarouselNext className="right-4" />
       </Carousel>
-    </motion.div>
+    </div>
   );
 };
 

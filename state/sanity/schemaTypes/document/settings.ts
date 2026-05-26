@@ -94,5 +94,10 @@ export default defineType({
       },
       validation: (Rule) => Rule.required().error('Currency field required'),
     }),
+        defineField({
+      name: 'whatsapp',
+      title: 'WhatsApp',
+      type: 'number',
+    }),
   ],
 });

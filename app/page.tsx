@@ -17,7 +17,6 @@ export default function Home() {
       <MainCategories />
       <Featured />
       <Banners />
-      <Blog />
       <BlogPosts />
     </div>
   );
