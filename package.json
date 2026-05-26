@@ -27,7 +27,7 @@
     "embla-carousel-react": "^8.6.0",
     "get-youtube-id": "^1.0.1",
     "lucide-react": "^0.562.0",
-    "motion": "^12.34.0",
+    "motion": "^12.40.0",
     "next": "^15.5.9",
     "next-sanity": "^11.6.12",
     "postcss": "^8.5.6",

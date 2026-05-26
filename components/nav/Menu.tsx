@@ -1,12 +1,18 @@
-'use client'
+'use client';
+import { motion } from 'motion/react';
 
-import { CiMenuBurger } from "react-icons/ci";
+import { CiMenuBurger } from 'react-icons/ci';
 const Menu = () => {
   return (
-    <div className="flex gap-2 items-center bg-white rounded-xl px-2 py-1">
+    <motion.div
+      whileTap={{
+        scale: 0.8,
+      }}
+      className="cursor-pointer flex gap-2 items-center bg-white rounded-xl px-2 py-1"
+    >
       <CiMenuBurger className="text-2xl font-bold" /> <span>Menu</span>
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default Menu
+export default Menu;

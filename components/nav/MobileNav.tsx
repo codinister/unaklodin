@@ -9,6 +9,7 @@ import { useState } from 'react';
 import {useScroll,useMotionValueEvent} from 'motion/react'
 import CartIcon from './CartIcon';
 
+
 const MobileNav = () => {
   const [open, setOpen] = useState(false);
   const [getCount,setCount] = useState(0)

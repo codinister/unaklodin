@@ -71,3 +71,35 @@ export type cartType = {
   carts: Record<string, cartItemType>;
   billingInfo: z.infer<typeof billing>;
 };
+
+export type  fadeLeftCustomType = {
+  hidden: {
+    opacity: number;
+    x: number;
+  };
+  visible: (delay: number) => {
+    opacity: number;
+    x: number;
+    transition: {
+      delay: number;
+      duration: number;
+      ease: 'easeOut';
+    };
+  };
+};
+
+export type fadeUpCustomType = {
+  hidden: {
+    opacity: number;
+    y: number;
+  };
+  visible: (delay: number) => {
+    opacity: number;
+    y: number;
+    transition: {
+      delay: number;
+      duration: number;
+      ease: 'easeOut';
+    };
+  };
+};
