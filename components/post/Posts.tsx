@@ -1,8 +1,6 @@
 'use client';
 
 import useGetQuery from '@/state/query/useGetQuery';
-import { Button } from '../ui/button';
-import Link from 'next/link';
 import PostCard from './PostCard';
 
 const Posts = () => {

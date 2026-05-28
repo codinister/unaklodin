@@ -13,13 +13,13 @@ const PostSidebar = () => {
       <AboutWidget />
       <FeaturedVideo />
       <MenWidget />
-      <BannersWidget />
-      <iframe
+      {/* <BannersWidget /> */}
+      {/* <iframe
         className="mb-10"
         src="https://widgets.sociablekit.com/facebook-page-posts/iframe/25663282"
         width="100%"
         height="500px"
-      ></iframe>
+      ></iframe> */}
     </>
   );
 };

@@ -1,9 +1,5 @@
 'use client';
 
-import AboutWidget from '@/components/post/AboutWidget';
-import BannersWidget from '@/components/post/BannersWidget';
-import FeaturedVideo from '@/components/post/FeaturedVideo';
-import MenWidget from '@/components/post/MenWidget';
 import PostContent from '@/components/post/PostContent';
 import PostSidebar from '@/components/post/PostSidebar';
 

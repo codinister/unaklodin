@@ -5,6 +5,7 @@ import { groq } from 'next-sanity';
 
 
 async function getPost(id: string) {
+  
   return await serverConfig.fetch(groq`
     *[_type == 'post' && _id == $id][0]{
       title,

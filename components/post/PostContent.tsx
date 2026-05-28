@@ -12,7 +12,7 @@ const PostContent = ({ id }: { id: string }) => {
 const path = usePathname()
 
 const url = 'https://unaklodin.com'+path
-console.log(url)
+
 
   const data = useGetQuery(
     'singlepost',
