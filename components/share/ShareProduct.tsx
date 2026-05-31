@@ -14,7 +14,7 @@ interface ShareProductProps {
 const ShareProduct = () => {
   
   const path = usePathname();
-  const data = useGetQuery('settings', '/settings');
+  const data =  useGetQuery('settings', '/v1/settings') || [];
   const url = data[0]?.domain + path;
   const phone = data[0]?.whatsapp;
 
