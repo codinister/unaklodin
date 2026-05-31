@@ -14,13 +14,13 @@ export async function generateMetadata({
 
   return {
     title: data[0]?.title,
-    description: data[0]?.description,
+    description: data[0]?.excerpt,
     openGraph: {
       title: data[0]?.title,
-      description: data[0]?.description,
+      description: data[0]?.excerpt,
       images: [
         {
-          url: `${data[0]?.thumbnail}?w=1200&h=630&crop=fit`,
+          url: data[0]?.thumbnail+"?w=1200&h=630&crop=fit",
           width: 1200,
           height: 630,
         },
@@ -31,7 +31,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary',
       title: data[0]?.title,
-      description: data[0]?.description,
+      description: data[0]?.excerpt,
       images: [data[0]?.thumbnail],
     },
   };
