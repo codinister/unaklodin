@@ -1,21 +1,22 @@
 'use client';
 
 import { WhatsappIcon } from 'react-share';
-import { useState, useEffect } from 'react';
 
-const Whatsapp = ({ phone, url }: { phone: number; url: string }) => {
-  const [getPhone, setPhone] = useState(0);
-  const [getUrl, setUrl] = useState('');
-  const encodeUrl = encodeURIComponent(url);
-  useEffect(() => {
-    setPhone(phone);
-    setUrl(encodeUrl);
-  }, [phone, encodeUrl]);
+interface WhatsappProps {
+  phone: number | string;
+  url: string;
+}
 
-
+const Whatsapp = ({ phone, url }: WhatsappProps) => {
+  const encodedUrl = encodeURIComponent(url);
 
   return (
-    <a href={`https://wa.me/${getPhone}?text=${getUrl}`}>
+    <a
+      href={`https://wa.me/${phone}?text=${encodedUrl}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Share on WhatsApp"
+    >
       <WhatsappIcon size={40} round />
     </a>
   );
