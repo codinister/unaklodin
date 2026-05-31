@@ -20,7 +20,7 @@ export async function generateMetadata({
       description: data[0]?.excerpt,
       images: [
         {
-          url: data[0]?.thumbnail+"?w=1200&h=630&crop=fit",
+          url: data[0].thumbnail + '?w=1200&h=630&fit=crop',
           width: 1200,
           height: 630,
         },

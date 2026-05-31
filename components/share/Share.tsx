@@ -8,7 +8,7 @@ const Share = ({ url }: { url: string }) => {
 
   return (
     <a href={whatsappUrl}>
-      <FaShare  className="text-[6px] w-10 h-10 rounded-full flex justify-center items-center  border border-black" />
+      <FaShare size={10}  className="w-10 h-10 rounded-full flex justify-center items-center  border border-black" />
     </a>
   );
 };
