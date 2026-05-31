@@ -45,6 +45,7 @@ const Men = () => {
           {data
             .filter((v) => v.cat === decodeURIComponent(String(param.id)))
             .map((v, k) => {
+              
               const totalColours = v.colour ? getColour(v.colour).length : 1;
 
               const fn = (val: Boolean) => {};

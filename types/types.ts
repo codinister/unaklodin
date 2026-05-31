@@ -18,7 +18,7 @@ export type ItemTypes = {
   size: string[];
   description: any;
   excerpt: string;
-  features: string[];
+  features: { title: string; sub_title: string; body: any }[];
   gallery: string[];
   price: number;
   product: string;
@@ -72,7 +72,7 @@ export type cartType = {
   billingInfo: z.infer<typeof billing>;
 };
 
-export type  fadeLeftCustomType = {
+export type fadeLeftCustomType = {
   hidden: {
     opacity: number;
     x: number;
