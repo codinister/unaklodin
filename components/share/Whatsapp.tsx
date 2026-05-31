@@ -13,7 +13,7 @@ const Whatsapp = ({ phone, url }: WhatsappProps) => {
   return (
     <a
       href={`https://wa.me/${phone}?text=${encodedUrl}`}
-      aria-label="Share on WhatsApp"
+      title="Make enquiries!"
     >
       <WhatsappIcon size={40} round />
     </a>

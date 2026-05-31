@@ -7,7 +7,7 @@ const FacebookShare = ({ url }: { url: string }) => {
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${urlEncode}`;
 
   return (
-    <a href={facebookUrl} rel="noopener noreferrer">
+    <a href={facebookUrl} title="Share on Facebook">
       <FacebookIcon size={40} round />
     </a>
   );

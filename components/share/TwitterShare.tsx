@@ -6,7 +6,7 @@ const TwitterShare = ({ url, text }: { text: string; url: string }) => {
   const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
 
   return (
-    <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
+    <a href={twitterUrl} title="Share on Twitter">
       <TwitterIcon size={40} round />
     </a>
   );
