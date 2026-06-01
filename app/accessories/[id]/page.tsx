@@ -23,6 +23,12 @@ const Accessories = () => {
   const dupData: ItemTypes[] = state?.dupData || [];
   const { defaultPrice, currency } = useCurrency();
   const ban = useGetQuery('banners', '/v1/banners/access-page') || [];
+
+  const paramId = decodeURIComponent(String(param.id));
+  const dataResult = data.filter((v) => v.cat === paramId);
+  const dupDataResult = dupData.filter((v) => v.cat === paramId);
+
+
   return (
     <>
       <ItemBanner
@@ -35,12 +41,11 @@ const Accessories = () => {
 
         <div className="flex justify-between py-10 ">
           <TotalProduct total={dupData?.length} />
-          <Filter data={dupData} dispatchFn={filterAccessoriesItems} />
+          <Filter data={dupDataResult} dispatchFn={filterAccessoriesItems} />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
-          {data
-            .filter((v) => v.cat === decodeURIComponent(String(param.id)))
+          {dataResult
             .map((v, k) => {
               const totalColours = v.colour ? getColour(v.colour).length : 1;
 

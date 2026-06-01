@@ -25,6 +25,10 @@ const Women = () => {
   const { defaultPrice, currency } = useCurrency();
   const ban = useGetQuery('banners', '/v1/banners/women-page') || [];
 
+    const paramId = decodeURIComponent(String(param.id));
+  const dataResult = data.filter((v) => v.cat === paramId);
+  const dupDataResult = dupData.filter((v) => v.cat === paramId);
+
   return (
     <>
      <ItemBanner
@@ -38,12 +42,11 @@ const Women = () => {
 
         <div className="flex justify-between py-10 ">
           <TotalProduct total={data.length} />
-          <Filter data={dupData} dispatchFn={filterWomenItems} />
+          <Filter data={dupDataResult} dispatchFn={filterWomenItems} />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
-          {data
-            .filter((v) => v.cat === decodeURIComponent(String(param.id)))
+          {dataResult
             .map((v, k) => {
               const totalColours = v.colour ? getColour(v.colour).length : 1;
               const fn = (val: Boolean) => {};

@@ -11,7 +11,7 @@ const Colour = ({ hex,colorName, ...props }: ColourProps) => {
           backgroundColor: hex,
         }}
       ></div>
-      <p className="text-2">{colorName}</p>
+      <p className="text-[8px]">{colorName}</p>
     </div>
   );
 };

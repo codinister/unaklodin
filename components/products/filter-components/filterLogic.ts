@@ -36,6 +36,7 @@ const filterLogic = (
     state.data = output;
   } else if (type === 'cat') {
     state.data = state.dupData.filter((v) => v.cat === payload);
+    state.dupData = state.dupData.filter((v) => v.cat === payload);
   } else if (type === 'colour') {
     state.data = state.dupData
       .map((v) => ({
