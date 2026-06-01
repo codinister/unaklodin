@@ -34,32 +34,43 @@ const filterLogic = (
     }
 
     state.data = output;
+    state.dupData = output;
   } else if (type === 'cat') {
-    state.data = state.dupData.filter((v) => v.cat === payload);
-    state.dupData = state.dupData.filter((v) => v.cat === payload);
+    const data = (state.data = state.dupData.filter((v) => v.cat === payload));
+    state.data = data;
+    state.dupData = data;
   } else if (type === 'colour') {
-    state.data = state.dupData
+    const data = state.dupData
       .map((v) => ({
         ...v,
         colour: v.colour ? v.colour : [],
       }))
       .filter((v) => v.colour.map((vv) => vv.title).includes(payload));
+
+    state.data = data;
+    state.dupData = data;
   } else if (type === 'price') {
     const { max, min } = payload;
 
-    state.data = state.dupData
+    const data = state.dupData
       .map((v) => ({
         ...v,
         price: v.price || 0,
       }))
       .filter((v) => v.price >= min && v.price <= max);
+
+    state.data = data;
+    state.dupData = data;
   } else if (type === 'size') {
-    state.data = state.dupData
+    const data = state.dupData
       .map((v) => ({
         ...v,
         size: v.size ? v.size : [],
       }))
       .filter((v) => v.size.includes(payload));
+
+    state.data = data;
+    state.dupData = data;
   }
 };
 

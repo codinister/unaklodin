@@ -30,7 +30,7 @@ const Men = () => {
 
         <div className="flex justify-between py-10 ">
           <TotalProduct total={dupData?.length} />
-          <Filter data={dupData} dispatchFn={filterMenItems} />
+          <Filter  data={dupData} dispatchFn={filterMenItems} />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:mx-auto sm:justify-center">
