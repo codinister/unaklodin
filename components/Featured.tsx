@@ -38,7 +38,7 @@ const Featured = () => {
                       once: true,
                       amount: 0.3,
                     }}
-                    custom={(Number(k) + 1) * 0.2}
+                    custom={(Number(k)) * 0.1}
                     className="sm:h-110
                     h-140
                     text-white

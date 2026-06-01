@@ -1,6 +1,8 @@
 'use client';
 
+import { buttonAnimation } from '@/variants/variants';
 import { WhatsappIcon } from 'react-share';
+import {motion} from 'motion/react'
 
 interface WhatsappProps {
   phone: number | string;
@@ -11,12 +13,12 @@ const Whatsapp = ({ phone, url }: WhatsappProps) => {
   const encodedUrl = encodeURIComponent(url);
 
   return (
-    <a
+     <motion.a {...buttonAnimation}
       href={`https://wa.me/${phone}?text=${encodedUrl}`}
       title="Make enquiries!"
     >
-      <WhatsappIcon size={40} round />
-    </a>
+      <WhatsappIcon size={30} round />
+    </motion.a>
   );
 };
 

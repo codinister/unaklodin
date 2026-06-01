@@ -21,7 +21,7 @@ const ShareProduct = () => {
 
 
   return (
-    <div className="flex items-center gap-2 my-6">
+    <div className="flex items-center gap-3 my-6">
       <Whatsapp phone={phone} url={url} />
       <FacebookShare url={url} />
       <Share url={url} />

@@ -116,3 +116,13 @@ export const staggerChildren = {
     staggerChildren: 0.2,
   },
 };
+
+
+export const buttonAnimation = {
+    whileHover: {
+      scale: 1.2,
+    },
+    whileTap: {
+      scale: 0.9,
+    },
+  };
