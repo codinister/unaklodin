@@ -13,14 +13,14 @@ import { useState } from 'react';
 
 const Filter = ({
   data,
+  catData,
   dispatchFn,
 }: {
   data: ItemTypes[];
+  catData: ItemTypes[];
   dispatchFn: Function;
 }) => {
   const [open, setOpen] = useState(false);
-
-
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -39,7 +39,7 @@ const Filter = ({
           <Size setOpen={setOpen} data={data} dispatchFn={dispatchFn} />
           <Price setOpen={setOpen} dispatchFn={dispatchFn} />
           <Colours setOpen={setOpen} data={data} dispatchFn={dispatchFn} />
-          <Categories setOpen={setOpen} data={data} dispatchFn={dispatchFn} />
+          <Categories setOpen={setOpen} data={catData} dispatchFn={dispatchFn} />
         </Accordion>
       </SheetContent>
     </Sheet>

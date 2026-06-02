@@ -10,7 +10,7 @@ const initialState: stateTypes = {
   dupData: [],
   pending: '',
   error: '',
-  cat: [],
+  cat: []
 };
 
 export const menThunk = asyncThunk('/v2/products/men', 'men', 'men22s');

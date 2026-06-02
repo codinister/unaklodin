@@ -1,3 +1,4 @@
+import getCategoryFromData from '@/state/redux/getCategoryFromData';
 import { ItemTypes, stateTypes } from '@/types/types';
 
 const filterLogic = (
@@ -10,21 +11,21 @@ const filterLogic = (
 
     if (payload === 'lowtohigh') {
       output =
-        state.dupData.sort((a: { price: number }, b: { price: number }) => {
+        state.data.sort((a: { price: number }, b: { price: number }) => {
           if (a.price > b.price) return 1;
           else if (a.price < b.price) return -1;
           else return 0;
         }) || [];
     } else if (payload === 'hightolow') {
       output =
-        state.dupData.sort((a: { price: number }, b: { price: number }) => {
+        state.data.sort((a: { price: number }, b: { price: number }) => {
           if (a.price > b.price) return -1;
           else if (a.price < b.price) return 1;
           else return 0;
         }) || [];
     } else if (payload === 'whatsnew') {
       output =
-        state.dupData.sort(
+        state.data.sort(
           (a: { updatedAt: string }, b: { updatedAt: string }) => {
             if (a.updatedAt > b.updatedAt) return -1;
             else if (a.updatedAt < b.updatedAt) return 1;
@@ -34,43 +35,37 @@ const filterLogic = (
     }
 
     state.data = output;
-    state.dupData = output;
   } else if (type === 'cat') {
-    const data = (state.data = state.dupData.filter((v) => v.cat === payload));
-    state.data = data;
-    state.dupData = data;
+    state.data = state.dupData.filter((v) => v.cat === payload);
   } else if (type === 'colour') {
-    const data = state.dupData
+    const dataArr = getCategoryFromData(state);
+
+    state.data = dataArr
       .map((v) => ({
         ...v,
         colour: v.colour ? v.colour : [],
       }))
       .filter((v) => v.colour.map((vv) => vv.title).includes(payload));
-
-    state.data = data;
-    state.dupData = data;
   } else if (type === 'price') {
     const { max, min } = payload;
 
-    const data = state.dupData
+    const dataArr = getCategoryFromData(state);
+
+    state.data = dataArr
       .map((v) => ({
         ...v,
         price: v.price || 0,
       }))
       .filter((v) => v.price >= min && v.price <= max);
-
-    state.data = data;
-    state.dupData = data;
   } else if (type === 'size') {
-    const data = state.dupData
+    const dataArr = getCategoryFromData(state);
+
+    state.data = dataArr
       .map((v) => ({
         ...v,
         size: v.size ? v.size : [],
       }))
       .filter((v) => v.size.includes(payload));
-
-    state.data = data;
-    state.dupData = data;
   }
 };
 
