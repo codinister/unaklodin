@@ -35,6 +35,7 @@ const ProductPageContent = ({
       dupData={filterData}
       data={dataRes}
       catData={catData}
+      type={type}
     />
   );
 };

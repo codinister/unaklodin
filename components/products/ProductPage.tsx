@@ -14,19 +14,28 @@ type ProductPageProps = {
   filterItems: Function;
   dupData: ItemTypes[];
   data: ItemTypes[];
-  catData: ItemTypes[]
+  catData: ItemTypes[];
+  type: string;
 };
-const ProductPage = ({ filterItems, dupData, data, catData }: ProductPageProps) => {
-
+const ProductPage = ({
+  filterItems,
+  dupData,
+  data,
+  catData,
+  type,
+}: ProductPageProps) => {
   const { defaultPrice, currency } = useCurrency();
-  const ban = useGetQuery('banners', '/v1/banners/men-page') || [];
+
+  const ban = useGetQuery('banners', `/v1/banners/${type}-page`) || [];
+
+  const pageTitle = `${type.toUpperCase()}'s WEAR`;
 
   return (
     <>
       <ItemBanner img={ban[0] ? ban[0]?.images[0] : ''} />
 
       <div className="cont mb-10">
-        <Breadcramp page_title="Men's Wear" link="" link_name="" />
+        <Breadcramp page_title={pageTitle} link="" link_name="" />
 
         <div className="flex justify-between py-10 ">
           <TotalProduct total={dupData?.length} />
