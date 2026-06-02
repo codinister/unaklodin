@@ -3,10 +3,16 @@
 import { ItemTypes } from '@/types/types';
 
 const productData2 = ({ ...param }) => {
-  
   const { data, paramId, type, dupData } = param;
-  const dataType = data[0].type === type;
-  const dataRes = dataType ? data : dupData;
+
+  let dataRes;
+  if (paramId === 'undefined') {
+    const dataType = data[0].type === type;
+    dataRes = dataType ? data : dupData;
+  } else {
+    const dataType = data[0].cat.toLowerCase() === paramId.toLowerCase();
+    dataRes = dataType ? data : dupData;
+  }
 
   return paramId === 'undefined'
     ? dataRes.filter((v: ItemTypes) => v.type.toLowerCase() === type)
