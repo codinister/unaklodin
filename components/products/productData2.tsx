@@ -7,10 +7,11 @@ const productData2 = ({ ...param }) => {
 
   let dataRes;
   if (paramId === 'undefined') {
-    const dataType = data[0].type === type;
+    const dataType = data[0]?.type === type;
     dataRes = dataType ? data : dupData;
   } else {
-    const dataType = data[0].cat.toLowerCase() === paramId.toLowerCase();
+    const cat = [...new Set(data.map((v: ItemTypes) => v.cat).filter(Boolean))].filter(v => v === paramId)
+    const dataType = cat[0] === paramId
     dataRes = dataType ? data : dupData;
   }
 
