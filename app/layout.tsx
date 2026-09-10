@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import './globals.css'; 
 import QueryProvider from '@/state/query/QueryProvider';
 import Nav from '@/components/nav/Nav';
 import Footer from '@/components/Footer';
 import StoreProvider from '@/state/redux/StoreProvider';
 import CurrencyBox from '@/components/CurrencyBox';
-
+import { Analytics } from "@vercel/analytics/next"
 
 
 export const metadata: Metadata = {
-  title: 'UNA Klodin',
+  title: 'U&A Klodin',
   description: `U&A KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas
   `,
 
@@ -48,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-qb-installed="true" suppressHydrationWarning={true}>
       <body cz-shortcut-listen="true">
+      <Analytics/>
         <QueryProvider>
           <StoreProvider>
             <Nav />

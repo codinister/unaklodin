@@ -13,11 +13,11 @@ const getProductById = async (id: string) => {
   const data = await serverConfig.fetch(
     groq`
         *[_id == $id]{
+          'id': _id,
+          title,
           'type': _type, 
           'createdAt' : _create5dAt, 
           'updatedAt' : _updatedAt,
-          'id': _id,
-          title,
           "cat" : category->title, 
           "colour": colour[]->{
           title,
