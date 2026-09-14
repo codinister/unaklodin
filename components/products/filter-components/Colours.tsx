@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import getColours from '@/utils/getColours';
 import Colour from '@/components/Colour';
@@ -15,7 +15,7 @@ const Colours = ({
   dispatchFn,
   setOpen,
 }: {
-  data: ItemTypes[];
+  data: productsType[];
   dispatchFn: Function;
   setOpen: (open: boolean) => void;
 }) => {

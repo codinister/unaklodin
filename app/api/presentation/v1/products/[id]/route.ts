@@ -1,4 +1,5 @@
-import getProductById from '@/lib/getProductById';
+
+import getProductById from '@/app/api/getProductById';
 import { NextRequest, NextResponse } from 'next/server';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';

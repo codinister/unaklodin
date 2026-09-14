@@ -7,6 +7,8 @@ import { motion } from 'motion/react';
 const Banners = () => {
   const data = useGetQuery('banners', '/v1/banners/home-page') || [];
 
+  data.length < 1 && '';
+
   return (
     <div className="mb-7 overflow-hidden flex gap-1 sm:flex-row flex-col">
       {data[0]

@@ -1,10 +1,8 @@
 'use client';
 
-import useGetQuery from '@/state/query/useGetQuery';
-import { cartItemType, ItemTypes } from '@/types/types';
+import { cartItemType } from '@/types/types';
 import useCurrency from '@/utils/useCurrency';
-import { FaPlus } from 'react-icons/fa';
-import { FaMinus } from 'react-icons/fa';
+
 
 const CheckoutItems = ({ value }: { value: cartItemType }) => {
   const { currency } = useCurrency();

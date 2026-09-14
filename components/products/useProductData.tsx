@@ -1,7 +1,7 @@
 'use client'
 
 import useDispatchselector from "@/state/redux/useDispatchselector";
-import { ItemTypes } from "@/types/types";
+import { productsType } from "@/types/types";
 import { usePathname } from "next/navigation";
 
 const useProductData = () => {
@@ -22,8 +22,8 @@ const useProductData = () => {
     state = selector((state: any) => state.accessoriesSlice) || [];
   }
 
-  const data: ItemTypes[] = state?.data || [];
-  const dupData: ItemTypes[] = state?.dupData || [];
+  const data: productsType[] = state?.data || [];
+  const dupData: productsType[] = state?.dupData || [];
 
   return {data, dupData}
 }

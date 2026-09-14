@@ -1,5 +1,5 @@
 import getCategoryFromData from '@/state/redux/getCategoryFromData';
-import { ItemTypes, stateTypes } from '@/types/types';
+import { productsType, stateTypes } from '@/types/types';
 
 const filterLogic = (
   state: stateTypes,
@@ -7,18 +7,18 @@ const filterLogic = (
 ) => {
   const { payload, type } = action.payload;
   if (type === 'sort') {
-    let output: ItemTypes[] = [];
+    let output: productsType[] = [];
 
     if (payload === 'lowtohigh') {
       output =
-        state.data.sort((a: { price: number }, b: { price: number }) => {
+        state.data.sort((a, b) => {
           if (a.price > b.price) return 1;
           else if (a.price < b.price) return -1;
           else return 0;
         }) || [];
     } else if (payload === 'hightolow') {
       output =
-        state.data.sort((a: { price: number }, b: { price: number }) => {
+        state.data.sort((a, b) => {
           if (a.price > b.price) return -1;
           else if (a.price < b.price) return 1;
           else return 0;

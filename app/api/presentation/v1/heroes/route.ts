@@ -1,4 +1,4 @@
-import Links from '@/components/nav/Links';
+
 import serverConfig from '@/state/sanity/server.config';
 import { groq } from 'next-sanity';
 import { NextResponse } from 'next/server';
@@ -13,6 +13,7 @@ export async function GET() {
     'link': youtube.link
     }
     `);
+
     return NextResponse.json(data);
   } catch (err) {
     console.log(err);

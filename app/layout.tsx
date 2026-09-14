@@ -10,23 +10,23 @@ import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'U&A Klodin',
-  description: `U&A KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas
+  description: `UNA KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas
   `,
 
   metadataBase: new URL('https://unaklodin.com'), // 🔥 IMPORTANT
 
   openGraph: {
-    title: 'UNA Klodin',
-    description: `U&A KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas
+    title: 'U&A Klodin',
+    description: `UNA KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas
     `,
     url: 'https://unaklodin.com',
-    siteName: 'UNA Klodin',
+    siteName: 'U&A Klodin',
     images: [
       {
         url: '/preview.jpg', // will resolve with metadataBase
         width: 1200,
         height: 630,
-        alt: 'UNA Klodin African fashion',
+        alt: 'U&A Klodin African fashion',
       },
     ],
     type: 'website',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'UNA Klodin',
-    description: `U&A KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas`,
+    title: 'U&A Klodin',
+    description: `UNA KLODIN is a company specialized in customizing T'shirts,website designing and graphic designs. With a team of young and dynamic professionals committed to provide you with excellent services. We are understanding, unique and multifaceted in ideas`,
     images: ['/preview.jpg'],
   },
 };

@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import getSizes from '@/utils/getSizes';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 
@@ -14,7 +14,7 @@ const Size = ({
   dispatchFn,
   setOpen,
 }: {
-  data: ItemTypes[];
+  data: productsType[];
   dispatchFn: Function;
   setOpen: (open: boolean) => void;
 }) => {

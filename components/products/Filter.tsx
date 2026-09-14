@@ -3,7 +3,7 @@
 import { RiSortAsc } from 'react-icons/ri';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { Accordion } from '@/components/ui/accordion';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import Colours from './filter-components/Colours';
 import Sort from './filter-components/Sort';
 import Size from './filter-components/Size';
@@ -16,8 +16,8 @@ const Filter = ({
   catData,
   dispatchFn,
 }: {
-  data: ItemTypes[];
-  catData: ItemTypes[];
+  data: productsType[];
+  catData: productsType[];
   dispatchFn: Function;
 }) => {
   const [open, setOpen] = useState(false);

@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const fetch = axios.create({
-    baseURL: '/api'
+    baseURL: '/api/presentation'
 })
 const fetchApi = ({...options}) => {
     return fetch(options)

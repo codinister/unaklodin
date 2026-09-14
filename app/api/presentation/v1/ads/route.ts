@@ -1,4 +1,4 @@
-import Links from '@/components/nav/Links';
+
 import serverConfig from '@/state/sanity/server.config';
 import { groq } from 'next-sanity';
 import { NextResponse } from 'next/server';

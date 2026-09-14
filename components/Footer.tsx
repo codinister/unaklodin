@@ -23,8 +23,10 @@ const Footer = () => {
   const { dispatch, selector } = useDispatchselector();
   const sett = useGetQuery('settings', '/v1/settings') || [];
 
+  sett.length < 1 && '';
+
   const cur = selector((state) => state.curSlice);
-  const currency = cur.currency;
+  const currency = cur?.currency;
 
   useEffect(() => {
     dispatch(menThunk());

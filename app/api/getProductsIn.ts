@@ -1,6 +1,6 @@
 
 import serverConfig from '@/state/sanity/server.config';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import { groq } from 'next-sanity';
 import getDollarRate from './getDollarRate';
 
@@ -38,9 +38,9 @@ const getProductsIn = async (arr: string[]) => {
     { arr },
   );
 
-  return data.map((v: ItemTypes) => {
+  return data.map((v: productsType) => {
     const cedi = Number(v.price);
-    const usd = Number(rate * v.price);
+    const usd = Number(rate) * Number(v.price);
 
     return {
       ...v,

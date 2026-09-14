@@ -1,4 +1,5 @@
-import getProductById from '@/lib/getProductById';
+
+import getProductById from '@/app/api/getProductById';
 import ItemClientComponent from '../ItemClientComponent';
 
 export async function generateMetadata({

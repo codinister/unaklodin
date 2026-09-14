@@ -6,7 +6,7 @@ import SearchInput from './SearchInput';
 import SearchBoxImages from './SearchBoxImages';
 import QuestionsBox from '../QuestionsBox';
 import React, { useEffect, useRef, useState } from 'react';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import fetchApi from '@/state/query/fetchApi';
 import Item from '../products/Item';
 import getColour from '@/utils/getColour';
@@ -14,7 +14,7 @@ import useCurrency from '@/utils/useCurrency';
 
 const Searchbox = () => {
   const [open, setOpen] = useState(false);
-  const [searchResult, setSearchResult] = useState<ItemTypes[]>([]);
+  const [searchResult, setSearchResult] = useState<productsType[]>([]);
   const sett = useGetQuery('settings', '/v1/settings') || [];
 
   const searchRef = useRef<HTMLInputElement | null>(null);
@@ -63,7 +63,7 @@ const Searchbox = () => {
                     closeOpenFn={closeOpenFn}
                     id={v.id}
                     title={v.title}
-                    price={defaultPrice(v.dollarPrice, v.cediPrice)}
+                    price={defaultPrice(Number(v.dollarPrice), Number(v.cediPrice))}
                     totalColours={totalColours}
                     img={v.thumbnail}
                     gallery={v.gallery}

@@ -2,7 +2,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import asyncThunk from '../asyncThunk';
-import { ItemTypes, stateTypes } from '@/types/types';
+import { productsType, stateTypes } from '@/types/types';
 import filterLogic from '@/components/products/filter-components/filterLogic';
 
 const initialState: stateTypes = {
@@ -19,7 +19,7 @@ const menSlice = createSlice({
   name: 'men',
   initialState,
   reducers: {
-    addMenData(state, action: PayloadAction<ItemTypes[]>) {
+    addMenData(state, action: PayloadAction<productsType[]>) {
       state.data = action.payload;
     },
     filterMenItems(state, action) {

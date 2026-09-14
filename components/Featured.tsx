@@ -14,6 +14,8 @@ import { fadeUp, fadeUpCustom, staggerChildren } from '@/variants/variants';
 const Featured = () => {
   const data = useGetQuery('featured', '/v1/featured') || [];
 
+  data.length < 1 && '';
+
   return (
     <div className="mb-7 w-full">
       <Carousel className="w-full">
@@ -38,7 +40,7 @@ const Featured = () => {
                       once: true,
                       amount: 0.3,
                     }}
-                    custom={(Number(k)) * 0.1}
+                    custom={Number(k) * 0.1}
                     className="sm:h-110
                     h-140
                     text-white

@@ -1,29 +1,39 @@
 'use client';
 
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import getColours from '@/utils/getColours';
 import Colour from '../Colour';
 import getSizes from '@/utils/getSizes';
-import useGetQuery from '@/state/query/useGetQuery';
 import { useEffect, useState } from 'react';
 import AddToCartBtn from './AddToCartBtn';
-import { PortableText } from '@portabletext/react';
 import useCurrency from '@/utils/useCurrency';
+import { PortableText } from '@portabletext/react';
 
-const Description = ({ data }: { data: ItemTypes[] }) => {
+const Description = ({ data }: { data: productsType[] }) => {
   const { currency, defaultPrice } = useCurrency();
-  const sizes = getSizes(data);
-  const colors = getColours(data);
+
+  data.length < 1 && '';
+
+  const descData = data.map((v) => {
+    return {
+      ...v,
+      price: Number(defaultPrice(Number(v?.dollarPrice), Number(v?.cediPrice))),
+      currency,
+    };
+  });
+
+  const sizes = getSizes(descData);
+  const colors = getColours(descData);
 
   const [getSize, setSize] = useState('');
   const [getColour, setColour] = useState('');
 
   useEffect(() => {
-    if (data) {
-      setColour(data[0]?.colour ? data[0]?.colour[0]?.title : '');
-      setSize(data[0]?.size ? data[0]?.size[0] : '');
+    if (descData) {
+      setColour(descData[0]?.colour ? descData[0]?.colour[0]?.title : '');
+      setSize(descData[0]?.size ? descData[0]?.size[0] : '');
     }
-  }, [data]);
+  }, [descData]);
 
   const colorFn = (value: string) => {
     setColour(value);
@@ -31,14 +41,18 @@ const Description = ({ data }: { data: ItemTypes[] }) => {
 
   return (
     <div className="py-7">
-      <h6 className="font-bold">{data[0]?.title}</h6>
+      <h6 className="font-bold">{descData[0]?.title}</h6>
 
       <div className="my-6">
-        <PortableText value={data[0]?.description} />
+      <PortableText value={descData[0]?.description} />
       </div>
 
       <p className="my-10 font-bold">
-        {currency} {defaultPrice(data[0]?.dollarPrice, data[0]?.cediPrice)}
+        {currency}{' '}
+        {defaultPrice(
+          Number(descData[0]?.dollarPrice),
+          Number(descData[0]?.cediPrice),
+        )}
       </p>
 
       {sizes.length > 0 ? (

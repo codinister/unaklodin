@@ -1,13 +1,13 @@
 'use client';
 
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 
 const productData1 = ({ ...param }) => {
   const { paramId, type, dupData } = param;
 
   return paramId === 'undefined'
-    ? dupData.filter((v: ItemTypes) => v.type.toLowerCase() === type)
-    : dupData.filter((v: ItemTypes) => v.cat === paramId);
+    ? dupData.filter((v: productsType) => v.type.toLowerCase() === type)
+    : dupData.filter((v: productsType) => v.cat === paramId);
 };
 
 export default productData1;

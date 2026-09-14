@@ -1,6 +1,6 @@
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 
-const filterDataArr = (data: ItemTypes[], dupData: ItemTypes[], type: string) => {
+const filterDataArr = (data: productsType[], dupData: productsType[], type: string) => {
 
   const catArr = [...new Set(data.map((v) => v.cat).filter(Boolean))];
 

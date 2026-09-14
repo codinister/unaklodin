@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import getCategories from '@/utils/getCategories';
 
@@ -14,7 +14,7 @@ const Categories = ({
   dispatchFn,
     setOpen
 }: {
-  data: ItemTypes[];
+  data: productsType[];
   dispatchFn: Function;
     setOpen: (open: boolean) => void;
 }) => {

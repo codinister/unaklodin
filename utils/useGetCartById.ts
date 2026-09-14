@@ -1,14 +1,14 @@
 'use client';
 
 import useDispatchselector from '@/state/redux/useDispatchselector';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 
-const useGetCartById = (data: ItemTypes[]) => {
+const useGetCartById = (data: productsType[]) => {
   const { selector } = useDispatchselector();
   const cartState = selector((state) => state.cartSlice);
-  const allCarts = cartState?.carts || [];
+  const allCarts = cartState?.carts || {};
   const cart_id = data[0]?.id;
-  return  allCarts?.[cart_id] || [];
+  return  allCarts?.[cart_id] || {} ;
 };
 
 export default useGetCartById;

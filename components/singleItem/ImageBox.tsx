@@ -1,10 +1,10 @@
 'use client';
 
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import Image from 'next/image';
 import { useState } from 'react';
 
-const ImageBox = ({ data }: { data: ItemTypes[] }) => {
+const ImageBox = ({ data }: { data: productsType[] }) => {
   const gall = data[0]?.gallery || [];
 
   const arr = gall ? gall.map((v, k) => (

@@ -1,4 +1,4 @@
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import { addCart } from '@/state/redux/reducers/cartSlice';
 import useDispatchselector from '@/state/redux/useDispatchselector';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
@@ -13,22 +13,24 @@ const AddToCartBtn = ({
   getSize,
   getColour,
 }: {
-  data: ItemTypes[];
+  data: productsType[];
   getSize: string;
   getColour: string;
 }) => {
   const { dispatch } = useDispatchselector();
   const [open, setOpen] = useState(false);
 
-  const carts = useGetCartById(data);
+  const carts = useGetCartById(data) as productsType
+
+  
 
 
   const handleClick = () => {
     dispatch(
       addCart({
         id: data[0]?.id,
-        qty: carts?.qty ? Number(carts.qty) : 1,
-        total: carts?.total ? Number(carts.total) : Number(data[0]?.price),
+        qty: carts ? Number(carts?.qty) : 1,
+        total: carts ? Number(carts?.total) : Number(data[0]?.price),
         title: data[0]?.title,
         price: Number(data[0]?.price),
         cediPrice: data[0]?.cediPrice,

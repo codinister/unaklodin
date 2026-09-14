@@ -7,11 +7,11 @@ import CheckoutItems from './CheckoutItems';
 const Carts = ({ checkout }: { checkout: boolean }) => {
   const { dispatch, selector } = useDispatchselector();
 
-  const cartData = selector((state) => state.cartSlice);
+  const cartData = selector((state) => state.cartSlice) 
 
   const incrementalFn = (val: cartItemType) => {
     const qty = val.qty + 1;
-    const total = val.price * qty;
+    const total = Number(val?.price) * qty;
     dispatch(
       addCart({
         ...val,
@@ -41,15 +41,15 @@ const Carts = ({ checkout }: { checkout: boolean }) => {
 
   return (
     <>
-      {Object.values(cartData.carts).map((v, k) => {
+      {Object.values(cartData.carts).map((v: unknown, k) => {
      
         if (checkout) {
-          return <CheckoutItems key={k} value={v} />;
+          return <CheckoutItems key={k} value={v as cartItemType } />;
         } else {
           return (
             <CartItems
               key={k}
-              value={v}
+              value={v as cartItemType }
               incrementalFn={incrementalFn}
               decrementalFn={decrementalFn}
               deletecartFn={deletecartFn}

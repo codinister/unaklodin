@@ -13,6 +13,8 @@ import {
 const MainCategories = () => {
   const data = useGetQuery('maincategories', '/v1/maincategories') || [];
 
+  data.length < 1 && '';
+
   return (
     <div className="flex-col overflow-hidden sm:flex-row flex my-7">
       <motion.div

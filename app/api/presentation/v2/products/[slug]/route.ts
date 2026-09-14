@@ -1,4 +1,5 @@
-import getProducts from '@/lib/getProducts';
+
+import getProducts from '@/app/api/getProducts';
 import { NextRequest, NextResponse } from 'next/server';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';

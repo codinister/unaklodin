@@ -1,7 +1,6 @@
 'use client';
 
-import useGetQuery from '@/state/query/useGetQuery';
-import { cartItemType, ItemTypes } from '@/types/types';
+import { cartItemType, productsType } from '@/types/types';
 import itemTotal from '@/utils/itemTotal';
 import useCurrency from '@/utils/useCurrency';
 import { FaPlus } from 'react-icons/fa';
@@ -43,8 +42,8 @@ const CartItems = ({
         <p>
           {currency}{' '}
           {itemTotal({
-            cediPrice: value?.cediPrice,
-            dollarPrice: value?.dollarPrice,
+            cediPrice: Number(value?.cediPrice),
+            dollarPrice: Number(value?.dollarPrice),
             qty: value?.qty,
           })}
         </p>

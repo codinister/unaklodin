@@ -1,5 +1,6 @@
-import getProductsIn from '@/lib/getProductsIn';
-import { ItemTypes } from '@/types/types';
+
+import getProductsIn from '@/app/api/getProductsIn';
+import { productsType } from '@/types/types';
 import { NextRequest, NextResponse } from 'next/server';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
@@ -14,7 +15,7 @@ export async function GET(
 
     return NextResponse.json(
       data
-        .filter((v: ItemTypes) =>
+        .filter((v: productsType) =>
           Object.values(v.title)
             .join('')
             .toLowerCase()

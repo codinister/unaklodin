@@ -1,10 +1,6 @@
 'use client';
 import Description from '@/components/singleItem/Description';
 import ImageBox from '@/components/singleItem/ImageBox';
-import useGetQuery from '@/state/query/useGetQuery';
-import { useParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
-import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import { PortableText } from '@portabletext/react';
 import {
   Accordion,
@@ -14,15 +10,14 @@ import {
 } from '@/components/ui/accordion';
 import SimilarItems from '@/components/SimilarItems';
 import useCurrency from '@/utils/useCurrency';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import ShareProduct from '@/components/share/ShareProduct';
 
 type ItemClientComponentProp = {
-  data: ItemTypes[];
+  data: productsType[];
 };
 const ItemClientComponent = ({ data }: ItemClientComponentProp) => {
-  
-  const { defaultPrice, currency } = useCurrency();
+  data.length < 1 && '';
 
   return (
     <>
@@ -44,7 +39,9 @@ const ItemClientComponent = ({ data }: ItemClientComponentProp) => {
                 <h6>Description</h6>
               </AccordionTrigger>
               <AccordionContent>
-                <PortableText value={data[0]?.description} />
+                <div>
+                  <PortableText value={data[0]?.description} />
+                </div>
               </AccordionContent>
             </AccordionItem>
 
@@ -75,15 +72,7 @@ const ItemClientComponent = ({ data }: ItemClientComponentProp) => {
         </div>
 
         <div className="flex-1">
-          <Description
-            data={data.map((v) => {
-              return {
-                ...v,
-                price: Number(defaultPrice(v?.dollarPrice, v?.cediPrice)),
-                currency,
-              };
-            })}
-          />
+          <Description data={data} />
         </div>
       </div>
 

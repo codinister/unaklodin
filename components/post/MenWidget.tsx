@@ -2,7 +2,7 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import useDispatchselector from '@/state/redux/useDispatchselector';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import useCurrency from '@/utils/useCurrency';
 import Link from 'next/link';
 
@@ -10,7 +10,7 @@ const MenWidget = () => {
   const { currency } = useCurrency();
   const { selector } = useDispatchselector();
   const state = selector((state) => state.menSlice) || [];
-  const data: ItemTypes[] = state?.data || [];
+  const data: productsType[] = state?.data || [];
 
   return (
     <div className=" bg-white   my-6">

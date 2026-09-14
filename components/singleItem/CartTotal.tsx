@@ -1,9 +1,7 @@
 'use client';
 
-import getDollarRate from '@/lib/getDollarRate';
-import useGetQuery from '@/state/query/useGetQuery';
 import useDispatchselector from '@/state/redux/useDispatchselector';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 import format_number from '@/utils/format_number';
 import useCurrency from '@/utils/useCurrency';
 

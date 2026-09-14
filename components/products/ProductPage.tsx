@@ -8,13 +8,13 @@ import TotalProduct from './TotalProduct';
 import useCurrency from '@/utils/useCurrency';
 import getColour from '@/utils/getColour';
 import Item from './Item';
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 
 type ProductPageProps = {
   filterItems: Function;
-  dupData: ItemTypes[];
-  data: ItemTypes[];
-  catData: ItemTypes[];
+  dupData: productsType[];
+  data: productsType[];
+  catData: productsType[];
   type: string;
 };
 const ProductPage = ({
@@ -52,7 +52,7 @@ const ProductPage = ({
                   closeOpenFn={fn}
                   id={v.id}
                   title={v.title}
-                  price={defaultPrice(v.dollarPrice, v.cediPrice)}
+                  price={defaultPrice(Number(v.dollarPrice), Number(v.cediPrice))}
                   totalColours={totalColours}
                   img={v.thumbnail}
                   gallery={v.gallery}

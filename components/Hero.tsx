@@ -8,7 +8,9 @@ import { motion } from 'motion/react';
 import { fadeUpCustom, staggerChildren } from '@/variants/variants';
 
 const Hero = () => {
-  const heroData = useGetQuery('hero', '/v1/hero') || [];
+  const heroData = useGetQuery('heroes', '/v1/heroes') || [];
+
+  heroData.length < 1 && ''
 
   return (
     <motion.div
