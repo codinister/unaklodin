@@ -1,10 +1,10 @@
 'use client'
 
-import { ItemTypes } from "@/types/types";
+import { productsType } from "@/types/types";
 
 
 
-const getCategories = (data: ItemTypes[]) => {
+const getCategories = (data: productsType[]) => {
   const category = [
     ...new Set(
       data

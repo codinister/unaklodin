@@ -1,21 +1,21 @@
 'use client';
+
 import useGetQuery from '@/state/query/useGetQuery';
 import useDispatchselector from '@/state/redux/useDispatchselector';
-import format_number from '@/utils/format_number';
 import formatDate from '@/utils/DateFormats';
 import {z} from 'zod'
 import { billing } from '@/schema/schemaTypes';
 import useCheckoutTotal from './useCheckoutTotal';
+import { productsType } from '@/types/types';
 
 const useCartBilling = () => {
   const sett = useGetQuery('settings', '/settings');
-  const { selector, dispatch } = useDispatchselector();
+  const { selector } = useDispatchselector();
  
   const cart = selector((state) => state.cartSlice);
 
   const b = cart?.billingInfo;
-  const data = cart?.carts;
-
+  const data = cart?.carts 
   const amount = useCheckoutTotal()
 
   const info: z.infer<typeof billing> = {
@@ -31,7 +31,7 @@ const useCartBilling = () => {
 
   const currency = sett[0]?.currency.toUpperCase();
   const reference = new Date().getTime().toString();
-  const createdAt = Object.values(data)[0]?.date;
+  const createdAt = new Date().toLocaleString()
   const date = formatDate(createdAt);
   return { data,currency, amount, info, reference, date };
 };

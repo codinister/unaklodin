@@ -1,6 +1,5 @@
 import { usePaystackPayment } from 'react-paystack';
 import format_number from '@/utils/format_number';
-
 import { Button } from './ui/button';
 import useCartBilling from '@/utils/useCartBilling';
 import useDispatchselector from '@/state/redux/useDispatchselector';
@@ -14,9 +13,7 @@ import useCurrency from '@/utils/useCurrency';
 
 const Paystack = () => {
   const [value, setValue] = useState(false);
-
-  const {currency,currSign} = useCurrency()
-
+  const { currency } = useCurrency();
 
   const showModal = () => {
     setValue(true);
@@ -27,7 +24,7 @@ const Paystack = () => {
     dispatch(deleteBilling());
     dispatch(clearCart());
   };
-  
+
   const sett = useGetQuery('settings', '/settings');
   useRedirect();
 
@@ -35,43 +32,12 @@ const Paystack = () => {
     amount,
     info: { country, firstname, lastname, email, address, city, phone },
     reference,
-    date,
-    data,
+    date
   } = useCartBilling();
 
   const { dispatch } = useDispatchselector();
 
   const onSuccess = async (reference: string) => {
-     await fetchApi({
-      url: '/orders',
-      method: 'Post',
-      data: {
-        items: Object.values(data).map((v) => ({
-          title: v.title,
-          size: v.size,
-          colour: v.colour,
-          qty: v.qty,
-          price: v.price,
-          total: v.total,
-        })),
-        customerName: firstname + ' ' + lastname,
-        orderId: reference,
-        total: amount,
-        companyName: sett?.[0].comp_name,
-        companyLogo: sett?.[0].logo,
-        companyLocation: sett?.[0].comp_location,
-        companyPhone: sett?.[0].phone1,
-        email,
-        phone,
-        city,
-        address,
-        country,
-        date,
-        currency,
-        comp_email: sett?.[0].comp_email,
-      },
-    });
-
     showModal();
 
     // Implementation for whatever you want to do with reference and after success call.
@@ -79,7 +45,7 @@ const Paystack = () => {
   };
 
   // you can call this function anything
-  const onClose =  () => {
+  const onClose = () => {
     // implementation for  whatever you want to do when the Paystack dialog closed.
     console.log('closed');
   };

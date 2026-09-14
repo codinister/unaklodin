@@ -1,7 +1,6 @@
-import { z } from 'zod';
-
 import { PortableTextBlock } from '@portabletext/types';
-import { PersistPartial } from 'redux-persist/es/persistReducer';
+import type { Variants } from 'motion/react';
+
 
 export type dollarRateType = string;
 
@@ -9,8 +8,8 @@ export type productsType = {
   id: string;
   title: string;
   type: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
   cat: string;
   colour: {
     title: string;
@@ -83,3 +82,12 @@ export type stateTypes = {
   error: string,
   cat: unknown[],
 };
+
+
+export type colourType = {
+  title: string; 
+  hex: string;
+}
+
+
+

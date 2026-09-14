@@ -1,12 +1,15 @@
-import { fadeLeftCustomType, fadeUpCustomType } from '@/types/types';
 import { type Variants } from 'motion/react';
 
-//FADE Y
+// ===============================
+// FADE Y
+// ===============================
+
 export const fadeUp: Variants = {
   hidden: {
     opacity: 0,
     y: 60,
   },
+
   visible: {
     opacity: 1,
     y: 0,
@@ -16,11 +19,13 @@ export const fadeUp: Variants = {
     },
   },
 };
+
 export const fadeDown: Variants = {
   hidden: {
     opacity: 0,
     y: -60,
   },
+
   visible: {
     opacity: 1,
     y: 0,
@@ -30,12 +35,15 @@ export const fadeDown: Variants = {
     },
   },
 };
-export const fadeUpCustom: fadeUpCustomType = {
+
+// Custom fade up with delay
+export const fadeUpCustom: Variants = {
   hidden: {
     opacity: 0,
     y: 60,
   },
-  visible: (delay = 0) => ({
+
+  visible: (delay: number = 0) => ({
     opacity: 1,
     y: 0,
     transition: {
@@ -46,14 +54,18 @@ export const fadeUpCustom: fadeUpCustomType = {
   }),
 };
 
-//FADE X
+// ===============================
+// FADE X
+// ===============================
 
-export const fadeLeftCustom: fadeLeftCustomType = {
+// Custom fade left with delay
+export const fadeLeftCustom: Variants = {
   hidden: {
     opacity: 0,
     x: 60,
   },
-  visible: (delay = 0) => ({
+
+  visible: (delay: number = 0) => ({
     opacity: 1,
     x: 0,
     transition: {
@@ -69,20 +81,7 @@ export const fadeRight: Variants = {
     opacity: 0,
     x: -60,
   },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-};
-export const fadeLeft: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 60,
-  },
+
   visible: {
     opacity: 1,
     x: 0,
@@ -93,12 +92,32 @@ export const fadeLeft: Variants = {
   },
 };
 
-//SCALE
-export const scaleUp = {
+export const fadeLeft: Variants = {
+  hidden: {
+    opacity: 0,
+    x: 60,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+// ===============================
+// SCALE
+// ===============================
+
+export const scaleUp: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.8,
   },
+
   visible: {
     opacity: 1,
     scale: 1,
@@ -109,20 +128,30 @@ export const scaleUp = {
   },
 };
 
-//STAGGER CHILDREN
-export const staggerChildren = {
+// ===============================
+// STAGGER CHILDREN
+// ===============================
+
+export const staggerChildren: Variants = {
   hidden: {},
+
   visible: {
-    staggerChildren: 0.2,
+    transition: {
+      staggerChildren: 0.2,
+    },
   },
 };
 
+// ===============================
+// BUTTON ANIMATION
+// ===============================
 
-export const buttonAnimation = {
-    whileHover: {
-      scale: 1.2,
-    },
-    whileTap: {
-      scale: 0.9,
-    },
-  };
+export const buttonAnimation: Variants = {
+  whileHover: {
+    scale: 1.2,
+  },
+
+  whileTap: {
+    scale: 0.9,
+  },
+};

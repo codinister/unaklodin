@@ -1,8 +1,8 @@
 'use client';
 
-import { colourType, ItemTypes } from '@/types/types';
+import { colourType, productsType } from '@/types/types';
 
-const getColours = (data: ItemTypes[]) => {
+const getColours = (data: productsType[]) => {
   const colours: colourType[] = Object.values(data
     .map((v) => v.colour)
     .filter(Boolean)

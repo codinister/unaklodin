@@ -1,8 +1,8 @@
 'use client';
 
-import { ItemTypes } from '@/types/types';
+import { productsType } from '@/types/types';
 
-const getSizes = (data: ItemTypes[]) => {
+const getSizes = (data: productsType[]) => {
   const sizes = [
     ...new Set(
       data
