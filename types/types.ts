@@ -8,8 +8,8 @@ export type productsType = {
   id: string;
   title: string;
   type: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   cat: string;
   colour: {
     title: string;
@@ -31,7 +31,7 @@ export type productsType = {
   thumbnail: string;
   dollarPrice: number | string;
   cediPrice: number | string;
-  date: Date;
+  date: string;
   total: string; 
   qty: string;
 };
