@@ -45,7 +45,7 @@ const id = (await params).id
 
     twitter: {
       card: 'summary',
-      title: post.title,
+      title: `${post.title}\n${post.excerpt}`,
       description: post.excerpt,
       images: [post.thumb],
     },
