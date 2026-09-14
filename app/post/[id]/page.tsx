@@ -31,7 +31,7 @@ const id = (await params).id
     description: post.excerpt,
 
     openGraph: {
-      title: post.title,
+      title: `${post.title}\n${post.excerpt}`,
       description: post.excerpt,
       images: [
         {
