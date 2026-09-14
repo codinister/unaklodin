@@ -31,7 +31,7 @@ const id = (await params).id
     description: post.excerpt,
 
     openGraph: {
-      title: `${post.title}\n${post.excerpt}`,
+      title: post.title,
       description: post.excerpt,
       images: [
         {
@@ -45,7 +45,7 @@ const id = (await params).id
 
     twitter: {
       card: 'summary',
-      title: `${post.title}\n${post.excerpt}`,
+      title: post.title,
       description: post.excerpt,
       images: [post.thumb],
     },
