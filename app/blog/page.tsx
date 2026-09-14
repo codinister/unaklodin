@@ -11,7 +11,7 @@ const Blog = () => {
         <PostHero />
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-6 flex-wrap">
+      <div className="flex flex-col sm:flex-row gap-6 flex-wrap sm:justify-center">
         <div className="basis-[65%]">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <Posts />
