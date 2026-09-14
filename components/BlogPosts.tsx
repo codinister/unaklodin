@@ -39,19 +39,29 @@ const BlogPosts = () => {
 
       <div className="flex-col sm:flex-row flex gap-4">
         {data
+          .sort(
+            (a: { createdAt: string }, b: { createdAt: string }) =>
+              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+          )
           .slice(0, 3)
           .map(
             (
-              v: { title: string; thumb: string; excerpt: string; id: string },
+              v: {
+                title: string;
+                thumb: string;
+                excerpt: string;
+                id: string;
+                createdAt: string;
+              },
               k: number,
             ) => {
               return (
                 <motion.div
-                  key={k}
+                  key={v.id}
                   variants={fadeUpCustom}
                   initial="hidden"
                   whileInView="visible"
-                  custom={(Number(k) + 1) * 0.2}
+                  custom={(k + 1) * 0.2}
                   viewport={{
                     once: true,
                     amount: 0.3,
