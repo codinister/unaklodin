@@ -12,6 +12,7 @@ export async function GET() {
     *[_type == 'post']{
     'id': _id,
     title, 
+    'createdAt': _createdAt,
     'thumb': thumb.asset->url, 
     'gallery': image.images[].img.asset->url, 
     'excerpt': array::join(string::split( (pt::text(cards[0].body)) , '' )[0..150] , '' )+'...',
