@@ -2,25 +2,19 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
 import PostYoutube from './PostYoutube';
 import ShareButtons from './ShareButtons';
 import { usePathname } from 'next/navigation';
+import PostBody from '../PostBod';
 
 const PostContent = ({ id }: { id: string }) => {
+  const path = usePathname();
 
-const path = usePathname()
+  const url = 'https://unaklodin.com' + path;
 
-const url = 'https://unaklodin.com'+path
-
-
-  const data = useGetQuery(
-    'singlepost',
-    `/v1/posts/${id}`
-  ) 
+  const data = useGetQuery('singlepost', `/v1/posts/${id}`);
 
   const post = data?.[0];
-
 
   if (!post) return <p>No post found</p>;
 
@@ -30,14 +24,17 @@ const url = 'https://unaklodin.com'+path
 
       <div className="mb-6">
         <Image src={post.thumb} alt={post.title} width={1000} height={1500} />
-
-   
-       <ShareButtons url={url} title={post.title} excerpt={post.excerpt} />    </div>
+        <ShareButtons
+          url={url}
+          title={post.title}
+          excerpt={post.excerpt}
+        />{' '}
+      </div>
 
       <div>
         {post.content?.map((v: any, k: number) => (
           <div className="mb-6" key={k}>
-            <PortableText value={v.body} />
+            <PostBody body={v.body} />
           </div>
         ))}
       </div>
