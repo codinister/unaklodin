@@ -4,18 +4,19 @@ import serverConfig from '@/state/sanity/server.config';
 import { groq } from 'next-sanity';
 
 
-async function getPost(id: string) {
+async function getPost(slug: string) {
   
   return await serverConfig.fetch(groq`
-    *[_type == 'post' && _id == $id][0]{
+    *[_type == 'post' && slug.current == $slug][0]{
       title,
+      'slug': slug.current,
       'thumb': thumb.asset->url,
       'excerpt': array::join(
         string::split((pt::text(cards[0].body)), '')[0..150],
         ''
       ) + '...'
     }
-  `, { id });
+  `, { slug });
 }
 
 export async function generateMetadata(
