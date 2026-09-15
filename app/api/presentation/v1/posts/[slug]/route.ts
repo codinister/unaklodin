@@ -11,10 +11,10 @@ export async function GET(req: NextRequest,{params} : {params: Promise<{slug: st
 
   try {
     const data = await serverConfig.fetch(groq`
-    *[_type == 'post' && slug == $id]{
+    *[_type == 'post' && slug.current == $id]{
     'id': _id,
     title, 
-    slug,
+    'slug': slug.current,
     'thumb': thumb.asset->url, 
     'gallery': image.images[].img.asset->url, 
     'excerpt': array::join(
