@@ -10,11 +10,12 @@ const PostCard = ({
     title: string;
     excerpt: string;
     id: string;
+    slug: string;
   };
 }) => {
   return (
     <div className="sm:basis-[48%]  mb-6">
-      <Link href={`/post/${v.id}`}>
+      <Link href={`/post/${v.slug}`}>
         <div
           className="py-40 sm:py-0 h-55 mb-6"
           style={{
