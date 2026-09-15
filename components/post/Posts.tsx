@@ -15,7 +15,7 @@ const Posts = () => {
         )
         .map(
           (
-            v: { title: string; thumb: string; excerpt: string; id: string },
+            v: { title: string; thumb: string; excerpt: string; id: string; slug: string },
             k: number,
           ) => {
             return <PostCard key={k} v={v} />;

@@ -7,12 +7,12 @@ import ShareButtons from './ShareButtons';
 import { usePathname } from 'next/navigation';
 import PostBody from '../PostBod';
 
-const PostContent = ({ id }: { id: string }) => {
+const PostContent = ({ slug }: { slug: string }) => {
   const path = usePathname();
 
   const url = 'https://unaklodin.com' + path;
 
-  const data = useGetQuery('singlepost', `/v1/posts/${id}`);
+  const data = useGetQuery('singlepost', `/v1/posts/${slug}`);
 
   const post = data?.[0];
 
