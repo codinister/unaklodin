@@ -52,7 +52,7 @@ const id = (await params).id
   };
 }
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-  const id = (await params).id
-  return <PostClient id={id} />;
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug
+  return <PostClient slug={slug} />;
 }

@@ -5,9 +5,9 @@ import { NextRequest, NextResponse } from 'next/server';
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
 
-export async function GET(req: NextRequest,{params} : {params: Promise<{id: string}>}) {
+export async function GET(req: NextRequest,{params} : {params: Promise<{slug: string}>}) {
 
-  const id = ( await params).id
+  const id = ( await params).slug
 
   try {
     const data = await serverConfig.fetch(groq`
