@@ -11,12 +11,21 @@ export default defineType({
       type: 'string',
       validation: (Rule) => Rule.required().error('Title field required!'),
     }),
-
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
+      validation: (Rule) => Rule.required().error('Slug field required!'),
+    }),
     defineField({
       name: 'cards',
       title: 'Posts',
       type: 'array',
-      description: 'Break your post into paragraph and add it one after the other',
+      description:
+        'Break your post into paragraph and add it one after the other',
       of: [
         {
           type: 'bodyCard',
@@ -26,18 +35,18 @@ export default defineType({
     defineField({
       name: 'thumb',
       title: 'Thumbnail',
-      type: 'image', 
+      type: 'image',
       options: {
-        hotspot: true
+        hotspot: true,
       },
-      validation: Rule => Rule.required().error('Thumbnail required!'),
-      description: 'Upload a thumbnail image that best describe this article'
+      validation: (Rule) => Rule.required().error('Thumbnail required!'),
+      description: 'Upload a thumbnail image that best describe this article',
     }),
     defineField({
       name: 'image',
       title: 'Gallery',
       type: 'gallery',
-      description: 'Upload all images associated with this article'
+      description: 'Upload all images associated with this article',
     }),
     defineField({
       name: 'youtube',

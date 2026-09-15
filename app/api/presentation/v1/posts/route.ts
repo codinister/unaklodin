@@ -12,6 +12,7 @@ export async function GET() {
     *[_type == 'post']{
     'id': _id,
     title, 
+    slug,
     'createdAt': _createdAt,
     'thumb': thumb.asset->url, 
     'gallery': image.images[].img.asset->url, 
