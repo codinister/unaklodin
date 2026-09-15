@@ -20,10 +20,10 @@ async function getPost(slug: string) {
 }
 
 export async function generateMetadata(
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-const id = (await params).id
-  const post = await getPost(id);
+const slug = (await params).slug
+  const post = await getPost(slug);
 
   if (!post) return { title: 'Post not found' };
 
