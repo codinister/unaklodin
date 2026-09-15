@@ -51,6 +51,7 @@ const BlogPosts = () => {
                 thumb: string;
                 excerpt: string;
                 id: string;
+                slug: string;
                 createdAt: string;
               },
               k: number,
