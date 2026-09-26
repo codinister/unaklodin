@@ -40,10 +40,15 @@ export async function generateMetadata(
     ? `${post.thumb}?w=1200&h=630&fit=crop`
     : undefined;
 
+
+    const description =
+    post.excerpt?.replace(/\s+/g, ' ').trim().slice(0, 200) ||
+    'Read the latest story from U&A Klodin.';
+
   return {
     metadataBase: new URL(siteUrl),
     title: post.title,
-    description: post.excerpt,
+    description,
 
     alternates: {
       canonical: url,
@@ -51,7 +56,7 @@ export async function generateMetadata(
 
     openGraph: {
       title: post.title,
-      description: post.excerpt,
+      description,
       url,
       type: 'article',
       siteName: 'U&A Klodin',
