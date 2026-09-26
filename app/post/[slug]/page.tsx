@@ -41,7 +41,9 @@ export async function generateMetadata(
     : undefined;
 
 
-    const description = 'Read the latest story from U&A Klodin.';
+    const description =
+    post.excerpt?.replace(/\s+/g, ' ').trim().slice(0, 20) ||
+    'Read the latest story from U&A Klodin.';
 
   return {
     metadataBase: new URL(siteUrl),
@@ -53,7 +55,7 @@ export async function generateMetadata(
     },
 
     openGraph: {
-      title: 'U&A Klodin '+description,
+      title: post.title,
       description,
       url,
       type: 'article',
