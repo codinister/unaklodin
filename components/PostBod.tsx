@@ -1,10 +1,19 @@
 import Image from 'next/image';
-import { PortableText, type PortableTextComponents } from '@portabletext/react';
+import {
+  PortableText,
+  type PortableTextComponents,
+} from '@portabletext/react';
 import { urlFor } from './image';
 
 const components: PortableTextComponents = {
   types: {
     image: ({ value }) => {
+      // Make sure the image has an asset reference
+      if (!value?.asset?._ref) {
+        console.warn('Portable Text image has no asset:', value);
+        return null;
+      }
+
       const imageUrl = urlFor(value)
         .width(1200)
         .auto('format')
