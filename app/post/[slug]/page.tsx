@@ -42,7 +42,7 @@ export async function generateMetadata(
 
 
     const description =
-    post.excerpt?.replace(/\s+/g, ' ').trim().slice(0, 20) ||
+    post.excerpt?.replace(/\s+/g, ' ').trim().slice(0, 100) ||
     'Read the latest story from U&A Klodin.';
 
   return {
@@ -55,7 +55,7 @@ export async function generateMetadata(
     },
 
     openGraph: {
-      title: post.title.slice(1,12),
+      title: description,
       description,
       url,
       type: 'article',
