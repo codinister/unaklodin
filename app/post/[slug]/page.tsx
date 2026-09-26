@@ -51,7 +51,7 @@ export async function generateMetadata(
       description: post.excerpt,
       url,
       type: 'article',
-      siteName: 'https://unaklodin.com',
+      siteName: 'U&A Klodin',
 
       ...(image && {
         images: [
