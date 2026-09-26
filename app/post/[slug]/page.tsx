@@ -32,13 +32,16 @@ export async function generateMetadata(
     };
   }
 
-  const url = `https://unaklodin.com/post/${post.slug}`;
+  // Use exact canonical domain including 'www'
+  const siteUrl = 'https://www.unaklodin.com';
+  const url = `${siteUrl}/post/${post.slug}`;
 
   const image = post.thumb
     ? `${post.thumb}?w=1200&h=630&fit=crop`
     : undefined;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: post.title,
     description: post.excerpt,
 
@@ -52,7 +55,7 @@ export async function generateMetadata(
       url,
       type: 'article',
       siteName: 'U&A Klodin',
-
+      locale: 'en_US',
       ...(image && {
         images: [
           {
@@ -60,6 +63,7 @@ export async function generateMetadata(
             width: 1200,
             height: 630,
             alt: post.title,
+            type: 'image/jpeg',
           },
         ],
       }),
