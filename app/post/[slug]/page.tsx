@@ -55,7 +55,7 @@ export async function generateMetadata(
     },
 
     openGraph: {
-      title: post.title,
+      title: post.title.slice(1,12),
       description,
       url,
       type: 'article',
