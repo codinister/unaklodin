@@ -45,7 +45,7 @@ export async function generateMetadata(
 
   return {
     metadataBase: new URL(siteUrl),
-    title: post.title+' '+description,
+    title: post.title,
     description,
 
     alternates: {
@@ -53,7 +53,7 @@ export async function generateMetadata(
     },
 
     openGraph: {
-      title: 'U&A Klodin',
+      title: 'U&A Klodin '+description,
       description,
       url,
       type: 'article',
