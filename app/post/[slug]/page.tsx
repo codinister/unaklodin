@@ -45,7 +45,7 @@ export async function generateMetadata(
 
   return {
     metadataBase: new URL(siteUrl),
-    title: post.title,
+    title: post.title+' '+description,
     description,
 
     alternates: {
